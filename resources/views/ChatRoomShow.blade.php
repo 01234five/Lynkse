@@ -1294,6 +1294,7 @@ var totalOnline = 0;
                       document.getElementById("browseUserCount").innerHTML = browseUserCountText;
                       document.getElementById("browseUserCountyoutube").innerHTML = browseUserCountText;
                       document.getElementById("browseUserCountvimeo").innerHTML = browseUserCountText;
+                      
                     })
                     .listen('VideoAction', (e) => {
                         console.log(e);
@@ -1632,7 +1633,9 @@ $.ajax({
 
 function startSyncingTime(){
   if(sendTimeBool==true){
+    if(totalOnline>1){
     sendTime()
+    }
   }
   else
 {

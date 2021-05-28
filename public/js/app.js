@@ -413,11 +413,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/api/roommessages', params).then(function (response) {
         if (response.data.success) {
           //console.log(response.data)
-          _this3.newMessage = '';
-
           _this3.getMessage();
         }
       });
+      this.newMessage = '';
     },
     scrollToBottom: function scrollToBottom() {
       var el = document.querySelector('.card-body-scroll');

@@ -112,10 +112,11 @@
                 .then((response) => {
                 if(response.data.success){
                 //console.log(response.data)
-                this.newMessage= '';
+                
                 this.getMessage();
                     }
                 });
+                this.newMessage= '';
             },
                         scrollToBottom() {
                const el= document.querySelector('.card-body-scroll');
