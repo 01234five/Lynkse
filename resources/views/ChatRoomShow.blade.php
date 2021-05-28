@@ -1491,6 +1491,7 @@ var player;
         sendTimeBool =false;
         youtubeBarShow()
         lastPlayerPlaying="youtube";
+        $('#volumeYoutube').addClass('fa-volume-off').removeClass('fa-volume-up');
       }
 
 
@@ -1667,10 +1668,21 @@ function playVideo() {
 }
 
 function unMuteVideo() {
-  
-  $('#volumeYoutube').toggleClass('fa-volume-off fa-volume-up');
+  var youtubemuted= player.isMuted()
+  if(youtubemuted==true){
+   youtubemuted=false;
    player.unMute();
+   $('#volumeYoutube').addClass('fa-volume-up').removeClass('fa-volume-off');
+
+
+  }
+  else{
   
+  youtubemuted=true;
+  player.mute();
+  $('#volumeYoutube').addClass('fa-volume-off').removeClass('fa-volume-up');
+  }
+
 }
 
 
