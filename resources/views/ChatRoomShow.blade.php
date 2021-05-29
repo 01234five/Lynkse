@@ -1634,7 +1634,7 @@ $.ajax({
 function startSyncingTime(){
   if(sendTimeBool==true){
     if(totalOnline>1){
-    sendTime()
+    sendTime();
     }
   }
   else

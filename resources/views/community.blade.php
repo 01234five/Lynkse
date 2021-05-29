@@ -1380,7 +1380,10 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
 
 
 
-    Echo.join(`messenger`)
+ 
+    
+    $( document ).ready(function() {
+      Echo.join(`messenger`)
     .here((users) => {
         //console.log("online ",users);
         $.each(users, function(i){
@@ -1405,8 +1408,7 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
     .error((error) => {
         console.error(error);
     });  
-    
-    
+});
 
     
     function arrayStatus(){
