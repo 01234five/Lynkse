@@ -1617,8 +1617,9 @@ function lastConversations(id){
         $("#time"+id).attr('datetime',response.data[0].last_time);
         $("#time"+id).attr('render',"yes");
         }
-        timeago.render(document.querySelectorAll('.need_to_be_rendered'));
+        
         }
+        timeago.render(document.querySelectorAll('.need_to_be_rendered'));
     })
     .catch(function (error) {
         // handle error
