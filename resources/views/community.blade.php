@@ -1619,7 +1619,7 @@ function lastConversations(id){
         }
         timeago.render(document.querySelectorAll('.need_to_be_rendered'));
         }
-    }).then(function () {console.log("done");timeago.render(document.querySelectorAll('.need_to_be_rendered'));})
+    })
     .catch(function (error) {
         // handle error
         console.log(error);
@@ -1758,7 +1758,7 @@ if(online==false){
 </li>
 
         `);
-    })
+    }).then(function () {console.log("inserted li");lastConversations(id);}).then(function () {console.log("done");timeago.render(document.querySelectorAll('.need_to_be_rendered'));})
     .catch(function (error) {
         // handle error
         console.log(error);
@@ -1804,13 +1804,13 @@ if(online==false){
 </li>
 
         `);
-    })
+    }).then(function () {console.log("inserted li");lastConversations(id);}).then(function () {console.log("done");timeago.render(document.querySelectorAll('.need_to_be_rendered'));})
     .catch(function (error) {
         // handle error
         console.log(error);
     }); 
   }
-    lastConversations(id)
+    
 
     });
     
