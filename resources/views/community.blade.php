@@ -107,7 +107,13 @@
 </b-container>
 
 -->
-
+<div class="alert hide">
+  <span class="fa fa-exclamation-circle" style="font-size: 22px;line-height: 40px;"></span>
+  <span class="msg">Room full! Ask room creator for direct link.</span>
+  <div class="close-btn">
+    <span class="fa fa-times" style="font-size: 22px;line-height: 40px; color:gray"></span>
+  </div>
+</div>
 <script>
 
 
@@ -124,6 +130,7 @@ article:hover {
 
 </style>
 <script>
+  var runAlertCode=true;
 function communityRoomsView(){
   $( ".allCanvas" ).stop().clearQueue().finish();
     document.getElementById("view").innerHTML = "";
@@ -280,7 +287,29 @@ $('#roomList').on('click','article',function(){
        //console.log(response.data);
        
        if(response.data>1){
-        console.log("room is full")
+        console.log("room is full");
+        console.log("runAlertCode = "+runAlertCode)
+        if(runAlertCode==true){
+          runAlertCode=false;
+  $('.alert').addClass("show");
+  $('.alert').removeClass("hide");
+  $('.alert').addClass("showAlert");
+  //add false to prevent alert code from running
+  var alertcodeTimeout = setTimeout(function(){
+    runAlertCode=true;
+    $('.alert').removeClass("show");
+    $('.alert').addClass("hide");
+    //add true to show alert again
+  },5000);
+
+$('.close-btn').click(function(){
+  $('.alert').removeClass("show");
+  $('.alert').addClass("hide");
+  clearTimeout(alertcodeTimeout);//clears the function out of var timeout to reset timer.
+  runAlertCode=true;
+  //add true to show alert again
+});
+        }
     }else{
     //console.log("my result"+result);
                 //location.replace(route('chat-rooms.show', room1));
@@ -2497,5 +2526,89 @@ article:hover {
 </style>
 
 
+<!-- ALERT MESSAGE -->
+<style>
+.alert{
+  background: #181E26;
+  padding: 20px 40px;
+  min-width: 420px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  border-radius: 4px;
+  border-left: 8px solid #313F50;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.alert.showAlert{
+  opacity: 1;
+  pointer-events: auto;
+}
+.alert.show{
+  animation: show_slide 1s ease forwards;
+}
+@keyframes show_slide {
+  0%{
+    transform: translateX(100%);
+  }
+  40%{
+    transform: translateX(-10%);
+  }
+  80%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-10px);
+  }
+}
+.alert.hide{
+  animation: hide_slide 1s ease forwards;
+}
+@keyframes hide_slide {
+  0%{
+    transform: translateX(-10px);
+  }
+  40%{
+    transform: translateX(0%);
+  }
+  80%{
+    transform: translateX(-10%);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
+.alert .fa-exclamation-circle{
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: whitesmoke;
+  font-size: 30px;
+}
+.alert .msg{
+  padding: 0 20px;
+  font-size: 18px;
+  color: gray;
+}
+.alert .close-btn{
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #313F50;
+  padding: 20px 18px;
+  cursor: pointer;
+}
+.alert .close-btn:hover{
+  background: #3a4b5f;
+}
+.alert .close-btn .fas{
+  color: #ce8500;
+  font-size: 22px;
+  line-height: 40px;
+}
+</style>
 
 @endsection

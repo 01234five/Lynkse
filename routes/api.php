@@ -33,11 +33,14 @@ Route::post('lynkse/webhook', function (Request $request) {
        
         if (strpos($event['channel'], 'presence-chat') !== false) {
             if ($event['name'] == 'channel_vacated') {
-                error_log("INININ VACATED VACATED");
+                //error_log("INININ VACATED VACATED");
                 $split = explode(".",$event['channel']);//get the id from the event string
                 //error_log($split[1]);
                 $id=$split[1];
-                Room::where('id', $id)->delete();
+                $thisroom=Room::find($id);
+                if($thisroom->videoType!="default"){
+                    Room::where('id', $id)->delete();
+                }
             }  
         }
 
