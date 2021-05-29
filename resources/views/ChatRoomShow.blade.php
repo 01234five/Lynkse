@@ -761,7 +761,7 @@ if(online==false){
         // handle success
         //console.log(response.data);
         var thumb=response.data.image;
-        var name= response.data.name.substring(0,7);
+        var name= response.data.name.substring(0,11);
 
                $('#friends').append(`
     
@@ -807,7 +807,7 @@ if(online==false){
         // handle success
         //console.log(response.data);
         var thumb=response.data.image;
-        var name= response.data.name.substring(0,7);
+        var name= response.data.name.substring(0,11);
 
                $('#friends').prepend(`
     
