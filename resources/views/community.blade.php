@@ -73,7 +73,7 @@
   </div>
   <div class="card-footer text-muted">
 
-  <form id="inputForm">
+  <form id="inputForm" autocomplete="off">
   <div class="input-group mb-0">
   <input id="chatInputId" type="text" class="form-control" placeholder="send text" aria-label="send text" aria-describedby="basic-addon2" >
   <div class="input-group-append">
