@@ -46,5 +46,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  // DATE TIME FORMAT
  window.moment = require('moment');
  window.timeago= require('timeago.js');
+ window.youtubeapikey = process.env.MIX_YOUTUBE_API_ENV_TOKEN; //define a global variable
  
  

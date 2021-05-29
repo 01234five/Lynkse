@@ -2262,8 +2262,9 @@ $(".toggle-sidebar").on("click",function()
 
 //YOUTUBE API---------------------------------------------------- FOR SEARCH
 function execute(input){
-    
-const YOUTUBE_API_KEY = "AIzaSyDX1UcwMU7b5gAqdmwXvo8vHQZoQW8p3U4";
+
+const YOUTUBE_API_KEY = youtubeapikey;
+
 var q=input;
 const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${q}&key=${YOUTUBE_API_KEY}`;
 // console.log(url);

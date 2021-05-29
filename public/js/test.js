@@ -4390,6 +4390,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
 
 window.moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 window.timeago = __webpack_require__(/*! timeago.js */ "./node_modules/timeago.js/esm/index.js");
+window.youtubeapikey = "AIzaSyDX1UcwMU7b5gAqdmwXvo8vHQZoQW8p3U4"; //define a global variable
 
 /***/ }),
 
