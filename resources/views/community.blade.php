@@ -1617,9 +1617,10 @@ function lastConversations(id){
         $("#time"+id).attr('datetime',response.data[0].last_time);
         $("#time"+id).attr('render',"yes");
         }
-        timeago.render(document.querySelectorAll('.need_to_be_rendered'));
+        
         }
-    })
+        return true;
+    }).then(function (r){console.log(r);timeago.render(document.querySelectorAll('.need_to_be_rendered'));})
     .catch(function (error) {
         // handle error
         console.log(error);
