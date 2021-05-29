@@ -1758,6 +1758,7 @@ if(online==false){
 </li>
 
         `);
+        lastConversations(id);
     })
     .catch(function (error) {
         // handle error
@@ -1804,13 +1805,14 @@ if(online==false){
 </li>
 
         `);
+        lastConversations(id);
     })
     .catch(function (error) {
         // handle error
         console.log(error);
     }); 
   }
-    lastConversations(id)
+    
 
     });
     
