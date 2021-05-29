@@ -1759,7 +1759,7 @@ if(online==false){
 </li>
 
         `);
-    })
+    }).then(function () {console.log("inserted li");lastConversations(id);})
     .catch(function (error) {
         // handle error
         console.log(error);
@@ -1805,14 +1805,14 @@ if(online==false){
 </li>
 
         `);
-    })
+    }).then(function () {console.log("inserted li");lastConversations(id);})
     .catch(function (error) {
         // handle error
         console.log(error);
     }); 
   }
     
-  lastConversations(id)
+
     });
     
 
