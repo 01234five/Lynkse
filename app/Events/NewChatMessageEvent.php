@@ -25,7 +25,7 @@ class NewChatMessageEvent implements ShouldBroadcast
      */
     public function __construct($message, $user) {
         $this->message = $message;
-        $this->user = $user;
+        $this->user = $user->only(['id', 'name', 'image', 'banner' , 'banner_effect']);
     }
 
     /**

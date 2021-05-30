@@ -24,7 +24,8 @@ class VideoAction implements ShouldBroadcast
     {
         //
         $this->action = $action;
-        $this->user = $user;
+        $this->user = $user->only(['id', 'name', 'image', 'banner' , 'banner_effect']);
+        
     }
 
     /**

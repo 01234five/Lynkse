@@ -51,6 +51,9 @@ class RoomController extends Controller
         $data= [];
         $data['success'] = $saved;
         $data['message'] = $message;
+
+
+        
         broadcast(new NewChatMessageEvent($message,auth()->user()))->toOthers();
         return $data;
     }
