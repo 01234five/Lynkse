@@ -615,18 +615,16 @@ $.ajax({
           $("#time"+contactid).attr('render',"yes");
           $("#time"+contactid).attr('datetime',response.data[0].last_time);
          // timeago.cancel(document.querySelectorAll('.need_to_be_rendered'));
-          timeago.cancel();
-          timeago.render(document.querySelectorAll('.need_to_be_rendered'));
+
           $("#lm"+contactid).text(lastreceivedsentmessage);
         }else{
         $("#lm"+contactid).text(lastreceivedsentmessage);
         $("#time"+contactid).attr('datetime',response.data[0].last_time);
-        timeago.cancel();
-        timeago.render(document.querySelectorAll('.need_to_be_rendered'));
+
         }
 
         }
-    })
+    }).then(function (r){console.log(r);timeago.cancel();timeago.render(document.querySelectorAll('.need_to_be_rendered'));})
     .catch(function (error) {
         // handle error
         console.log(error);
