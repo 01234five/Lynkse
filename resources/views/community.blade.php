@@ -77,7 +77,7 @@
   <div class="input-group mb-0">
   <input id="chatInputId" type="text" class="form-control" placeholder="send text" aria-label="send text" aria-describedby="basic-addon2" >
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button">Button</button>
+    <button class="btn btn-outline-secondary" type="submit">Button</button>
   </div>
 </div>
 </form>
@@ -1555,9 +1555,7 @@ function newFriendAcceptedRequestAddToChat(name,thumb,id){
 </li>
 
         `);
-
-
-        lastConversations(id);
+        
 }
 
 function lastConversationEcho(){
@@ -1610,18 +1608,17 @@ $.ajax({
           $("#time"+contactid).attr('render',"yes");
           $("#time"+contactid).attr('datetime',response.data[0].last_time);
          // timeago.cancel(document.querySelectorAll('.need_to_be_rendered'));
-          timeago.cancel();
-          timeago.render(document.querySelectorAll('.need_to_be_rendered'));
+
           $("#lm"+contactid).text(lastreceivedsentmessage);
         }else{
         $("#lm"+contactid).text(lastreceivedsentmessage);
         $("#time"+contactid).attr('datetime',response.data[0].last_time);
-        timeago.cancel();
-        timeago.render(document.querySelectorAll('.need_to_be_rendered'));
+
         }
 
         }
-    })
+        return true;
+    }).then(function (r){console.log(r);timeago.cancel();timeago.render(document.querySelectorAll('.need_to_be_rendered'));})
     .catch(function (error) {
         // handle error
         console.log(error);
