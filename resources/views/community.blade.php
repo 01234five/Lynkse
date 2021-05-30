@@ -1555,6 +1555,9 @@ function newFriendAcceptedRequestAddToChat(name,thumb,id){
 </li>
 
         `);
+
+
+        lastConversations(id);
 }
 
 function lastConversationEcho(){
