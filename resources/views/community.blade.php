@@ -1679,7 +1679,7 @@ function lastConversations(id){
 
   function loadMessagesToContact(data,thumb,name){
       //console.log(data); console.log(thumb); console.log(name)
-    
+      console.log("data from api: "+data);
     document.getElementById("messages").innerHTML = "";
 	$.each(data, function(i){
         

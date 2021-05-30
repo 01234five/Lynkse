@@ -23,9 +23,8 @@ class MessageController extends Controller
             $query->where('from_id', $userId)->where('to_id', $contactId);
         })->orWhere(function ($query) use ($userId, $contactId) {
             $query->where('from_id', $contactId)->where('to_id', $userId);
-        })->get();        
+        })->orderBy('id', 'ASC')->get();        
     }
-
 
     public function store(Request $request)
     {
