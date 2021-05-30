@@ -325,7 +325,7 @@
 
 
 <script>
-
+var stateAmmounts=0;
 function insertMessagefromPusher(content,thumb,name){
   
  
@@ -1302,12 +1302,23 @@ var totalOnline = 0;
                         if(e.action.message==="PLAY"){
                           sendTimeBool =true
                          
+                          var playStatus= player.getPlayerState();
+                         if (playStatus == 1) {
+                            console.log("playing") // 
+                           }else{
                           playVideoPOST();
+                           }
                        }
                        if(e.action.message==="PAUSE"){
                         sendTimeBool =false
-                        pauseVideoPOST();
-                        
+
+
+                        var pauseStatus= player.getPlayerState();
+                         if (pauseStatus == 2) {
+                            console.log("paused") //
+                           }else{
+                            pauseVideoPOST();
+                           }
                        }
                        if(e.action.message==="SEEK"){
                           sendTimeBool =false
@@ -1535,9 +1546,9 @@ function stopTrack() {
 function onPlayerStateChange(event) {
   //console.log(event)
  if (event.data == YT.PlayerState.PLAYING) {
-
-
-
+   if(stateAmmounts<3){
+    stateAmmounts=stateAmmounts+1;
+  console.log("my state ammounts: "+stateAmmounts);
   track = true;
     trackTime();
     //console.log("playing");
@@ -1557,16 +1568,24 @@ $.ajax({
                     /* remind that 'data' is the response of the AjaxController */
                     success: function (data) { 
                         $(".writeinfo").append(data.msg); 
+                        //playVideo();
+                        setTimeout(function(){ console.log("state ammounts allowance reset in 5 seconds."); stateAmmounts=0;}, 5000);
                     }
                 }); 
-                playVideo()
                 
+                
+  }else{
+    console.log("toMany State changes. Dont do this as this will overLoad the server. A better way of doing this would be by allowing the server to do the playing and pausing of video, its against youtube policy to interfere with their player functionality.The problem is restricting the video click to avoid playing and pausing would be against their policy.");
+    pauseVideo();
+    setTimeout(function(){ console.log("wait 5 seconds to reestablish sync functionality"); stateAmmounts=0;}, 5000);
   }
+}
   if(event.data == YT.PlayerState.CUED){
     
   }
   if (event.data == YT.PlayerState.ENDED) {
     //console.log("ended");
+    
     sendTimeBool=false;
     if ( $('#articles2').children().length < 1 ){
       console.log("INSIDE < 1 ENDED");
@@ -1605,7 +1624,9 @@ $.ajax({
   }
 
   if (event.data == YT.PlayerState.PAUSED) {
-    
+    if(stateAmmounts<3){
+    stateAmmounts=stateAmmounts+1;
+    console.log("my state ammounts: "+stateAmmounts);
     stopTrack();
     track=false;
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
@@ -1624,10 +1645,18 @@ $.ajax({
                     /* remind that 'data' is the response of the AjaxController */
                     success: function (data) { 
                         $(".writeinfo").append(data.msg); 
+                        //pauseVideo();
+                        setTimeout(function(){ console.log("state ammounts allowance reset in 5 seconds."); stateAmmounts=0;}, 5000);
+                        
                     }
                 }); 
-                pauseVideo()
+                
+  }else{
+    console.log("toMany State changes. Dont do this as this will overLoad the server. A better way of doing this would be by allowing the server to do the playing and pausing of video, its against youtube policy to interfere with their player functionality.The problem is restricting the video click to avoid playing and pausing would be against their policy.");
+    pauseVideo();
+    setTimeout(function(){ console.log("wait 5 seconds to reestablish sync functionality"); stateAmmounts=0;}, 5000);
   }
+}
   
 }
 

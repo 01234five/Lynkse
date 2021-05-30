@@ -316,7 +316,8 @@ $('.close-btn').click(function(){
                 if(videoT=="youtube"){
                 location.href=route('chat-rooms.show', result);
                 }else{
-                  location.href=route('chat-roomsB.show', result);
+                  location.href=route('chat-rooms.show', result);
+                  //location.href=route('chat-roomsB.show', result);
                 }
               }
             })
