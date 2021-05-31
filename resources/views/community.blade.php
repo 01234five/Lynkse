@@ -566,7 +566,7 @@ if ($(window).width() <= 766) {
 
 particleCanvas.length = 0;
 
-insertBanner(myId,"/banners/"+myBanner,myBannerEffect);
+insertBanner(myId,"/userFlag/"+myBanner,myBannerEffect);
 
 $('#myBanner').on('click','article',function(){
   document.getElementById("articles").innerHTML = "";
@@ -881,7 +881,7 @@ function refreshBanner(){
 
 particleCanvas.length = 0;
 
-insertBanner(myId,"/banners/"+myBanner,myBannerEffect);
+insertBanner(myId,"/userFlag/"+myBanner,myBannerEffect);
 }
 
 
@@ -2058,7 +2058,7 @@ particleCanvas.push(new ParticleNetwork(canvasDiv, options));
 }
 
 function insertBanner2(){
-  banner="/banners/"+user.banner;
+  banner="/userFlag/"+user.banner;
   id=1;
 var canvasDiv = document.getElementById('particle-canvas'+id);
 var options = {
@@ -2304,7 +2304,7 @@ function addRooms(data){
       $.each(data, function(i){
         console.log(data[i]);
         var thumb=data[i].userThumb;
-        var banner="/banners/"+data[i].userBanner;
+        var banner="/userFlag/"+data[i].userBanner;
         var effect=data[i].userBanner_effect;
         var id=data[i].id;
         var name=data[i].name.substring(0,7);
@@ -2322,7 +2322,7 @@ function addRooms(data){
     
 <div class="row">
     <div class="col-12" >
-    <img src="/users/${thumb}" class="img-thumbnail" style="margin:0; padding:0!important;border-color: #141313;background-color:#141313;position: relative;"></img>
+    <img src="/users/${thumb}" class="img-thumbnail" style="max-height:72px; margin:0; padding:0!important;border-color: #141313;background-color:#141313;position: relative;"></img>
     </div>
   </div>
 
@@ -2356,7 +2356,7 @@ function addRooms(data){
       $.each(data, function(i){
         console.log(data[i]);
         var thumb=data[i].userThumb;
-        var banner="/banners/"+data[i].userBanner;
+        var banner="/userFlag/"+data[i].userBanner;
         var effect=data[i].userBanner_effect;
         var id=data[i].id;
         var name=data[i].name.substring(0,7);
@@ -2374,7 +2374,7 @@ function addRooms(data){
     
 <div class="row">
     <div class="col-12" >
-    <img src="/users/${thumb}" class="img-thumbnail" style="margin:0; padding:0!important;border-color: #141313;background-color:#141313;position: relative;"></img>
+    <img src="/users/${thumb}" class="img-thumbnail" style="max-height:72px; margin:0; padding:0!important;border-color: #141313;background-color:#141313;position: relative;"></img>
     </div>
   </div>
 

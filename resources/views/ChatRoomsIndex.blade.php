@@ -223,7 +223,7 @@ particleCanvas.push(new ParticleNetwork(canvasDiv, options));
 }
 
 function insertBanner2(){
-  banner="/banners/"+user.banner;
+  banner="/userFlag/"+user.banner;
   id=1;
 var canvasDiv = document.getElementById('particle-canvas'+id);
 var options = {
@@ -409,7 +409,7 @@ function addRooms(data){
 	$.each(data, function(i){
         console.log(data[i]);
         var thumb=data[i].userThumb;
-        var banner="/banners/"+data[i].userBanner;
+        var banner="/userFlag/"+data[i].userBanner;
         var effect=data[i].userBanner_effect;
         var id=data[i].id;
         var name=data[i].name;
