@@ -334,7 +334,7 @@ function insertMessagefromPusher(content,thumb,name){
             <div class="media">
   <img class="align-self-start mr-3 rounded-circle" src="/users/${thumb}" style="width:64; height:64;" alt="">
   <div class="media-body">
-    <h5 class="mt-0">${name}</h5>
+    <h5 class="mt-0" style="font-weight: bold;">${name}</h5>
     <p>${content}</p>
    
   </div>
@@ -350,7 +350,7 @@ function insertMyMessage(content){
         <div class="media">
   
   <div class="media-body">
-    <h5 class="mt-0 mb-1">Me</h5>
+    <h5 class="mt-0 mb-1" style="font-weight: bold;">Me</h5>
     <p>${content}</p>
     </div>
     <img class=" ml-3 rounded-circle" src="/users/${myThumb}" style="width:64; height:64;" alt="">
@@ -504,13 +504,14 @@ $.ajax({
                     /* remind that 'data' is the response of the AjaxController */
                     success: function (data) { 
                         $(".writeinfo").append(data.msg); 
-                        
+                        console.log("success api/messages POST")
+                        lastConversationsPOST(conversationRecepientId,input);  
+                        insertMyMessage(input);
+                        $("#"+conversationRecepientId).prependTo("#friends");
                     }
                 }); 
 
-                lastConversationsPOST(conversationRecepientId,input);  
-                insertMyMessage(input);
-                $("#"+conversationRecepientId).prependTo("#friends");
+                
                 
 });
 
