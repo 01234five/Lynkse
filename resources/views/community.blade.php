@@ -1514,13 +1514,14 @@ $.ajax({
                     /* remind that 'data' is the response of the AjaxController */
                     success: function (data) { 
                         $(".writeinfo").append(data.msg); 
-                        
+                        console.log("success api/messages POST")
+                        lastConversationsPOST(conversationRecepientId,input);  
+                        insertMyMessage(input);
+                        $("#"+conversationRecepientId).prependTo("#friends");
                     }
                 }); 
 
-                lastConversationsPOST(conversationRecepientId,input);  
-                insertMyMessage(input);
-                $("#"+conversationRecepientId).prependTo("#friends");
+                
                 
 });
 
