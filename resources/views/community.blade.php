@@ -7,7 +7,7 @@
 <div class="container-fullwidth mr-2 ml-2" style="width:100%;"> <!-- this is mandatory when using row -->
   <div class="row" style="justify-content: center;">
 <div id="myChat" class="col-lg-2 col-md-2 col-xs-2 p-1" style="height: calc(100vh - 154px); overflow-x:hidden;">
-<input type="text" id="searchListInput" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" style="border-radius:0px 0px 0px 0px;">
+<input type="text" id="searchListInput" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" style="border-radius:0px 0px 0px 0px; font-size: 1rem;">
 
 <div id="friends"></div>
 </div>
@@ -114,6 +114,23 @@
     <span class="fa fa-times" style="font-size: 22px;line-height: 40px; color:gray"></span>
   </div>
 </div>
+
+
+<style>
+
+
+#myChat {
+  margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    
+    
+
+}
+
+</style>
 <script>
 
 
@@ -1524,7 +1541,7 @@ function newFriendAcceptedRequestAddToChat(name,thumb,id){
 
   $('#friends').append(`
     
-               <li variant="info" class="list-group-item p-1 list-group-item-action" name="${name}" thumb="${thumb}" id="${id}">
+               <li variant="info" class="list-group-item p-1 list-group-item-action" name="${name}" thumb="${thumb}" id="${id}" style="background-color:#1b2838">
 <button  class="p-0 list-group-item-action bg-transparent btn" style="background-color:transparent" >
  <div class="row p-2" align-h="center">
 
@@ -1542,13 +1559,13 @@ function newFriendAcceptedRequestAddToChat(name,thumb,id){
        ${name}</p>
 
 
-    <p id="${lastmessageid}" class="text-muted small mb-1" style="word-break: break-all;">last message</p>
+    <p id="${lastmessageid}" class="text-muted small mb-1" style="word-break: break-all;font-weight: 400;font-size: 0.75rem;">last message</p>
     </div>
 
 
     <div class="col-3 d-none d-xl-block p-1" >
     
-    <p  class="need_to_be_rendered text-muted small text-center" id="${lastimetextid}" render="no" datetime="null">last time</p>
+    <p  class="need_to_be_rendered text-muted small text-center" id="${lastimetextid}" render="no" datetime="null" style="font-size: 0.75rem;">last time</p>
     </div>
 </div>
    </button>
@@ -1758,7 +1775,7 @@ if(online==false){
 
                $('#friends').append(`
     
-               <li variant="info" class="list-group-item p-1 list-group-item-action" name="${name}" thumb="${thumb}" id="${id}" style="background-color:white">
+               <li variant="info" class="list-group-item p-1 list-group-item-action" name="${name}" thumb="${thumb}" id="${id}" style="background-color:#1b2838">
 <button  class="p-0 list-group-item-action bg-transparent btn" style="background-color:transparent" >
  <div class="row p-2" align-h="center">
 
@@ -1771,18 +1788,18 @@ if(online==false){
 </div>
     <div class="col-5 d-none d-md-block p-1" align-self="center" >
     
-    <p class="mb-1" style="white-space: nowrap;">
+    <p class="mb-1" style="white-space: nowrap;color:#fff;font-weight: 400;font-size: 0.75rem;">
     <img id="status" class="rounded-circle" style="width:10; height:10; background-color: #${statusColor};"  ></img>
        ${name}</p>
 
 
-    <p id="${lastmessageid}" class="text-muted small mb-1" style="word-break: break-all;">last message</p>
+    <p id="${lastmessageid}" class="text-muted small mb-1" style="word-break: break-all;font-size: 0.8rem;">last message</p>
     </div>
 
 
     <div class="col-3 d-none d-xl-block p-1" >
     
-    <p  class="need_to_be_rendered text-muted small text-center" id="${lastimetextid}" render="no" datetime="null">last time</p>
+    <p  class="need_to_be_rendered text-muted small text-center" id="${lastimetextid}" render="no" datetime="null" style="font-size: 0.75rem;">last time</p>
     </div>
 </div>
    </button>
@@ -1804,7 +1821,7 @@ if(online==false){
 
                $('#friends').prepend(`
     
-               <li variant="info" class="list-group-item p-1 list-group-item-action" name="${name}" thumb="${thumb}" id="${id}" style="background-color:white">
+               <li variant="info" class="list-group-item p-1 list-group-item-action" name="${name}" thumb="${thumb}" id="${id}" style="background-color:#1b2838">
 <button  class="p-0 list-group-item-action bg-transparent btn" style="background-color:transparent" >
  <div class="row p-2" align-h="center">
 
@@ -1817,18 +1834,18 @@ if(online==false){
 </div>
     <div class="col-5 d-none d-md-block p-1" align-self="center" >
     
-    <p class="mb-1" style="white-space: nowrap;">
+    <p class="mb-1" style="white-space: nowrap;color:#fff";font-weight: 400;font-size: 0.75rem;>
     <img id="status" class="rounded-circle" style="width:10; height:10; background-color: #${statusColor};"  ></img>
        ${name}</p>
 
 
-    <p id="${lastmessageid}" class="text-muted small mb-1" style="word-break: break-all;">last message</p>
+    <p id="${lastmessageid}" class="text-muted small mb-1" style="word-break: break-all;font-size: 0.8rem;">last message</p>
     </div>
 
 
     <div class="col-3 d-none d-xl-block p-1" >
     
-    <p  class="need_to_be_rendered text-muted small text-center" id="${lastimetextid}" render="no" datetime="null">last time</p>
+    <p  class="need_to_be_rendered text-muted small text-center" id="${lastimetextid}" render="no" datetime="null" style="font-size: 0.75rem;">last time</p>
     </div>
 </div>
    </button>
@@ -1863,7 +1880,7 @@ $('#friends').on('click','li',function(){
         conversationRecepientId=$(this).attr('id');
         conversationRecepientName=$(this).attr('name');
         getMessages(id,thumb,name);
-        $("#"+id).css('background-color', 'white');
+        $("#"+id).css('background-color', '#1b2838');
 		$('body').toggleClass('nav-open');
         
         //console.log("their id = "+id);//write here maybe the function to create an iframe video passing the video id.
