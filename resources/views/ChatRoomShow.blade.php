@@ -1546,7 +1546,7 @@ function stopTrack() {
 function onPlayerStateChange(event) {
   //console.log(event)
  if (event.data == YT.PlayerState.PLAYING) {
-   if(stateAmmounts<3){
+   if(stateAmmounts<4){
     stateAmmounts=stateAmmounts+1;
   console.log("my state ammounts: "+stateAmmounts);
   track = true;
@@ -1624,7 +1624,7 @@ $.ajax({
   }
 
   if (event.data == YT.PlayerState.PAUSED) {
-    if(stateAmmounts<3){
+    if(stateAmmounts<4){
     stateAmmounts=stateAmmounts+1;
     console.log("my state ammounts: "+stateAmmounts);
     stopTrack();

@@ -40,6 +40,8 @@ Route::post('lynkse/webhook', function (Request $request) {
                 $thisroom=Room::find($id);
                 if($thisroom->videoType!="default"){
                     Room::where('id', $id)->delete();
+                }else {
+                    Room::where('id', $id)->update(['active' => '0']);
                 }
             }  
         }
