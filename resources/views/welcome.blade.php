@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Lynkse</title>
-
+        <script src="{{ URL::asset('js/jquery-1.12.1.min.js') }}" type="text/jscript" ></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -48,7 +48,7 @@
 <!-- Optional: some overlay text to describe the video -->
         <div id="content" class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div id="topNav" class="fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ url('/community') }}" class="text-sm text-white-700 ">Proceed</a>
                     @else
@@ -92,3 +92,23 @@
 
     </body>
 </html>
+<script>
+
+$(document).ready(function(){
+
+if ($(window).width() <= 639) {
+    $("#topNav").removeClass("right-0").addClass("right-4");
+}
+});
+
+$(window).resize(function() {         
+    if ($(window).width() <= 639) {
+        $("#topNav").removeClass("right-0").addClass("right-4");
+    }
+    if ($(window).width() > 639) {
+        $("#topNav").removeClass("right-4").addClass("right-0");
+    }
+});
+
+
+</script>
