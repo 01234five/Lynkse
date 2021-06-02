@@ -88,10 +88,6 @@
                
         
 
-
-
-    </body>
-</html>
 <script>
 
 $(document).ready(function(){
@@ -112,3 +108,6 @@ $(window).resize(function() {
 
 
 </script>
+
+    </body>
+</html>
