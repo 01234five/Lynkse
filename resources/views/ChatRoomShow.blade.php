@@ -1836,7 +1836,6 @@ $.ajax({
 body { 
    overflow-x: hidden;
    
-
     background-color:#313F50;
 
 }

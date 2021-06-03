@@ -117,6 +117,14 @@
 </div>
 
 
+
+<style>
+html, body {
+  overflow-x:hidden;
+  width:100%;
+}
+</style>
+
 <style>
 
 
@@ -138,7 +146,19 @@
 
 </script>
 <style>
-
+.flex-nowrap {
+    -webkit-flex-wrap: nowrap!important;
+    -ms-flex-wrap: nowrap!important;
+    flex-wrap: nowrap!important;
+}
+.flex-row {
+    display:flex;
+    -webkit-box-orient: horizontal!important;
+    -webkit-box-direction: normal!important;
+    -webkit-flex-direction: row!important;
+    -ms-flex-direction: row!important;
+    flex-direction: row!important;
+}
 article:hover {
 		border: 2px solid #ff9999;
 	}
@@ -160,7 +180,8 @@ $('#view').append(`
 <div class="box">
 <div class="box-left" style="height:100%;overflow-x:auto;">
 <div class="container testimonial-group" style="height:100%;">
-  <div id="roomList" class="row text-center" style="height:100%;">
+  <div id="roomList" class="row flex-row flex-nowrap text-center" style="display:flex;
+    flex: 0 0 25%;height:100%;">
 </div>
 
 </div>
@@ -367,6 +388,21 @@ searchRooms(input);
 
 
 });
+
+
+
+
+if ($(window).width() <= 766) {
+  $("#roomList").css("max-height","320px");
+
+}
+
+if ($(window).width() >= 767) {
+  $("#roomList").css("max-height","500px");
+
+}
+
+
 
 
 
@@ -2330,7 +2366,7 @@ function addRooms(data){
         $('#roomList').append(`
 
 
-<article class="col-2"  id-key="${id}" name-key="${name}" videoType-key="${videoType}" style="height:98%; ">
+<article class="articleRoom col-3"  id-key="${id}" name-key="${name}" videoType-key="${videoType}" style="height:98%; ">
 
 
     
@@ -2382,7 +2418,7 @@ function addRooms(data){
         $('#roomList').append(`
 
 
-<article class="col-2"  id-key="${id}" name-key="${name}" videoType-key="${videoType}" style="height:98%; ">
+<article class="articleRoom col-2"  id-key="${id}" name-key="${name}" videoType-key="${videoType}" style="height:98%; ">
 
 
     
@@ -2431,12 +2467,15 @@ $(window).resize(function() {
     if ($(window).width() <= 766) {
       
        
+       $(".articleRoom").removeClass("col-2").addClass("col-3");
        $("#articleBanner").removeClass("col-7").addClass("col-3");
+       $("#roomList").css("max-height","320px");
     }
     if ($(window).width() >= 767) {
       
-       
+        $(".articleRoom").removeClass("col-3").addClass("col-2");
         $("#articleBanner").removeClass("col-3").addClass("col-7");
+        $("#roomList").css("max-height","500px");
    }
     if ($(window).width() >= 900) {
        $(".particlesdiv").css("height","260px");
