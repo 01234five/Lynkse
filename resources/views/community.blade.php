@@ -20,7 +20,7 @@
 <div class="container " >
 <div id="view">
 
-<canvas style="width:100px;height:200px"></canvas>
+
 
 
 </div>
@@ -122,6 +122,7 @@
 #siteWrapper {
   overflow-x:hidden;
   width:100%;
+  position: relative;
 }
 </style>
 
