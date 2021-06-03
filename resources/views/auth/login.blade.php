@@ -69,5 +69,10 @@
             </div>
         </div>
     </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8 d-flex justify-content-center">
+    <a href="{{ url('privacyPolicy') }}" style="text-align: center;" target="_blank">Privacy Policy</a>
+</div>
+</div>
 </div>
 @endsection

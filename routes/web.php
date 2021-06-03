@@ -23,6 +23,11 @@ Route::get('home', function(){
     });
 
 
+    Route::get('/privacyPolicy', function () {
+        return view('privacyPolicy');
+    });    
+
+
 Route::post('/lynkse/webHook',[App\Http\Controllers\WebHookController::class, 'webHook'])->name('webHook');
 
 
