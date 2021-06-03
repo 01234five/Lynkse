@@ -1,7 +1,7 @@
 @extends('layouts.communityapp')
 
 @section('content')
-
+<div id="siteWrapper">
 <div class="clearfix"></div>
 <div class="container-fullwidth sec1" >
 <div class="container-fullwidth mr-2 ml-2" style="width:100%;"> <!-- this is mandatory when using row -->
@@ -115,11 +115,11 @@
     <span class="fa fa-times" style="font-size: 22px;line-height: 40px; color:gray"></span>
   </div>
 </div>
-
+</div>
 
 
 <style>
-html, body {
+#siteWrapper {
   overflow-x:hidden;
   width:100%;
 }
