@@ -188,7 +188,7 @@ header .fa {font-size:20px; color: #ffffff;}
     background-color: #181E26;
 }
 
-.sec1 {width:100%; float:left; position:relative; overflow:hidden; padding-top:1%; padding-bottom:4%; display:flex; }
+.sec1 {width:100%; float:left; position:relative; overflow:hidden; padding-top:1%; padding-bottom:3%; display:flex; }
 
 .title {background-color: #181E26;; width:100%; float:left; color:#586c8e; padding:12px 60px;}
 .title h3 {margin:0;}
