@@ -2,7 +2,7 @@
 
 @section('content')
 <!-------------body ------------------>
-
+<div id="siteWrapper">
 <div class="side-nav side-nav-container-closed">
 
 </div>
@@ -14,7 +14,7 @@
 
 
 <!-- ======= sec1 ========== -->
-<div id="siteWrapper">
+
 <div class="clearfix"></div>
 <div class="container-fluid sec1 p-0">
 <div class="container-fluid p-0 m-0">
