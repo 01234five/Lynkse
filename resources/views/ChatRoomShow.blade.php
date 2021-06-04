@@ -2,7 +2,7 @@
 
 @section('content')
 <!-------------body ------------------>
-<div id="siteWrapper">
+<div id="siteWrapper" style="overflow-y:hidden;">
 <div class="side-nav side-nav-container-closed">
 
 </div>
