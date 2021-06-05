@@ -566,7 +566,7 @@ function newFriendAcceptedRequestAddToChat(name,thumb,id){
     
     </div>
 </div>
-    <div class="col-5 d-none d-md-block p-1" align-self="center" >
+    <div class="col-5 p-1" align-self="center" >
     
     <p class="mb-1" style="color:#fff">
     <img id="status" class="rounded-circle" style="width:10; height:10; background-color: #${statusColor};"  ></img>
@@ -799,7 +799,7 @@ if(online==false){
     
     </div>
 </div>
-    <div class="col-5 d-none d-md-block p-1" align-self="center" >
+    <div class="col-5 p-1" align-self="center" >
     
     <p class="mb-1" style="color:#fff">
     <img id="status" class="rounded-circle" style="width:10; height:10; background-color: #${statusColor};"  ></img>
@@ -845,7 +845,7 @@ if(online==false){
     
     </div>
 </div>
-    <div class="col-5 d-none d-md-block p-1" align-self="center" >
+    <div class="col-5 p-1" align-self="center" >
     
     <p class="mb-1" style="color:#fff">
     <img id="status" class="rounded-circle" style="width:10; height:10; background-color: #${statusColor};"  ></img>
