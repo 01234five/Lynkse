@@ -2080,6 +2080,11 @@ divCreate.style.background = 'url("'+userFlag+'")';
 divCreate.style.backgroundPosition="center";
 divCreate.style.backgroundSize="cover";
 divCreate.style.backgroundRepeat="no-repeat";
+divCreate.style.top= "0px";
+divCreate.style.left= "0px";
+divCreate.style.bottom= "0px";
+divCreate.style.right= "0px";
+
 
 
 divCreate.style.inset= "0px";
