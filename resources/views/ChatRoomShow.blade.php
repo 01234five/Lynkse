@@ -2,7 +2,7 @@
 
 @section('content')
 <!-------------body ------------------>
-<div id="siteWrapper" style="overflow-y:hidden;">
+<div id="siteWrapper" style="overflow-y:hidden;"><!--keep an eye on overflow-y here-->
 <div class="side-nav side-nav-container-closed">
 
 </div>
@@ -441,7 +441,7 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
     		    });
 
 
-
+            $(document).ready(function() {
     Echo.join(`messenger`)
     .here((users) => {
         //console.log("online ",users);
@@ -450,7 +450,7 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
           onlineArray.push(users[i].id);
           
         });
-        friendList();
+        
         //arrayStatus();
     })
     .joining((user) => {
@@ -467,8 +467,8 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
     .error((error) => {
         console.error(error);
     });  
-    
-    
+    friendList();
+            });  
 
     
     function arrayStatus(){

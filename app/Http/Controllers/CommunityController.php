@@ -198,7 +198,7 @@ $user1->befriend($user2);
                 $user->save();
             }
             if($request->content=="Smiley"){
-                $bannerExtension="smiley.jpg";
+                $bannerExtension="happymask.jpg";
                 $user->banner = $bannerExtension;
                 $user->save();
             }

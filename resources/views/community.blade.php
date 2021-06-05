@@ -1490,7 +1490,7 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
           onlineArray.push(users[i].id);
           
         });
-        friendList();
+        
         //arrayStatus();
     })
     .joining((user) => {
@@ -1507,6 +1507,10 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
     .error((error) => {
         console.error(error);
     });  
+
+
+
+    friendList();
 });
 
     
