@@ -2060,7 +2060,7 @@ body.nav-open {
 
 // Initialisation
 var particleCanvas=[];
-function insertBanner(id,banner,effect){
+function insertBanner(id,userFlag,effect){
   
   
   if(effect=="none"){
@@ -2075,7 +2075,7 @@ canvasCreate.style.height = "100%";
 canvasCreate.style.position= "relative";
 canvasCreate.style.zIndex= "20";
 
-divCreate.style.background = "url('"+banner+"')";
+divCreate.style.background = 'url("'+userFlag+'")';
 divCreate.style.backgroundPosition="center";
 divCreate.style.backgroundSize="cover";
 divCreate.style.backgroundRepeat="no-repeat";
@@ -2096,7 +2096,7 @@ divCreate.appendChild(canvasCreate);
 var canvasDiv = document.getElementById('particle-canvas'+id);
 var options = {
   particleColor: '#0083FF',
-  background: banner,
+  background: userFlag,
   interactive: false,
   speed: 'slow',
   density: 'high'
