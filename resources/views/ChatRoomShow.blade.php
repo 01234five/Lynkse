@@ -245,7 +245,7 @@
   <div class="input-group mb-0">
   <input id="chatInputId" type="text" class="form-control" placeholder="send text" aria-label="send text" aria-describedby="basic-addon2" >
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="submit">Button</button>
+    <button class="btn btn-outline-secondary" type="submit">Send</button>
   </div>
 </div>
 </form>
@@ -354,11 +354,11 @@ function insertMessagefromPusher(content,thumb,name){
  
             $('#messages').append(`
 
-            <div class="media">
+            <div class="media" style="padding-bottom: 18px;">
   <img class="align-self-start mr-3 rounded-circle" src="/users/${thumb}" style="width:64; height:64;" alt="">
   <div class="media-body">
     <h5 class="mt-0" style="font-weight: bold;">${name}</h5>
-    <p>${content}</p>
+    <p style="font-size: 14px;">${content}</p>
    
   </div>
 </div>
@@ -370,11 +370,11 @@ function insertMyMessage(content){
   
         $('#messages').append(`
 
-        <div class="media">
+        <div class="media" style="padding-bottom: 18px;">
   
   <div class="media-body">
     <h5 class="mt-0 mb-1" style="font-weight: bold;">Me</h5>
-    <p>${content}</p>
+    <p style="font-size: 14px;">${content}</p>
     </div>
     <img class=" ml-3 rounded-circle" src="/users/${myThumb}" style="width:64; height:64;" alt="">
   
@@ -718,11 +718,11 @@ function lastConversations(id){
         if(me===true){
         $('#messages').append(`
 
-        <div class="media">
+        <div class="media" style="padding-bottom: 18px;">
   
   <div class="media-body">
     <h5 class="mt-0 mb-3" style="font-weight: bold;">Me</h5>
-    <p>${content}</p>
+    <p style="font-size: 14px;">${content}</p>
     </div>
     <img class=" ml-3 rounded-circle" src="/users/${myThumb}" style="width:64; height:64;" alt="">
   
@@ -732,11 +732,11 @@ function lastConversations(id){
         }else{
             $('#messages').append(`
 
-            <div class="media">
+            <div class="media" style="padding-bottom: 18px;">
   <img class="align-self-start mr-3 rounded-circle" src="/users/${thumb}" style="width:64; height:64;" alt="">
   <div class="media-body">
     <h5 class="mt-0" style="font-weight: bold;">${name}</h5>
-    <p>${content}</p>
+    <p style="font-size: 14px;">${content}</p>
    
   </div>
 </div>

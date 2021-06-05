@@ -78,7 +78,7 @@
   <div class="input-group mb-0">
   <input id="chatInputId" type="text" class="form-control" placeholder="send text" aria-label="send text" aria-describedby="basic-addon2" >
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="submit">Button</button>
+    <button class="btn btn-outline-secondary" type="submit">Send</button>
   </div>
 </div>
 </form>
