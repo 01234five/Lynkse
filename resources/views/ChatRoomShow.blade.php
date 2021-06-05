@@ -577,7 +577,7 @@ function newFriendAcceptedRequestAddToChat(name,thumb,id){
     </div>
 
 
-    <div class="col-3 d-none d-xl-block p-1" >
+    <div class="col-3 d-md-none d-lg-none d-xl-block p-1" >
     
     <p  class="need_to_be_rendered text-muted small text-center" id="${lastimetextid}" render="no" datetime="null">last time</p>
     </div>
@@ -810,7 +810,7 @@ if(online==false){
     </div>
 
 
-    <div class="col-3 d-none d-xl-block p-1" >
+    <div class="col-3 d-md-none d-lg-none d-xl-block p-1" >
     
     <p  class="need_to_be_rendered text-muted small text-center" id="${lastimetextid}" render="no" datetime="null">last time</p>
     </div>
@@ -856,7 +856,7 @@ if(online==false){
     </div>
 
 
-    <div class="col-3 d-none d-xl-block p-1" >
+    <div class="col-3 d-md-none d-lg-none d-xl-block p-1" >
     
     <p  class="need_to_be_rendered text-muted small text-center" id="${lastimetextid}" render="no" datetime="null">last time</p>
     </div>
