@@ -2073,6 +2073,8 @@ canvasCreate.setAttribute("class","allCanvasNoEffect");
 
 canvasCreate.style.position= "relative";
 canvasCreate.style.zIndex= "20";
+canvasCreate.style.height='100%';
+canvasCreate.style.width='100%';
 
 divCreate.style.background = 'url("'+userFlag+'")';
 divCreate.style.backgroundPosition="center";
@@ -2085,7 +2087,7 @@ divCreate.style.zIndex= "1";
 divCreate.style.position="absolute"
 canvasDiv.style.position="relative";
 canvasDiv.appendChild(divCreate);   
-divCreate.appendChild(canvasCreate);   
+canvasDiv.appendChild(canvasCreate);   
 
 
 
