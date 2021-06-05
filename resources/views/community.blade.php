@@ -2070,8 +2070,7 @@ var canvasDiv = document.getElementById('particle-canvas'+id);
 
 canvasCreate.setAttribute("id", "canvasElement"+id);
 canvasCreate.setAttribute("class","allCanvasNoEffect");
-canvasCreate.style.width = "100%";
-canvasCreate.style.height = "100%";
+
 canvasCreate.style.position= "relative";
 canvasCreate.style.zIndex= "20";
 
