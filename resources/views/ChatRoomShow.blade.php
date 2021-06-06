@@ -345,7 +345,46 @@
 }
 </style>
 
+<script>
 
+
+$( document ).ready(function() {
+      friendList();//needs to be on screen first, before setStatus is ran.
+      
+
+ 
+});
+function addEchoMessenger(){
+     console.log("Adding Echo Messenger");
+  Echo.join(`messenger`)
+    .here((users) => {
+      
+        //console.log("online ",users);
+        $.each(users, function(i){
+          console.log("user online id: "+users[i].id)
+          onlineArray.push(users[i].id);
+          setStatus(users[i].id,"online");
+        });
+        
+        //arrayStatus();
+    })
+    .joining((user) => {
+        console.log(user.id);
+        onlineArray.push(user.id);
+        setStatus(user.id,"online");
+    })
+    .leaving((user) => {
+        console.log(user.id);
+        onlineArray.splice(onlineArray.indexOf(onlineArray.find(item => item.id == user.id)), 1);
+        console.log(onlineArray)
+        setStatus(user.id,"offline");
+    })
+    .error((error) => {
+        console.error(error);
+    });  
+
+  }
+</script>
 
 <script>
 var stateAmmounts=0;
@@ -441,37 +480,9 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
     		    });
 
 
-            $(document).ready(function() {
-              friendList();
-    Echo.join(`messenger`)
-    .here((users) => {
-      
-        //console.log("online ",users);
-        $.each(users, function(i){
-          //console.log("user online id: "+users[i].id)
-          onlineArray.push(users[i].id);
-          console.log("onlineArray Pushed");
-          setStatus(users[i].id,"online");
-        });
-        
-        //arrayStatus();
-    })
-    .joining((user) => {
-        console.log(user.id);
-        onlineArray.push(user.id);
-        setStatus(user.id,"online");
-    })
-    .leaving((user) => {
-        console.log(user.id);
-        onlineArray.splice(onlineArray.indexOf(onlineArray.find(item => item.id == user.id)), 1);
-        console.log(onlineArray)
-        setStatus(user.id,"offline");
-    })
-    .error((error) => {
-        console.error(error);
-    });  
-    
-            });  
+
+
+            
 
     
     function arrayStatus(){
@@ -761,6 +772,9 @@ function lastConversations(id){
         // handle success
         //console.log(response.data);
         var data=response.data;
+        var count=response.data.length;
+        var countAddedtoChat=0;
+        console.log(count);
          $.each(data, function(i){
          
         var id= data[i].id;
@@ -822,7 +836,11 @@ if(online==false){
 </li>
 
         `);
-    }).then(function () {console.log("inserted li");lastConversations(id);})
+    }).then(function () {console.log("inserted li");lastConversations(id);countAddedtoChat=countAddedtoChat+1;
+      if(countAddedtoChat==count){
+        addEchoMessenger();
+    }
+    })
     .catch(function (error) {
         // handle error
         console.log(error);
@@ -868,7 +886,12 @@ if(online==false){
 </li>
 
         `);
-    }).then(function () {console.log("inserted li");lastConversations(id);})
+    }).then(function () {console.log("inserted li");lastConversations(id);countAddedtoChat=countAddedtoChat+1;
+    if(countAddedtoChat==count){
+      addEchoMessenger();
+    }
+    
+    })
     .catch(function (error) {
         // handle error
         console.log(error);
@@ -884,6 +907,8 @@ if(online==false){
         // handle error
         console.log(error);
     }); 
+
+    
 }
 
 $('#friends').on('click','li',function(){
@@ -991,7 +1016,7 @@ var conversationRecepientId;
 var conversationRecepientName;
 $(document).ready(function(){
   
-    //friendList();
+    
     axios.get(`/communityMembers/Auth/0`)
     .then(function (response) {
         // handle success
@@ -1453,6 +1478,15 @@ var totalOnline = 0;
                         
                        }
 
+                       if(e.action.message==="PLAYERREADY"){
+                        playerReadyVar =true;
+
+                       }
+                       if(e.action.message==="PLAYERNOTREADY"){
+                        playerReadyVar =false;
+
+                       }
+
                        if(e.action.message==="SEEKVIMEO"){
                         sendTimeBoolVimeo =false
                         seekVideoVimeo(e.action.vimeoSeekValue);
@@ -1509,6 +1543,27 @@ setInterval(function(){ startSyncingTime();}, 5000);
 //    after the API code downloads.
 var player;
       function insertPlayer(id) {
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+$.ajax({
+                    /* the route pointing to the post function */
+                    url: '/videoactionPlayerNotReady',
+                    type: 'POST',
+                    /* send the csrf-token and the input to the controller */
+                    data: {
+                        _token: CSRF_TOKEN,
+                        message:'PLAYERNOTREADY',
+                        room:<?php echo $room->id; ?>,
+                       
+                    },
+                    //dataType: 'JSON',
+                    /* remind that 'data' is the response of the AjaxController */
+                    success: function (data) { 
+                        $(".writeinfo").append(data.msg); 
+                        //playVideo();
+                        //playerReadyVar=false;
+                 
+
+        
         sendTimeBoolVimeo=false;//ERROR HANDLING TO STOP VIMEO PLAYER SENDTIME
         //------MADE BY ME TO INSERT NEW ELEMENT , IN THIS CASE ERASE OLD IFRAME INSET NEW ONE
         document.getElementById("playerDiv").innerHTML = "";
@@ -1535,10 +1590,21 @@ var player;
         youtubeBarShow()
         lastPlayerPlaying="youtube";
         $('#volumeYoutube').addClass('fa-volume-off').removeClass('fa-volume-up');
+
+
+
+
+
+
+      }
+
+});
+
+        ///////////////////////////////////
       }
 
 
-      
+      var playerReadyVar=false;
       var initialJoin=false;
       var seekInitialJoin;
 // 4. The API will call this function when the video player is ready.
@@ -1557,6 +1623,30 @@ function onPlayerReady(event) {
 
   videoMaxTime();
   sendTimeBool =false;
+
+
+  var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+$.ajax({
+                    /* the route pointing to the post function */
+                    url: '/videoactionPlayerReady',
+                    type: 'POST',
+                    /* send the csrf-token and the input to the controller */
+                    data: {
+                        _token: CSRF_TOKEN,
+                        message:'PLAYERREADY',
+                        room:<?php echo $room->id; ?>,
+                       
+                    },
+                    //dataType: 'JSON',
+                    /* remind that 'data' is the response of the AjaxController */
+                    success: function (data) { 
+                        $(".writeinfo").append(data.msg); 
+                        //playVideo();
+
+                    }
+                }); 
+
+
 }
 var track = false;
 var x=1;
@@ -1576,6 +1666,10 @@ function stopTrack() {
 function onPlayerStateChange(event) {
   //console.log(event)
  if (event.data == YT.PlayerState.PLAYING) {
+   if(playerReady=false){
+     console.log("players not ready");
+    player.pauseVideo();
+   }else{
    if(stateAmmounts<4){
     stateAmmounts=stateAmmounts+1;
   console.log("my state ammounts: "+stateAmmounts);
@@ -1609,6 +1703,7 @@ $.ajax({
     pauseVideo();
     setTimeout(function(){ console.log("wait 5 seconds to reestablish sync functionality"); stateAmmounts=0;}, 5000);
   }
+}
 }
   if(event.data == YT.PlayerState.CUED){
     
@@ -2433,7 +2528,28 @@ $.ajax({
 var currentlyPlayingVideoID;
 var currentlyPlayerPlaying;
 function insertVideo(){
-  if(currentlyPlayerPlaying=="youtube"){
+
+  var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+$.ajax({
+                    /* the route pointing to the post function */
+                    url: '/videoactionPlayerNotReady',
+                    type: 'POST',
+                    /* send the csrf-token and the input to the controller */
+                    data: {
+                        _token: CSRF_TOKEN,
+                        message:'PLAYERNOTREADY',
+                        room:<?php echo $room->id; ?>,
+                       
+                    },
+                    //dataType: 'JSON',
+                    /* remind that 'data' is the response of the AjaxController */
+                    success: function (data) { 
+                        $(".writeinfo").append(data.msg); 
+                        //playVideo();
+                        //playerReadyVar=false;
+
+
+                        if(currentlyPlayerPlaying=="youtube"){
   currentTimeonVideo=player.getCurrentTime();
  
   var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
@@ -2455,6 +2571,16 @@ $.ajax({
   if(currentlyPlayerPlaying=="vimeo"){
     insertVideoVimeo();
   }
+                    }
+                }); 
+
+
+
+
+
+
+  
+  
 
 } 
 

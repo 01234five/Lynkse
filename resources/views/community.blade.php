@@ -1372,7 +1372,46 @@ $.ajax({
 
 
 
+<script>
 
+
+$( document ).ready(function() {
+      friendList();//needs to be on screen first, before setStatus is ran.
+      
+
+ 
+});
+function addEchoMessenger(){
+     console.log("Adding Echo Messenger");
+  Echo.join(`messenger`)
+    .here((users) => {
+      
+        //console.log("online ",users);
+        $.each(users, function(i){
+          console.log("user online id: "+users[i].id)
+          onlineArray.push(users[i].id);
+          setStatus(users[i].id,"online");
+        });
+        
+        //arrayStatus();
+    })
+    .joining((user) => {
+        console.log(user.id);
+        onlineArray.push(user.id);
+        setStatus(user.id,"online");
+    })
+    .leaving((user) => {
+        console.log(user.id);
+        onlineArray.splice(onlineArray.indexOf(onlineArray.find(item => item.id == user.id)), 1);
+        console.log(onlineArray)
+        setStatus(user.id,"offline");
+    })
+    .error((error) => {
+        console.error(error);
+    });  
+
+  }
+</script>
 
 
 
@@ -1480,40 +1519,7 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
 
 
  
-    
-    $( document ).ready(function() {
-      friendList();
-      Echo.join(`messenger`)
-    .here((users) => {
-      
-        //console.log("online ",users);
-        $.each(users, function(i){
-          console.log("user online id: "+users[i].id)
-          onlineArray.push(users[i].id);
-          setStatus(users[i].id,"online");
-        });
-        
-        //arrayStatus();
-    })
-    .joining((user) => {
-        console.log(user.id);
-        onlineArray.push(user.id);
-        setStatus(user.id,"online");
-    })
-    .leaving((user) => {
-        console.log(user.id);
-        onlineArray.splice(onlineArray.indexOf(onlineArray.find(item => item.id == user.id)), 1);
-        console.log(onlineArray)
-        setStatus(user.id,"offline");
-    })
-    .error((error) => {
-        console.error(error);
-    });  
 
-
-
-    
-});
 
     
     function arrayStatus(){
@@ -1804,6 +1810,9 @@ function lastConversations(id){
         // handle success
         //console.log(response.data);
         var data=response.data;
+        var count=response.data.length;
+        var countAddedtoChat=0;
+        console.log(count);
          $.each(data, function(i){
          
         var id= data[i].id;
@@ -1865,7 +1874,11 @@ if(online==false){
 </li>
 
         `);
-    }).then(function () {console.log("inserted li");lastConversations(id);})
+    }).then(function () {console.log("inserted li");lastConversations(id);countAddedtoChat=countAddedtoChat+1;
+      if(countAddedtoChat==count){
+        addEchoMessenger();
+    }
+    })
     .catch(function (error) {
         // handle error
         console.log(error);
@@ -1911,7 +1924,11 @@ if(online==false){
 </li>
 
         `);
-    }).then(function () {console.log("inserted li");lastConversations(id);})
+    }).then(function () {console.log("inserted li");lastConversations(id);countAddedtoChat=countAddedtoChat+1;
+      if(countAddedtoChat==count){
+        addEchoMessenger();
+    }
+    })
     .catch(function (error) {
         // handle error
         console.log(error);

@@ -77,7 +77,8 @@ Route::post('/videoactionSendVideo', [RoomController::class, 'insertVideo'])->na
 
 Route::post('/test123', [RoomController::class, 'getsearchvideo'])->name('getsearchvideo');
 
-
+Route::post('/videoactionPlayerReady', [RoomController::class, 'eventPlayerReady'])->name('eventPlayerReady');
+Route::post('/videoactionPlayerNotReady', [RoomController::class, 'eventPlayerNotReady'])->name('eventPlayerNotReady');
 
 
 Route::get('/community', 'App\Http\Controllers\CommunityController@index');
@@ -130,5 +131,3 @@ Route::post('/seekVimeo', [App\Http\Controllers\RoomControllerB::class, 'seekVim
 Route::post('/videoactionSeekVimeo', [App\Http\Controllers\RoomControllerB::class, 'eventSeek'])->name('eventSeek');
 Route::post('/videoactionSyncVimeo', [App\Http\Controllers\RoomControllerB::class, 'eventSeekSyncVimeo'])->name('eventSeekSyncVimeo');
 Route::get('/vimeo/{keyword}', [App\Http\Controllers\RoomControllerB::class, 'getVimeoVideos'])->name('getVimeoVideos');
-Route::post('/videoactionPlayerReady', [App\Http\Controllers\RoomController::class, 'eventPlayerReady'])->name('eventPlayerReady');
-Route::post('/videoactionPlayerNotReady', [App\Http\Controllers\RoomController::class, 'eventPlayerNotReady'])->name('eventPlayerNotReady');
