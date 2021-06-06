@@ -1378,7 +1378,7 @@ var totalOnline = 0;
                        
 
                        if(e.action.message==="TIME"){
-                         console.log("TIME MESSAGE RECEIVED "+e.action.currentVideoTime);
+                        
                          //console.log(e.user),
                          syncTime(e.action.currentVideoTime,player.getCurrentTime())
                        }
@@ -1417,13 +1417,6 @@ var totalOnline = 0;
                          currentlyPlayingVideoID=e.action.videoIdTosend;
                          seekInitialJoin=e.action.videoCurrentTime;
                          currentlyPlayerPlaying=e.action.playerToSend;
-
-
-                         if(track==false){
-                            track = true;
-                            trackTime();
-                            }
-
                         }
                         if(e.action.playerToSend=="vimeo"){
                           console.log("INNNNEASDASDEJFHASDKFHSDKJF");
