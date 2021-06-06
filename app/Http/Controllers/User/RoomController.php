@@ -120,6 +120,27 @@ class RoomController extends Controller
 
     
 
+    public function eventPlayerReady(Request $request){
+        //error_log('message here.');
+        //echo 'hello';
+        $data = $request->only(['message', 'room']);
+        //$user=auth()->user();
+        
+        broadcast(new VideoAction($data,auth()->user()));
+        
+    }
+
+    public function eventPlayerNotReady(Request $request){
+        //error_log('message here.');
+        //echo 'hello';
+        $data = $request->only(['message', 'room']);
+        //$user=auth()->user();
+        
+        broadcast(new VideoAction($data,auth()->user()));
+        
+    }
+
+
 
     public function eventSeek(Request $request){
         //error_log('message here.');
