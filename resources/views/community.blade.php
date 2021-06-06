@@ -1486,7 +1486,7 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
     .here((users) => {
         //console.log("online ",users);
         $.each(users, function(i){
-          //console.log("user online id: "+users[i].id)
+          console.log("user online id: "+users[i].id)
           onlineArray.push(users[i].id);
           console.log("onlineArray Pushed");
         });
