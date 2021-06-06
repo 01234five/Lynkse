@@ -469,7 +469,7 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
     .error((error) => {
         console.error(error);
     });  
-    friendList();
+    
             });  
 
     
