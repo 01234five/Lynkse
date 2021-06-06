@@ -1417,6 +1417,13 @@ var totalOnline = 0;
                          currentlyPlayingVideoID=e.action.videoIdTosend;
                          seekInitialJoin=e.action.videoCurrentTime;
                          currentlyPlayerPlaying=e.action.playerToSend;
+
+
+                         if(track==false){
+                            track = true;
+                            trackTime();
+                            }
+
                         }
                         if(e.action.playerToSend=="vimeo"){
                           console.log("INNNNEASDASDEJFHASDKFHSDKJF");
