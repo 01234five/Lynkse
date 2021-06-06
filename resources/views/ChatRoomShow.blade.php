@@ -1332,8 +1332,8 @@ var totalOnline = 0;
                          if (playStatus == 1) {
                             console.log("playing"); // 
                             if(track==false){
-                            track = true;
-                            trackTime();
+                            //track = true;
+                            //trackTime();
                             }
                            }else{
                           playVideoPOST();
