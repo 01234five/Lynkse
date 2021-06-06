@@ -1328,8 +1328,10 @@ var totalOnline = 0;
                           var playStatus= player.getPlayerState();
                          if (playStatus == 1) {
                             console.log("playing"); // 
+                            if(track==false){
                             track = true;
                             trackTime();
+                            }
                            }else{
                           playVideoPOST();
                            }
