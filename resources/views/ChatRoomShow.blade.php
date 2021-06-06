@@ -1378,7 +1378,7 @@ var totalOnline = 0;
                        
 
                        if(e.action.message==="TIME"){
-                        
+                         console.log("TIME MESSAGE RECEIVED "+e.action.currentVideoTime);
                          //console.log(e.user),
                          syncTime(e.action.currentVideoTime,player.getCurrentTime())
                        }
