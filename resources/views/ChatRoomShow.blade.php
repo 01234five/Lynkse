@@ -1327,7 +1327,9 @@ var totalOnline = 0;
                          
                           var playStatus= player.getPlayerState();
                          if (playStatus == 1) {
-                            console.log("playing") // 
+                            console.log("playing"); // 
+                            track = true;
+                            trackTime();
                            }else{
                           playVideoPOST();
                            }
