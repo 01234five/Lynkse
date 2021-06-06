@@ -77,10 +77,10 @@
       </div>
     </div>
     <div class="col-2 d-flex align-items-center d-flex justify-content-end">
-    <div onclick="communityRoomsView();"><a href="#"><i class="fa fa-wechat"></i> Rooms</a></div>
+    <div onclick="communityRoomsView();" style="white-space: nowrap;"><a href="#" ><i class="fa fa-wechat"></i><a href="#" id="roomsIconID" style="padding-left:5px;"> </a ></a></div>
     </div>
     <div class="col-2 d-flex align-items-center d-flex justify-content-end">
-    <div onclick="communityMembersView();"><a href="#" ><i class="fa fa-smile-o "></i> Community</a></div>
+    <div onclick="communityMembersView();" style="white-space: nowrap;"><a href="#" ><i  class="fa fa-smile-o " ></i><a href="#" id="communityIconID" style="padding-left:5px;"> </a ></a></div>
     
   </div>
 </div>
@@ -103,6 +103,43 @@
             
 
         </main>
+
+
+
+
+<script>
+$(document).ready(function() {
+if ($(window).width() <= 767) {
+
+  
+}
+
+if ($(window).width() >= 768) {
+  $("#roomsIconID").text("Rooms");
+  $("#communityIconID").text("Community");
+
+}
+
+
+$(window).resize(function() {    
+
+  if ($(window).width() <= 767) {
+    $("#roomsIconID").text("");
+  $("#communityIconID").text("");
+  
+}
+
+if ($(window).width() >= 768) {
+  $("#roomsIconID").text("Rooms");
+  $("#communityIconID").text("Community");
+
+}
+
+});
+
+
+});
+</script>   
 
 </body>
 
