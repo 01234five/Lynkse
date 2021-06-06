@@ -148,7 +148,9 @@ $user1->befriend($user2);
 
     public function editProfileAvatar(Request $request){
 
-		
+		$this->validate($request, [
+            'avatarEdit' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          ]);
 		$user = auth()->user();
         
         if($request->file('avatarEdit')){
