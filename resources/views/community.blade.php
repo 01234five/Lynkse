@@ -555,8 +555,8 @@ if ($(window).width() <= 766) {
 
 
   <div class="row">
-    <div class="col-12">
-      <div id="h" class="text-center" style="color: white;">${myName}</div>
+    <div class="col-12" style="padding:0;">
+      <div id="h" class="text-center" style="color: white;">${myName.substring(0,11)}</div>
     </div>
   </div>
 
@@ -592,7 +592,7 @@ if ($(window).width() <= 766) {
 
 
   <div class="row">
-    <div class="col-12">
+    <div class="col-12" style="padding:0;">
       <div id="h" class="text-center" style=" white-space: nowrap; color: white;">${myName.substring(0,11)}</div>
     </div>
   </div>
@@ -870,8 +870,8 @@ function refreshBanner(){
 
 
   <div class="row">
-    <div class="col-12">
-      <div id="h" class="text-center" style="color: white;">${myName}</div>
+    <div class="col-12" style="padding:0;">
+      <div id="h" class="text-center" style="color: white;">${myName.substring(0,11)}</div>
     </div>
   </div>
 
@@ -907,8 +907,8 @@ function refreshBanner(){
 
 
   <div class="row">
-    <div class="col-12">
-      <div id="h" class="text-center" style="color: white;">${myName}</div>
+    <div class="col-12" style="padding:0;">
+      <div id="h" class="text-center" style="color: white;">${myName.substring(0,11)}</div>
     </div>
   </div>
 
