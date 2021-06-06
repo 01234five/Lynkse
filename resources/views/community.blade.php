@@ -1484,11 +1484,12 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
     $( document ).ready(function() {
       Echo.join(`messenger`)
     .here((users) => {
+      friendList();
         //console.log("online ",users);
         $.each(users, function(i){
           console.log("user online id: "+users[i].id)
           onlineArray.push(users[i].id);
-          console.log("onlineArray Pushed");
+          setStatus(users[i].id,"online");
         });
         
         //arrayStatus();
@@ -1510,7 +1511,7 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
 
 
 
-    friendList();
+    
 });
 
     
