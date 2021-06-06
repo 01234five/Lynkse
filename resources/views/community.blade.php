@@ -964,7 +964,7 @@ var myBannerEffect;
 
 
 $(document).ready(function(){
-    getPendingCounts();
+    //getPendingCounts();
     axios.get(`/communityMembers/Auth/0`)
     .then(function (response) {
         // handle success
@@ -1488,7 +1488,7 @@ Echo.private('users.'+ <?php echo auth()->id(); ?>)
         $.each(users, function(i){
           //console.log("user online id: "+users[i].id)
           onlineArray.push(users[i].id);
-          
+          console.log("onlineArray Pushed");
         });
         
         //arrayStatus();
