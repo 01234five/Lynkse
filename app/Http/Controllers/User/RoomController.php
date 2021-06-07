@@ -126,7 +126,7 @@ class RoomController extends Controller
         $data = $request->only(['message', 'room']);
         //$user=auth()->user();
         
-        broadcast(new VideoAction($data,auth()->user()));
+        broadcast(new VideoAction($data,auth()->user()))->toOthers();
         
     }
 

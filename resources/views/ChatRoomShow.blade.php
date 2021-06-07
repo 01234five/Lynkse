@@ -347,7 +347,7 @@
 
 <script>
 
-
+var playerReadyVar=false;
 $( document ).ready(function() {
       friendList();//needs to be on screen first, before setStatus is ran.
       
@@ -358,7 +358,7 @@ function addEchoMessenger(){
      console.log("Adding Echo Messenger");
   Echo.join(`messenger`)
     .here((users) => {
-      
+
         //console.log("online ",users);
         $.each(users, function(i){
           console.log("user online id: "+users[i].id)
@@ -1319,7 +1319,13 @@ var sendTimeBool =false;
 var totalOnline = 0;
                 Echo.join('videoactionroom.' + <?php echo $room->id; ?>)
                     .here((users) =>{
+
                       totalOnline=users.length;
+                      if(totalOnline==1){
+                        playerReadyVar=true;
+                        console.log("1 person in room, playerReady=true");
+                      }
+             
                       console.log("test : "+users.length);
                       updateRoomCount(totalOnline,<?php echo $room->id; ?>)
                       browseUserCountText="P:"+totalOnline+" Browse"
@@ -1439,7 +1445,7 @@ var totalOnline = 0;
                             destroyPlayerVimeo();
                            }
                         if(e.action.playerToSend=="youtube"){
-                        insertPlayer(e.action.videoIdTosend)//currentvideotime has video id in this case.
+                          insertPlayerPlaying(e.action.videoIdTosend)//currentvideotime has video id in this case.
                          currentlyPlayingVideoID=e.action.videoIdTosend;
                          seekInitialJoin=e.action.videoCurrentTime;
                          currentlyPlayerPlaying=e.action.playerToSend;
@@ -1478,12 +1484,15 @@ var totalOnline = 0;
                         
                        }
 
-                       if(e.action.message==="PLAYERREADY"){
+                       if(e.action.message==="PLAYERREADY"){ //Gets sent to others.
+                         console.log("PlayerReady on their end");
                         playerReadyVar =true;
 
                        }
-                       if(e.action.message==="PLAYERNOTREADY"){
+                       if(e.action.message==="PLAYERNOTREADY"){ //Get sents to everyone.
+                         if(totalOnline>1){
                         playerReadyVar =false;
+                         }
 
                        }
 
@@ -1604,7 +1613,44 @@ $.ajax({
       }
 
 
-      var playerReadyVar=false;
+
+
+      function insertPlayerPlaying(id) {
+    
+        
+        sendTimeBoolVimeo=false;//ERROR HANDLING TO STOP VIMEO PLAYER SENDTIME
+        //------MADE BY ME TO INSERT NEW ELEMENT , IN THIS CASE ERASE OLD IFRAME INSET NEW ONE
+        document.getElementById("playerDiv").innerHTML = "";
+        document.getElementById("playerDivVimeo").innerHTML = "";
+		    var a=document.getElementById("playerDiv");
+	    	var b=document.createElement("div");
+	    	b.id= 'player';
+	    	a.append(b);
+
+
+        player = new YT.Player('player', {
+          height: '100%',
+          width: '100%',
+          videoId: id,
+          playerVars: {
+            'controls': 0, 'mute':1, 'enablejsapi' :1, 'disablekb':1
+          },
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+        sendTimeBool =false;
+        youtubeBarShow()
+        lastPlayerPlaying="youtube";
+        $('#volumeYoutube').addClass('fa-volume-off').removeClass('fa-volume-up');
+
+
+        ///////////////////////////////////
+      }
+
+
+      
       var initialJoin=false;
       var seekInitialJoin;
 // 4. The API will call this function when the video player is ready.
@@ -1614,11 +1660,13 @@ function onPlayerReady(event) {
   //stopVideoPOST()
   
   if(initialJoin==true){
+        playerReadyVar=true;
         console.log("intial join time: "+seekInitialJoin);
         player.playVideo();
         player.seekTo(seekInitialJoin);
         initialJoin=false;
         seekInitialJoin="";
+        
   }
 
   videoMaxTime();
@@ -1666,7 +1714,7 @@ function stopTrack() {
 function onPlayerStateChange(event) {
   //console.log(event)
  if (event.data == YT.PlayerState.PLAYING) {
-   if(playerReady=false){
+   if(playerReadyVar==false){
      console.log("players not ready");
     player.pauseVideo();
    }else{
