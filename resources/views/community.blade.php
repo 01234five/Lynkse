@@ -108,7 +108,7 @@
 </b-container>
 
 -->
-<div class="alert hide">
+<div class="alert hide" style="position:fixed;">
   <span class="fa fa-exclamation-circle" style="font-size: 22px;line-height: 40px;"></span>
   <span class="msg">Room full! Ask room creator for direct link.</span>
   <div class="close-btn">
