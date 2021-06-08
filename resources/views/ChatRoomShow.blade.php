@@ -190,14 +190,9 @@
   
 
 
-        <div class="row justify-content-center">
-<div class="col-md-8 d-flex justify-content-center">
-        <div class="col-md-6 d-flex justify-content-center">
-    <a href="{{ url('privacyPolicy') }}" style="text-align: center;" target="_blank">Privacy Policy</a>
-    </div>
-    <div class="col-md-6 d-flex justify-content-center">
-    <a href="#" onclick="toggleFullScreen();">FullScreen</a>
-    </div>
+        <div style="text-align: center;padding: 0; margin:0;padding-left: 10px;">
+<div >
+<a href="{{ url('privacyPolicy') }}"  target="_blank">Privacy Policy</a>
 </div>
 </div>
 </div>
