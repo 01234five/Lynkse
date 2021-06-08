@@ -2675,7 +2675,7 @@ $(document).ready(function(){
    }
    if ($(window).width() >= 767) {
      
-       $(".alert").css("width","100%");
+       $(".alert").css("width","");
        //$(".alert .msg").css("font-size","18px");
        
   }
@@ -2694,7 +2694,7 @@ $(window).resize(function() {
     }
     if ($(window).width() >= 767) {
       
-        $(".alert").css("width","100%");
+        $(".alert").css("width","");
         //$(".alert .msg").css("font-size","18px");
    }
  
@@ -2715,7 +2715,7 @@ $(window).resize(function() {
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  width:100%;
+  
 }
 .alert.showAlert{
   opacity: 1;
