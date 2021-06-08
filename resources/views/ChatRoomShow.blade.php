@@ -103,7 +103,7 @@
       <div class="bottom">
       <div class="row justify-content-md-center">
       
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-lg-6 col-md-8 col-md-offset-3">
 
 
       <div class="container">
@@ -118,8 +118,10 @@
              
             </div>
     </div>
-    <div class="col-md-6 col-xs-4 text-right">
+    <div class="col-md-6 col-xs-4 text-right ">
+      <div class="container">
     <input id="myRangeYoutube" type="range" min="0" max="0" value="0" class="range blue"/>
+    </div>
     </div>
     <div class="col-md-3 col-xs-4">
     <button id="browseUserCountyoutube" type="button" class="btn btn btn-black toggle-sidebar" style="color:whitesmoke">BROWSE <i class="fa fa-file"></i></button></div>
