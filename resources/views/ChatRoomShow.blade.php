@@ -119,7 +119,7 @@
             </div>
     </div>
     <div class="col-md-6 col-xs-4 text-right ">
-      <div class="container">
+      <div class="container" style="height:37px;padding:0;">
     <input id="myRangeYoutube" type="range" min="0" max="0" value="0" class="range blue"/>
     </div>
     </div>
