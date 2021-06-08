@@ -143,7 +143,30 @@
 
 </style>
 <script>
-
+function toggleFullScreen() {
+  if (!document.fullscreenElement &&    // alternative standard method
+      !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) {
+      document.documentElement.msRequestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) {
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) {
+      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }
+}
 
 
 </script>
@@ -294,7 +317,12 @@ $('#view').append(`
 </div>
 <div class="row justify-content-center">
         <div class="col-md-8 d-flex justify-content-center">
+        <div class="col-md-6 d-flex justify-content-center">
     <a href="{{ url('privacyPolicy') }}" style="text-align: center;" target="_blank">Privacy Policy</a>
+    </div>
+    <div class="col-md-6 d-flex justify-content-center">
+    <a href="#" onclick="toggleFullScreen();">FullScreen</a>
+    </div>
 </div>
 </div>
 
@@ -474,8 +502,13 @@ function communityMembersView(){
 </div>
 
 <div class="row justify-content-center">
-        <div class="col-md-8 d-flex justify-content-center">
+<div class="col-md-8 d-flex justify-content-center">
+        <div class="col-md-6 d-flex justify-content-center">
     <a href="{{ url('privacyPolicy') }}" style="text-align: center;" target="_blank">Privacy Policy</a>
+    </div>
+    <div class="col-md-6 d-flex justify-content-center">
+    <a href="#" onclick="toggleFullScreen();">FullScreen</a>
+    </div>
 </div>
 </div>
 
