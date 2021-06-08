@@ -2663,11 +2663,50 @@ article:hover {
 
 
 <!-- ALERT MESSAGE -->
+
+<script>
+$(document).ready(function(){
+  if ($(window).width() <= 766) {
+      
+       
+
+      $(".alert").css("width","95%");
+      $(".alert .msg").css("font-size","15px");
+   }
+   if ($(window).width() >= 767) {
+     
+       $(".alert").css("width","100%");
+       $(".alert .msg").css("font-size","18px");
+       
+  }
+});
+$(window).resize(function() {         
+ 
+
+
+
+    if ($(window).width() <= 766) {
+      
+       
+
+       $(".alert").css("width","95%");
+       $(".alert .msg").css("font-size","15px");
+    }
+    if ($(window).width() >= 767) {
+      
+        $(".alert").css("width","100%");
+        $(".alert .msg").css("font-size","18px");
+   }
+ 
+    });
+
+</script>
 <style>
 .alert{
   background: #181E26;
   padding: 20px 40px;
-  min-width: 420px;
+  min-width: 380px;
+  max-width: 480px;
   position: absolute;
   right: 0;
   top: 10px;
@@ -2676,6 +2715,7 @@ article:hover {
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
+  width:100%;
 }
 .alert.showAlert{
   opacity: 1;
