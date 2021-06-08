@@ -110,7 +110,7 @@
 -->
 <div class="alert hide" style="position:fixed;">
   <span class="fa fa-exclamation-circle" style="font-size: 22px;line-height: 40px;"></span>
-  <span class="msg">Room full! Ask room creator for direct link.</span>
+  <span class="msg">Room full! Ask for direct link.</span>
   <div class="close-btn">
     <span class="fa fa-times" style="font-size: 22px;line-height: 40px; color:gray"></span>
   </div>
@@ -2671,12 +2671,12 @@ $(document).ready(function(){
        
 
       $(".alert").css("width","95%");
-      $(".alert .msg").css("font-size","15px");
+      //$(".alert .msg").css("font-size","15px");
    }
    if ($(window).width() >= 767) {
      
        $(".alert").css("width","100%");
-       $(".alert .msg").css("font-size","18px");
+       //$(".alert .msg").css("font-size","18px");
        
   }
 });
@@ -2690,12 +2690,12 @@ $(window).resize(function() {
        
 
        $(".alert").css("width","95%");
-       $(".alert .msg").css("font-size","15px");
+       //$(".alert .msg").css("font-size","15px");
     }
     if ($(window).width() >= 767) {
       
         $(".alert").css("width","100%");
-        $(".alert .msg").css("font-size","18px");
+        //$(".alert .msg").css("font-size","18px");
    }
  
     });
