@@ -3413,6 +3413,7 @@ function successHandler() {
 // bind events
 inputRangeVimeo.addEventListener('mousedown', unlockStartHandler, false);
 inputRangeVimeo.addEventListener('mousestart', unlockStartHandler, false);
+inputRange.addEventListener('touchstart', unlockStartHandler, false);
 inputRangeVimeo.addEventListener('mouseup', unlockEndHandler, false);
 inputRangeVimeo.addEventListener('touchend', unlockEndHandler, false);
 
