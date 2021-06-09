@@ -575,7 +575,7 @@ getPendingCounts();
 
 if ($(window).width() <= 766) {
     $('#myBanner').append(`
-<article id="articleBanner" class="col-3"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block;
+<article id="articleBanner" class="col-3"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block; min-width:80px;
   margin-left: auto;
   margin-right: auto; ">
 
@@ -612,7 +612,7 @@ if ($(window).width() <= 766) {
     }
     if ($(window).width() >= 767) {
         $('#myBanner').append(`
-<article id="articleBanner" class="col-7"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block;
+<article id="articleBanner" class="col-7"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block; min-width:80px;
   margin-left: auto;
   margin-right: auto; ">
 
@@ -890,7 +890,7 @@ function refreshBanner(){
   document.getElementById("myBanner").innerHTML = "";
                         if ($(window).width() <= 766) {
     $('#myBanner').append(`
-<article id="articleBanner" class="col-3"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block;
+<article id="articleBanner" class="col-3"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block; min-width:80px;
   margin-left: auto;
   margin-right: auto; ">
 
@@ -927,7 +927,7 @@ function refreshBanner(){
     }
     if ($(window).width() >= 767) {
         $('#myBanner').append(`
-<article id="articleBanner" class="col-7"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block;
+<article id="articleBanner" class="col-7"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block; min-width:80px;
   margin-left: auto;
   margin-right: auto; ">
 
