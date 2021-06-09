@@ -108,7 +108,7 @@
 
       <div class="container">
   <div class="row">
-  <div class="col-md-3 col-xs-4 my-auto" >
+  <div id="buttonsYoutube" class="col-md-3 col-xs-4 my-auto text-center" >
   
   <div class="btn-group" role="group" aria-label="Basic example">
               <button onclick="playVideo();" type="button" class="btn btn-primary"><i class="fa fa-play"></i></button>
@@ -123,7 +123,7 @@
     <input id="myRangeYoutube" type="range" min="0" max="0" value="0" class="range blue"/>
     </div>
     </div>
-    <div class="col-md-3 col-xs-4">
+    <div id="browseButtonYoutube" class="col-md-3 col-xs-4 text-center">
     <button id="browseUserCountyoutube" type="button" class="btn btn btn-black toggle-sidebar" style="color:whitesmoke">BROWSE <i class="fa fa-file"></i></button></div>
     </div>
   </div>
@@ -148,7 +148,7 @@
 
     <div class="container">
 <div class="row">
-<div class="col-md-3 col-xs-4 my-auto">
+<div class="col-md-3 col-xs-4 my-auto text-center">
 <div class="btn-group" role="group" aria-label="Basic example">
             <button onclick="vimeoPusherPlay()" type="button" class="btn btn-primary"><i class="fa fa-play"></i></button>
            
@@ -160,7 +160,7 @@
   <div class="col-md-6 col-xs-4 text-right">
   <input id="myRangeVimeo" type="range" min="0" max="0" value="0" class="range blue"/>
   </div>
-  <div class="col-md-3 col-xs-4">
+  <div class="col-md-3 col-xs-4 text-center">
   <button id="browseUserCountvimeo" type="button" class="btn btn btn-black toggle-sidebar" style="color:whitesmoke">BROWSE <i class="fa fa-file"></i></button></div>
   </div>
 </div>
@@ -342,7 +342,10 @@
 
   </div>
 
+<script>
 
+
+</script>
   <style>
 #siteWrapper {
   overflow-x:hidden;
