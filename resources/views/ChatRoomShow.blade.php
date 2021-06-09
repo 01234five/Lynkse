@@ -2156,6 +2156,7 @@ function successHandler() {
 // bind events
 inputRange.addEventListener('mousedown', unlockStartHandler, false);
 inputRange.addEventListener('mousestart', unlockStartHandler, false);
+inputRange.addEventListener('touchstart', unlockStartHandler, false);
 inputRange.addEventListener('mouseup', unlockEndHandler, false);
 inputRange.addEventListener('touchend', unlockEndHandler, false);
 
