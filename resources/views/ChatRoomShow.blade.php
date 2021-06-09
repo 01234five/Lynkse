@@ -3316,40 +3316,13 @@ function videoMaxTimeVimeo(){
 }
 
 // listen for unlock
-function unlockStartHandler() {
-  //stopTrack();
-  trackVimeo=false;
-  vimeoPusherPause();
-    // set to desired value
-    currValueVimeo = +this.value;
-    inputRangeVimeo.Value=currValueVimeo;
 
-
-
-
-}
 function updateHandlerVimeo(cvVimeo){
   currValueVimeo = +cvVimeo;
     inputRangeVimeo.Value=currValueVimeo;
     window.requestAnimationFrame(animateHandlerVimeo);
 }
-function unlockEndHandler() {
-   //stopTrack();
 
-    // store current value
-    currValueVimeo = +this.value;
-    inputRangeVimeo.Value=currValueVimeo;
-    //seekVideoVimeo(currValue);
-    vimeoPusherSeek(currValueVimeo)
-
-  
-    trackVimeo=false;
-
-
-
-  
-  //SEND HERE MESSAGE SEEEEKK
-}
 
 function vimeoCurrentTime(){
   if(trackVimeo==true){

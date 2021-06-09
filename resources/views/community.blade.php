@@ -243,7 +243,7 @@ $('#view').append(`
     <div class="container testimonial-group" style="margin-top: 10px;height:37%;">
 <div id="category" class="row text-center" style="height:100%;">
 
-<div class="col-6 p-1" style="height:98%;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px;" >
 <article style="height:140px;" category-key="anime">
     <img  class="center"src="/category/anime.jpg"  alt="image" style="width: 90%;
   height: 100%; display: block;
@@ -251,7 +251,7 @@ $('#view').append(`
   "></img>
 </article>
 </div>
-<div class="col-6 p-1" style="height:98%;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px;" >
 <article style="height:140px;" category-key="games">
     <img  class="center"src="/category/games.jpg" alt="image" style="width: 90%;
   height: 100%; display: block;
@@ -261,7 +261,7 @@ $('#view').append(`
 
 </article>
 </div>
-<div class="col-6 p-1" style="height:98%;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px;" >
 <article style="height:140px;" category-key="music">
     <img  class="center"src="/category/music.jpg" alt="image" style="width: 90%;
   height: 100%; display: block;
@@ -271,7 +271,7 @@ $('#view').append(`
 
 </article>
 </div>
-<div class="col-6 p-1" style="height:98%;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px;" >
 <article style="height:140px;" category-key="comedy">
     <img  class="center"src="/category/comedy.jpg" alt="image" style="width: 90%;
   height: 100%; display: block;
@@ -281,7 +281,7 @@ $('#view').append(`
 
 </article>
 </div>
-<div class="col-6 p-1" style="height:98%;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px;" >
 <article style="height:140px;" category-key="other">
     <img  class="center"src="/category/other.jpg" alt="image" style="width: 90%;
   height: 100%; display: block;
@@ -292,7 +292,7 @@ $('#view').append(`
 </article>
 </div>
 
-<div class="col-6 p-1" style="height:98%;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px;" >
 <article style="height:140px;" category-key="All">
     <img  class="center"src="/category/all.jpg" alt="image" style="width: 90%;
   height: 100%; display: block;
@@ -2430,7 +2430,7 @@ function addRooms(data){
         $('#roomList').append(`
 
 
-<article class="articleRoom col-3"  id-key="${id}" name-key="${name}" videoType-key="${videoType}" style="height:98%; ">
+<article class="articleRoom col-3"  id-key="${id}" name-key="${name}" videoType-key="${videoType}" style="height: max-content; min-width:80px; ">
 
 
     
@@ -2482,7 +2482,7 @@ function addRooms(data){
         $('#roomList').append(`
 
 
-<article class="articleRoom col-2"  id-key="${id}" name-key="${name}" videoType-key="${videoType}" style="height:98%; ">
+<article class="articleRoom col-2"  id-key="${id}" name-key="${name}" videoType-key="${videoType}" style="height: max-content; min-width:80px; ">
 
 
     
