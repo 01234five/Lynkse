@@ -343,9 +343,12 @@
   </div>
 
 <script>
-  $( document ).ready(function() {
+  
     var toggleBool=false;
-    $('#cardBodyID').on( "click", function() {
+    $( document ).ready(function() {  
+    $('#thirdSectionID').on( "click", '#cardBodyID', function(e) {
+      
+      
       if (window.innerWidth <= 952 && window.innerWidth > 767)  {
 
 if(toggleBool==false){
@@ -361,8 +364,8 @@ toggleBool=true;
 
 }
 
-});
-});
+
+});});
 
 
 
