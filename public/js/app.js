@@ -480,8 +480,6 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           this.expanded = false;
         }
-
-        alert('Hello ' + this.expanded + '!');
       }
     },
     connect: function connect() {
@@ -49156,11 +49154,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticStyle: {
-        height: "calc(100vh - 120px)",
-        "box-sizing": "border-box"
-      },
-      on: { click: _vm.expand }
+      staticStyle: { height: "calc(100vh - 120px)", "box-sizing": "border-box" }
     },
     [
       _c(
@@ -49182,7 +49176,9 @@ var render = function() {
             "b-card-body",
             {
               staticClass: "card-body-scroll",
-              staticStyle: { "background-color": "#1b2838" }
+              staticStyle: { "background-color": "#1b2838" },
+              attrs: { id: "cardBodyID" },
+              on: { click: _vm.expand }
             },
             _vm._l(_vm.roommessages, function(message) {
               return _c(

@@ -343,24 +343,29 @@
   </div>
 
 <script>
+  $( document ).ready(function() {
+    var toggleBool=false;
+    $('#cardBodyID').on( "click", function() {
+      if (window.innerWidth <= 952 && window.innerWidth > 767)  {
 
-var toggleBool=false;
-$('#thirdSectionID').on( "click", function() {
-  if (window.innerWidth <= 952 && window.innerWidth > 767)  {
+if(toggleBool==false){
+$("#thirdSectionID").removeClass("col-md-2").addClass("col-md-4");
+$("#secondSectionID").removeClass("col-md-8").addClass("col-md-6");
+toggleBool=true;
 
-        if(toggleBool==false){
-        $("#thirdSectionID").removeClass("col-md-2").addClass("col-md-4");
-        $("#secondSectionID").removeClass("col-md-8").addClass("col-md-6");
-        toggleBool=true;
-        
-        }else{
-          $("#thirdSectionID").removeClass("col-md-4").addClass("col-md-2");
-          $("#secondSectionID").removeClass("col-md-6").addClass("col-md-8");
-          toggleBool=false;
-        }
+}else{
+  $("#thirdSectionID").removeClass("col-md-4").addClass("col-md-2");
+  $("#secondSectionID").removeClass("col-md-6").addClass("col-md-8");
+  toggleBool=false;
+}
 
-    }
-  });
+}
+
+});
+});
+
+
+
 
 
 

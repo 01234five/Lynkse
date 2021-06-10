@@ -3,11 +3,11 @@
 <b-container fluid class="" style="height: calc(100vh - 104px);">
 <b-row align-h="end" class="h-100">        
 <b-col cols="2"> -->
-<div v-on:click="expand" style="height: calc(100vh - 120px);box-sizing: border-box;">
+<div style="height: calc(100vh - 120px);box-sizing: border-box;">
 <b-card no-body footer-bg-variant="white" footer-border-variant="Secondary" style="height: calc(100vh - 120px);box-sizing: border-box;border-color: #313F50;"> <!-- header-bg-variant="white" header-border-variant="Light"> -->
 
 
-<b-card-body class="card-body-scroll" style="background-color:#1b2838">
+<b-card-body v-on:click="expand" id="cardBodyID" class="card-body-scroll" style="background-color:#1b2838">
     
 <chat-room-message-component :expanded="expanded" v-for="message in roommessages" 
 :key="message.id"
@@ -72,7 +72,7 @@ destroyed() {
       }else{
           this.expanded=false;
       }
-      alert('Hello ' + this.expanded + '!')
+      
       }
                 
             },
