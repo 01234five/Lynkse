@@ -350,7 +350,7 @@
 
 var dfd = $.Deferred();
 var checkSelector = setInterval(function () {
-    if ($("#app").length) {
+    if ($("#cardBodyID").length) {
         dfd.resolve();
         clearInterval(checkSelector);
     }
@@ -377,7 +377,6 @@ toggleBool=true;
 
 
 });
- 
 });
 
 
