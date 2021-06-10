@@ -359,9 +359,9 @@ var checkSelector = setInterval(function () {
 dfd.done(function () {
   $('#thirdSectionID').on( "click", function(e) {
     if($("#cardBodyID").length == 0) {
-    
+      console.log("does not exist");
   } else {
-    alert('this record already exists');
+    console.log("exist");
   }
 });
       
