@@ -277,8 +277,96 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
+    expanded: Boolean,
     writtenByMe: Boolean,
     name: String,
     image: String
@@ -286,10 +374,25 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       url: "/users/",
-      content: 'Miss you a lot, please ... dont leave me alone....'
+      content: 'Miss you a lot, please ... dont leave me alone....',
+      width: window.innerWidth
     };
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    this.width = window.innerWidth; //console.log(this.width)
+  },
+  created: function created() {
+    window.addEventListener("resize", this.myEventHandler);
+  },
+  destroyed: function destroyed() {
+    window.removeEventListener("resize", this.myEventHandler);
+  },
+  methods: {
+    myEventHandler: function myEventHandler(e) {
+      // your code for handling resize...
+      this.width = window.innerWidth;
+    }
+  }
 });
 
 /***/ }),
@@ -349,14 +452,38 @@ __webpack_require__.r(__webpack_exports__);
   props: ['currentroom', 'messages', 'user'],
   data: function data() {
     return {
+      expanded: false,
       users: [],
       newMessage: '',
       //Variable to input message using v model
       roommessages: [],
-      Id: ''
+      Id: '',
+      width: window.innerWidth
     };
   },
+  created: function created() {
+    window.addEventListener("resize", this.myEventHandler);
+  },
+  destroyed: function destroyed() {
+    window.removeEventListener("resize", this.myEventHandler);
+  },
   methods: {
+    myEventHandler: function myEventHandler(e) {
+      // your code for handling resize...
+      this.width = window.innerWidth;
+    },
+    expand: function expand(event) {
+      // `this` inside methods points to the Vue instance
+      if (this.width <= 952 && this.width > 767) {
+        if (this.expanded == false) {
+          this.expanded = true;
+        } else {
+          this.expanded = false;
+        }
+
+        alert('Hello ' + this.expanded + '!');
+      }
+    },
     connect: function connect() {
       var _this = this;
 
@@ -426,6 +553,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.connect();
     this.getMessage();
+    this.width = window.innerWidth;
   },
   updated: function updated() {
     this.scrollToBottom();
@@ -48644,7 +48772,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.writtenByMe
+  return _vm.writtenByMe && this.width > 952
     ? _c(
         "b-media",
         { staticClass: "mb-2", attrs: { "right-align": "" } },
@@ -48694,7 +48822,8 @@ var render = function() {
         ],
         1
       )
-    : _c(
+    : _vm.writtenByMe == false && this.width > 952
+    ? _c(
         "b-media",
         { staticClass: "mb-2", attrs: { "vertical-align": "center" } },
         [
@@ -48743,6 +48872,263 @@ var render = function() {
         ],
         1
       )
+    : this.width <= 952 && this.width > 767 && this.expanded == false
+    ? _c(
+        "b-media",
+        { staticClass: "mb-2", attrs: { "right-align": "" } },
+        [
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                {
+                  staticClass: "text-center p-1 text-white",
+                  attrs: { cols: "12" }
+                },
+                [
+                  _vm._v("\r\n    " + _vm._s(_vm.name) + "\r\n    "),
+                  _c("b-img", {
+                    staticClass: "mb-2",
+                    attrs: {
+                      src: _vm.url + _vm.image,
+                      rounded: "circle",
+                      width: "30",
+                      height: "30"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-card",
+            {
+              staticStyle: { "background-color": "#313F50" },
+              attrs: { "no-body": "" }
+            },
+            [
+              _c(
+                "div",
+                { staticStyle: { color: "#a3a3a3" } },
+                [_vm._t("default")],
+                2
+              )
+            ]
+          )
+        ],
+        1
+      )
+    : _vm.writtenByMe &&
+      this.width <= 952 &&
+      this.width > 767 &&
+      this.expanded == true
+    ? _c(
+        "b-media",
+        { staticClass: "mb-2", attrs: { "right-align": "" } },
+        [
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                {
+                  staticClass: "text-right p-1 text-white",
+                  attrs: { cols: "12" }
+                },
+                [
+                  _vm._v("\r\n    " + _vm._s(_vm.name) + "\r\n    "),
+                  _c("b-img", {
+                    staticClass: "mb-2",
+                    attrs: {
+                      src: _vm.url + _vm.image,
+                      rounded: "circle",
+                      width: "30",
+                      height: "30"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-card",
+            {
+              staticStyle: { "background-color": "#313F50" },
+              attrs: { "no-body": "" }
+            },
+            [
+              _c(
+                "div",
+                { staticStyle: { color: "#a3a3a3" } },
+                [_vm._t("default")],
+                2
+              )
+            ]
+          )
+        ],
+        1
+      )
+    : _vm.writtenByMe == false &&
+      this.width <= 952 &&
+      this.width > 767 &&
+      this.expanded == true
+    ? _c(
+        "b-media",
+        { staticClass: "mb-2", attrs: { "vertical-align": "center" } },
+        [
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                {
+                  staticClass: "text-left p-1 text-white",
+                  attrs: { cols: "12" }
+                },
+                [
+                  _c("b-img", {
+                    staticClass: "mb-2",
+                    attrs: {
+                      src: _vm.url + _vm.image,
+                      rounded: "circle",
+                      width: "30",
+                      height: "30"
+                    }
+                  }),
+                  _vm._v("\r\n    " + _vm._s(_vm.name) + "\r\n    ")
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-card",
+            {
+              staticStyle: { "background-color": "#313F50" },
+              attrs: { "no-body": "" }
+            },
+            [
+              _c(
+                "div",
+                { staticStyle: { color: "#a3a3a3" } },
+                [_vm._t("default")],
+                2
+              )
+            ]
+          )
+        ],
+        1
+      )
+    : _vm.writtenByMe && this.width <= 767
+    ? _c(
+        "b-media",
+        { staticClass: "mb-2", attrs: { "right-align": "" } },
+        [
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                {
+                  staticClass: "text-right p-1 text-white",
+                  attrs: { cols: "12" }
+                },
+                [
+                  _vm._v("\r\n    " + _vm._s(_vm.name) + "\r\n    "),
+                  _c("b-img", {
+                    staticClass: "mb-2",
+                    attrs: {
+                      src: _vm.url + _vm.image,
+                      rounded: "circle",
+                      width: "30",
+                      height: "30"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-card",
+            {
+              staticStyle: { "background-color": "#313F50" },
+              attrs: { "no-body": "" }
+            },
+            [
+              _c(
+                "div",
+                { staticStyle: { color: "#a3a3a3" } },
+                [_vm._t("default")],
+                2
+              )
+            ]
+          )
+        ],
+        1
+      )
+    : _vm.writtenByMe == false && this.width <= 767
+    ? _c(
+        "b-media",
+        { staticClass: "mb-2", attrs: { "vertical-align": "center" } },
+        [
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                {
+                  staticClass: "text-left p-1 text-white",
+                  attrs: { cols: "12" }
+                },
+                [
+                  _c("b-img", {
+                    staticClass: "mb-2",
+                    attrs: {
+                      src: _vm.url + _vm.image,
+                      rounded: "circle",
+                      width: "30",
+                      height: "30"
+                    }
+                  }),
+                  _vm._v("\r\n    " + _vm._s(_vm.name) + "\r\n    ")
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-card",
+            {
+              staticStyle: { "background-color": "#313F50" },
+              attrs: { "no-body": "" }
+            },
+            [
+              _c(
+                "div",
+                { staticStyle: { color: "#a3a3a3" } },
+                [_vm._t("default")],
+                2
+              )
+            ]
+          )
+        ],
+        1
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -48770,7 +49156,11 @@ var render = function() {
   return _c(
     "div",
     {
-      staticStyle: { height: "calc(100vh - 120px)", "box-sizing": "border-box" }
+      staticStyle: {
+        height: "calc(100vh - 120px)",
+        "box-sizing": "border-box"
+      },
+      on: { click: _vm.expand }
     },
     [
       _c(
@@ -48800,6 +49190,7 @@ var render = function() {
                 {
                   key: message.id,
                   attrs: {
+                    expanded: _vm.expanded,
                     "written-by-me": message.written_by_me,
                     name: message.user.name,
                     image: message.user.image

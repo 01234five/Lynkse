@@ -67,7 +67,7 @@ class RoomController extends Controller
     public function show(Room $room) {
         error_log($room);
         $roommessages = Roommessage::where('room_id', $room->id)
-            ->with('user')
+            ->with(['user'=> function($query){$query->select('name','id','image');}])
             ->oldest()
             ->get();
         return view('ChatRoomShow', [

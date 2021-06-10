@@ -45,12 +45,12 @@
       </div>
     </div>
     <!-- ======= second section ========== -->
-    <div class="col-lg-8 col-md-8 col-xs-12 p-0">
+    <div id="secondSectionID" class="col-lg-8 col-md-8 col-xs-12 p-0">
     <div id="playerDiv" style="height: calc(100vh - 80px);box-sizing: border-box;"></div>
     <div  id="playerDivVimeo" class="vimeo-wrapper"></div>
     </div>
     <!-- ======= third section ========== -->
-    <div class="col-lg-2 col-md-2 col-xs-12 p-0" style="height: calc(100vh - 80px);box-sizing: border-box;">
+    <div id="thirdSectionID" class="col-lg-2 col-md-2 col-xs-12 p-0" style="height: calc(100vh - 80px);box-sizing: border-box;">
       <div class="box">
         <div class="box-right" style="height: calc(100vh - 80px);box-sizing: border-box;">
           <div class="row">
@@ -343,6 +343,27 @@
   </div>
 
 <script>
+
+var toggleBool=false;
+$('#thirdSectionID').on( "click", function() {
+  if (window.innerWidth <= 952 && window.innerWidth > 767)  {
+
+        if(toggleBool==false){
+        $("#thirdSectionID").removeClass("col-md-2").addClass("col-md-4");
+        $("#secondSectionID").removeClass("col-md-8").addClass("col-md-6");
+        toggleBool=true;
+        
+        }else{
+          $("#thirdSectionID").removeClass("col-md-4").addClass("col-md-2");
+          $("#secondSectionID").removeClass("col-md-6").addClass("col-md-8");
+          toggleBool=false;
+        }
+
+    }
+  });
+
+
+
 
 
 </script>

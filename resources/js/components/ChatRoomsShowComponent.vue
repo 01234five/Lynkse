@@ -3,13 +3,13 @@
 <b-container fluid class="" style="height: calc(100vh - 104px);">
 <b-row align-h="end" class="h-100">        
 <b-col cols="2"> -->
-<div style="height: calc(100vh - 120px);box-sizing: border-box;">
+<div v-on:click="expand" style="height: calc(100vh - 120px);box-sizing: border-box;">
 <b-card no-body footer-bg-variant="white" footer-border-variant="Secondary" style="height: calc(100vh - 120px);box-sizing: border-box;border-color: #313F50;"> <!-- header-bg-variant="white" header-border-variant="Light"> -->
 
 
 <b-card-body class="card-body-scroll" style="background-color:#1b2838">
     
-<chat-room-message-component v-for="message in roommessages" 
+<chat-room-message-component :expanded="expanded" v-for="message in roommessages" 
 :key="message.id"
 :written-by-me="message.written_by_me"
 :name="message.user.name"
@@ -43,14 +43,39 @@
     export default {
         props: ['currentroom','messages','user'],
         data(){
+            
             return{
+                expanded: false,
             users: [],
             newMessage:'', //Variable to input message using v model
             roommessages:[],
-            Id:''
+            Id:'',
+            width: window.innerWidth,
             };
         },
+                    created() {
+  window.addEventListener("resize", this.myEventHandler);
+},
+destroyed() {
+  window.removeEventListener("resize", this.myEventHandler);
+},
          methods: {
+               myEventHandler(e) {
+    // your code for handling resize...
+    this.width = window.innerWidth;
+  },
+             expand: function (event) {
+      // `this` inside methods points to the Vue instance
+      if(this.width <= 952 && this.width > 767){
+      if(this.expanded==false){
+          this.expanded=true;
+      }else{
+          this.expanded=false;
+      }
+      alert('Hello ' + this.expanded + '!')
+      }
+                
+            },
             connect() {
                 console.log("launched")
                 Echo.join(`chat.${this.currentroom.id}`)
@@ -127,6 +152,7 @@
          mounted(){
              this.connect()
              this.getMessage();
+             this.width = window.innerWidth;
          },
 
          updated(){
