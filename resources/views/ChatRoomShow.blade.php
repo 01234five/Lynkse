@@ -357,12 +357,12 @@ var checkSelector = setInterval(function () {
 }, 1000);
 
 dfd.done(function () {
-  $('#thirdSectionID').on( "click", function(e) {
+  $('#thirdSectionID').on( "click",'#cardBodyID', function(e) {
     if($("#cardBodyID").length == 0) {
       console.log("does not exist");
   } else {
     console.log("exist");
-    $('#thirdSectionID').on( "click", '#cardBodyID', function(e) {
+  
       
       
       if (window.innerWidth <= 952 && window.innerWidth > 767)  {
@@ -381,7 +381,7 @@ toggleBool=true;
 }
 
 
-});
+
   }
 });
       
