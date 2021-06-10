@@ -346,7 +346,7 @@
   
     var toggleBool=false;
     
-    $('#thirdSectionID').on( "click", function(e) {
+    $('#thirdSectionID').on( "click", '#cardBodyID', function(e) {
       
       
       if (window.innerWidth <= 952 && window.innerWidth > 767)  {
