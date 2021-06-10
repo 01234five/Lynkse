@@ -357,26 +357,15 @@ var checkSelector = setInterval(function () {
 }, 1000);
 
 dfd.done(function () {
-  $('#thirdSectionID').on( "click", '#cardBodyID', function(e) {
-      
-      
-      if (window.innerWidth <= 952 && window.innerWidth > 767)  {
-
-if(toggleBool==false){
-$("#thirdSectionID").removeClass("col-md-2").addClass("col-md-4");
-$("#secondSectionID").removeClass("col-md-8").addClass("col-md-6");
-toggleBool=true;
-
-}else{
-  $("#thirdSectionID").removeClass("col-md-4").addClass("col-md-2");
-  $("#secondSectionID").removeClass("col-md-6").addClass("col-md-8");
-  toggleBool=false;
-}
-
-}
-
-
+  $('#thirdSectionID').on( "click", function(e) {
+    if($("#cardBodyID").length == 0) {
+    
+  } else {
+    alert('this record already exists');
+  }
 });
+      
+
 });
 
 
