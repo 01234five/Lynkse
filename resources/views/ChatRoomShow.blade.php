@@ -345,8 +345,8 @@
 <script>
   
     var toggleBool=false;
-    $( document ).ready(function() {  
-    $('#thirdSectionID').on( "click", '#cardBodyID', function(e) {
+    
+    $('#thirdSectionID').on( "click", function(e) {
       
       
       if (window.innerWidth <= 952 && window.innerWidth > 767)  {
@@ -365,7 +365,7 @@ toggleBool=true;
 }
 
 
-});});
+});
 
 
 
