@@ -346,7 +346,18 @@
   
     var toggleBool=false;
     
-    $('#thirdSectionID').on( "click", '#cardBodyID', function(e) {
+
+
+var dfd = $.Deferred();
+var checkSelector = setInterval(function () {
+    if ($("#app").length) {
+        dfd.resolve();
+        clearInterval(checkSelector);
+    }
+}, 1000);
+
+dfd.done(function () {
+  $('#thirdSectionID').on( "click", '#cardBodyID', function(e) {
       
       
       if (window.innerWidth <= 952 && window.innerWidth > 767)  {
@@ -365,6 +376,8 @@ toggleBool=true;
 }
 
 
+});
+ 
 });
 
 
