@@ -362,7 +362,10 @@ dfd.done(function () {
       console.log("does not exist");
   } else {
     console.log("exist");
-    if (window.innerWidth <= 952 && window.innerWidth > 767)  {
+    $('#thirdSectionID').on( "click", '#cardBodyID', function(e) {
+      
+      
+      if (window.innerWidth <= 952 && window.innerWidth > 767)  {
 
 if(toggleBool==false){
 $("#thirdSectionID").removeClass("col-md-2").addClass("col-md-4");
@@ -376,6 +379,9 @@ toggleBool=true;
 }
 
 }
+
+
+});
   }
 });
       
