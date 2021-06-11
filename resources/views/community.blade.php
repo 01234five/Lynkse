@@ -17,7 +17,7 @@
 <!-- ======= sec1 ========== -->
 
 <div class="col-lg-9 col-md-9 col-xs-12 p-1 my-auto" style=" overflow-y:hidden;">
-<div class="container " >
+<div id="boxleftrightContainter" class="container " style="padding-right: 15px;" >
 <div id="view">
 
 
@@ -152,6 +152,10 @@
 
 </style>
 <script>
+var roomView=false;
+
+
+   
   if (window.innerWidth <= 899) {
        $("#myChat").css("min-height","352px");
     }
@@ -159,8 +163,16 @@
       
         $("#myChat").css("min-height","400px");
    }
-$(window).resize(function() {         
-  
+$(window).resize(function() {
+  if(roomView==true){   
+  if (window.innerWidth > 767) {
+      
+      $("#boxleftrightContainter").css("padding-right","15px");
+ }
+ if (window.innerWidth <= 766) {
+       $("#boxleftrightContainter").css("padding-right","30px");
+    }
+}      
     if (window.innerWidth <= 899) {
        $("#myChat").css("min-height","352px");
     }
@@ -452,8 +464,14 @@ if ($(window).width() >= 767) {
 
 }
 
-
-
+roomView=true;
+if (window.innerWidth <= 766) {
+       $("#boxleftrightContainter").css("padding-right","30px");
+    }
+    if (window.innerWidth > 767) {
+      
+      $("#boxleftrightContainter").css("padding-right","15px");
+ }
 
 
 }
@@ -890,6 +908,9 @@ $.ajax({
 
 
       
+      roomView=false;
+      
+      $("#boxleftrightContainter").css("padding-right","15px");
 
 
 
