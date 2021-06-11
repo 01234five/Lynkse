@@ -5,8 +5,8 @@
 <div class="clearfix"></div>
 <div class="container-fullwidth sec1" >
 <div class="container-fullwidth mr-2 ml-2" style="width:100%;"> <!-- this is mandatory when using row -->
-  <div class="row" style="justify-content: center;">
-<div id="myChat" class="col-lg-2 col-md-2 col-xs-2 p-1" style="height: calc(100vh - 154px); overflow-x:hidden;">
+  <div class="row align-items-center" style="justify-content: center;">
+<div id="myChat" class="col-lg-2 col-md-2 col-xs-2 p-1" style="min-height:352px;height: calc(100vh - 154px); overflow-x:hidden;">
 <input type="text" id="searchListInput" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" style="border-radius:0px 0px 0px 0px; font-size: 1rem;">
 
 <div id="friends"></div>
@@ -16,7 +16,7 @@
 
 <!-- ======= sec1 ========== -->
 
-<div class="col-lg-9 col-md-9 col-xs-12 p-1" style=" overflow-y:hidden;">
+<div class="col-lg-9 col-md-9 col-xs-12 p-1 my-auto" style=" overflow-y:hidden;">
 <div class="container " >
 <div id="view">
 
@@ -35,7 +35,16 @@
 </div>
 </div>
 
-
+<div class="row justify-content-center">
+        <div class="col-md-8 d-flex justify-content-center">
+        <div class="col-md-6 d-flex justify-content-center">
+    <a href="{{ url('privacyPolicy') }}" style="text-align: center;" target="_blank">Privacy Policy</a>
+    </div>
+    <div class="col-md-6 d-flex justify-content-center">
+    <a href="#" onclick="toggleFullScreen();">FullScreen</a>
+    </div>
+</div>
+</div>
 
 </div>
 
@@ -143,6 +152,26 @@
 
 </style>
 <script>
+  if (window.innerWidth <= 899) {
+       $("#myChat").css("min-height","352px");
+    }
+    if (window.innerWidth > 900) {
+      
+        $("#myChat").css("min-height","400px");
+   }
+$(window).resize(function() {         
+  
+    if (window.innerWidth <= 899) {
+       $("#myChat").css("min-height","352px");
+    }
+    if (window.innerWidth > 900) {
+      
+        $("#myChat").css("min-height","400px");
+   }
+ 
+    });
+</script>
+<script>
 function toggleFullScreen() {
   if (!document.fullscreenElement &&    // alternative standard method
       !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
@@ -199,8 +228,8 @@ function communityRoomsView(){
     document.getElementById("view").innerHTML = "";
 
 $('#view').append(`
-<div class="row row-flex" style="height: calc(100vh - 150px);overflow-y:auto;">
-<div class="col-lg-9 col-md-9 col-xs-12" style="height: calc(100vh - 210px); " >
+<div class="row row-flex" style="overflow-y:auto;">
+<div class="col-lg-9 col-md-9 col-xs-12" >
 
 <div class="box">
 <div class="box-left" style="height:100%;overflow-x:auto;">
@@ -215,7 +244,7 @@ $('#view').append(`
 </div>
 
 
-<div class="col-lg-3 col-md-3 col-xs-12" style="height: calc(100vh - 210px);">
+<div class="col-lg-3 col-md-3 col-xs-12">
 <div class="box">
 <div class="box-right">
 
@@ -315,16 +344,7 @@ $('#view').append(`
 </div>
 
 </div>
-<div class="row justify-content-center">
-        <div class="col-md-8 d-flex justify-content-center">
-        <div class="col-md-6 d-flex justify-content-center">
-    <a href="{{ url('privacyPolicy') }}" style="text-align: center;" target="_blank">Privacy Policy</a>
-    </div>
-    <div class="col-md-6 d-flex justify-content-center">
-    <a href="#" onclick="toggleFullScreen();">FullScreen</a>
-    </div>
-</div>
-</div>
+
 
 `);
 
@@ -442,14 +462,14 @@ function communityMembersView(){
 
   $('#view').append(`
 
-<div class="row row-flex" style="height: calc(100vh - 150px);overflow-y:auto;">
+<div class="row row-flex" style="overflow-y:auto;">
 
 
 
-<div class="col-lg-9 col-md-9 col-xs-12" style="height: calc(100vh - 210px); " >
+<div class="col-lg-9 col-md-9 col-xs-12"  >
 <div class="title"><h3>Click on Search to Find Friends</h3></div>
 <div class="box">
-<div id="articlesGroup" class="box-left" style="overflow-y:auto;">
+<div id="articlesGroup" class="box-left" style="height:100%;overflow-y:auto;">
 
 <div id="articles" style="height:100px;"></div>
 <div id="articlesRequests" style="height:100px;"></div>
@@ -459,7 +479,7 @@ function communityMembersView(){
 </div>
 
 
-<div class="col-lg-3 col-md-3 col-xs-12" style="height: calc(100vh - 210px);">
+<div class="col-lg-3 col-md-3 col-xs-12">
 <div class="box">
 <div class="box-right">
 
@@ -501,16 +521,6 @@ function communityMembersView(){
 </div>
 </div>
 
-<div class="row justify-content-center">
-<div class="col-md-8 d-flex justify-content-center">
-        <div class="col-md-6 d-flex justify-content-center">
-    <a href="{{ url('privacyPolicy') }}" style="text-align: center;" target="_blank">Privacy Policy</a>
-    </div>
-    <div class="col-md-6 d-flex justify-content-center">
-    <a href="#" onclick="toggleFullScreen();">FullScreen</a>
-    </div>
-</div>
-</div>
 
         
         `);
