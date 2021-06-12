@@ -119,7 +119,7 @@
 -->
 <div class="alert hide" style="position:fixed;">
   <span class="fa fa-exclamation-circle" style="font-size: 22px;line-height: 40px;"></span>
-  <span class="msg">Room full! Ask for direct link.</span>
+  <span id="messageAlert" class="msg">Room full! Ask for direct link.</span>
   <div class="close-btn">
     <span class="fa fa-times" style="font-size: 22px;line-height: 40px; color:gray"></span>
   </div>
@@ -2640,7 +2640,30 @@ var e = document.getElementById("categories");
 var category = e.value;
 var lengthCategory= $('#categories :selected').length;
 if(lengthCategory >1){
-  alert("select 1");
+  
+  console.log("Select One");
+        console.log("runAlertCode = "+runAlertCode)
+        if(runAlertCode==true){
+          runAlertCode=false;
+  $('.alert').addClass("show");
+  $('.alert').removeClass("hide");
+  $('.alert').addClass("showAlert");
+  //add false to prevent alert code from running
+  var alertcodeTimeout = setTimeout(function(){
+    runAlertCode=true;
+    $('.alert').removeClass("show");
+    $('.alert').addClass("hide");
+    //add true to show alert again
+  },5000);
+
+$('.close-btn').click(function(){
+  $('.alert').removeClass("show");
+  $('.alert').addClass("hide");
+  clearTimeout(alertcodeTimeout);//clears the function out of var timeout to reset timer.
+  runAlertCode=true;
+  //add true to show alert again
+});
+}
 }else{
 //console.log(user.name);
 //alert(myBanner);
