@@ -1339,7 +1339,7 @@ function getPendingCounts(){
         console.log(response.data);
         document.getElementById("friendrequests").innerHTML = "";
         $('#friendrequests').append(`
-        <a href="#" onclick="getFriendRequestsNames();" class="btn btn-default"><i class="fa fa-user-plus"></i> &nbsp; Requests: &nbsp; ${response.data} &nbsp;</a>
+        <a onclick="getFriendRequestsNames();" class="btn btn-default"><i class="fa fa-user-plus"></i> &nbsp; Requests: &nbsp; ${response.data} &nbsp;</a>
         `);
     })
     .catch(function (error) {
