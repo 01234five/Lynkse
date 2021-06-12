@@ -156,13 +156,20 @@ var roomView=false;
 
 
    
-  if (window.innerWidth <= 899) {
+  if (window.innerWidth <= 899 && window.innerWidth > 767) {
        $("#myChat").css("min-height","352px");
+       $("#myChat").css("height","calc(-154px + 100vh)");
     }
     if (window.innerWidth > 900) {
       
         $("#myChat").css("min-height","400px");
+        $("#myChat").css("height","calc(-154px + 100vh)");
+        
    }
+
+   if (window.innerWidth <= 766) {
+      $("#myChat").css("height","400px");
+    }
 $(window).resize(function() {
   if(roomView==true){   
   if (window.innerWidth > 767) {
@@ -173,12 +180,20 @@ $(window).resize(function() {
        $("#boxleftrightContainter").css("padding-right","30px");
     }
 }      
-    if (window.innerWidth <= 899) {
+    if (window.innerWidth <= 899 && window.innerWidth > 767 ) {
        $("#myChat").css("min-height","352px");
+       $("#myChat").css("height","calc(-154px + 100vh)");
     }
+
+    if (window.innerWidth <= 766) {
+      $("#myChat").css("height","400px");
+    }
+
+
     if (window.innerWidth > 900) {
       
         $("#myChat").css("min-height","400px");
+        $("#myChat").css("height","calc(-154px + 100vh)");
    }
  
     });
