@@ -52,7 +52,7 @@
     <!-- ======= third section ========== -->
     <div id="thirdSectionID" class="col-lg-2 col-md-2 col-xs-12 p-0" style="height: calc(100vh - 80px);box-sizing: border-box;">
       <div class="box">
-        <div class="box-right" style="height: calc(100vh - 80px);box-sizing: border-box;">
+        <div class="box-right" style="height: 100%;box-sizing: border-box;">
           <div class="row">
             <div class="col-md-12 p-1">
             <div id="app"><chat-room-show-component :currentroom="{{ $room }}" :messages="{{ $messages }}" :user="{{ auth()->user() }}"></chat-room-show-component></div>
@@ -351,32 +351,32 @@
    
   if (window.innerWidth <= 899 && window.innerWidth > 767) {
        
-       $("#myChat").css("height","calc(-154px + 100vh)");
+       
        $("#firstSectionID").css("height","calc(100vh - 80px)");
        
     }
     if (window.innerWidth > 900) {
       
         
-        $("#myChat").css("height","calc(-154px + 100vh)");
+        
         $("#firstSectionID").css("height","calc(100vh - 80px)");
         
    }
 
    if (window.innerWidth <= 766) {
-      $("#myChat").css("height","400px");
+      
       $("#firstSectionID").css("height","400px");
     }
 $(window).resize(function() {
     
     if (window.innerWidth <= 899 && window.innerWidth > 767 ) {
       
-       $("#myChat").css("height","calc(-154px + 100vh)");
+       
        $("#firstSectionID").css("height","calc(100vh - 80px)");
     }
 
     if (window.innerWidth <= 766) {
-      $("#myChat").css("height","400px");
+      
       $("#firstSectionID").css("height","400px");
     }
 
@@ -384,7 +384,7 @@ $(window).resize(function() {
     if (window.innerWidth > 900) {
       
       $("#firstSectionID").css("height","calc(100vh - 80px)");
-        $("#myChat").css("height","calc(-154px + 100vh)");
+       
    }
  
     });
