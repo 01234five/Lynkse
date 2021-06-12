@@ -364,7 +364,8 @@ particleCanvas.length = 0;//empty array
 getAllRooms();
 
 
-$('#category').on('click','article',function(){
+$('#category').on('click','article',function(event){
+  event.preventDefault();
 		category= $(this).attr('category-key');
 		//console.log("my id = "+category);//write here maybe the function to create an iframe video passing the video id.
         if(category==="All"){  
