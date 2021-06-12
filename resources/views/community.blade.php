@@ -690,13 +690,14 @@ $('#myBanner').on('click','article',function(){
         <form id="avatarEditForm">
   <div class="form-group">
     <label for="exampleFormControlFile1" style="color:whitesmoke">Avatar</label>
-    <input  name="avatarEdit" style="color:whitesmoke"type="file" accept="image/*" class="form-control-file" id="avatarEdit">
+    <br>
+    <input  name="avatarEdit" style="color:whitesmoke;display:inline-block;width:-moz-max-content;width:fit-content;"type="file" accept="image/*" class="form-control-file" id="avatarEdit">
   </div>
   </form>
 
 <div class="form-group">
     <label for="exampleFormControlSelect1" style="color:whitesmoke">Banner</label>
-    <select class="form-control" id="bannerEdit">
+    <select class="form-control" id="bannerEdit" style="display:inline;">
       <option>Default</option>
       <option>Miss You</option>
       <option>Warrior</option>
@@ -708,7 +709,7 @@ $('#myBanner').on('click','article',function(){
 
   <div class="form-group">
     <label for="exampleFormControlSelect2" style="color:whitesmoke">Banner Effect</label>
-    <select class="form-control" id="effectEdit">
+    <select class="form-control" id="effectEdit" style="display:inline;">
       <option>none</option>
       <option>particles</option>
     </select>
@@ -735,7 +736,7 @@ $('#myBanner').on('click','article',function(){
 </form>
 
 
-<form id="passwordEditForm">   
+<form id="passwordEditForm" style="padding-bottom:20px;">   
 <div style="margin-top: 10px;">
 <label for="exampleFormControlInput1"style="color:whitesmoke">Password</label>
 <div class="input-group">
@@ -2420,7 +2421,7 @@ function createForm(){
     <form>
     <div class="form-group">
     <label for="categories" style="color:gray">Select Category</label>
-    <select multiple class="form-control" id="categories">
+    <select multiple class="form-control" id="categories" data-max-options="1";>
       <option>anime</option>
       <option>games</option>
       <option>comedy</option>
