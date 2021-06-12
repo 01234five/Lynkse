@@ -398,6 +398,7 @@ $('#roomList').on('click','article',function(){
         console.log("runAlertCode = "+runAlertCode)
         if(runAlertCode==true){
           runAlertCode=false;
+          $('#messageAlert').text("Room full! Ask for direct link.");
   $('.alert').addClass("show");
   $('.alert').removeClass("hide");
   $('.alert').addClass("showAlert");
@@ -2645,6 +2646,7 @@ if(lengthCategory >1){
         console.log("runAlertCode = "+runAlertCode)
         if(runAlertCode==true){
           runAlertCode=false;
+          $('#messageAlert').text("One (1) category only");
   $('.alert').addClass("show");
   $('.alert').removeClass("hide");
   $('.alert').addClass("showAlert");
