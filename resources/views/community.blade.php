@@ -2638,6 +2638,10 @@ function rederictRoomCreated(room){
 function createRoom(){
 var e = document.getElementById("categories");
 var category = e.value;
+var lengthCategory= e.length;
+if(e.length >1){
+  alert("select 1");
+}else{
 //console.log(user.name);
 //alert(myBanner);
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
@@ -2669,7 +2673,7 @@ $.ajax({
                     }
                 }); 
 
-
+              }
 }
                 
                 
