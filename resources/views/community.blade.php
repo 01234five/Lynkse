@@ -2413,8 +2413,9 @@ $(document).ready(function(){
 
 
 
-function createForm(){
+function createForm(event){
     console.log("test");
+    event.preventDefault();
     
     document.getElementById("roomList").innerHTML = "";
     $('#roomList').append(` 
