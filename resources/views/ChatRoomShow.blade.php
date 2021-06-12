@@ -20,7 +20,7 @@
 <div class="container-fluid p-0 m-0">
   <div class="row row-flex">
     <!-- ======= first section ========== -->
-    <div class="col-lg-2 col-md-2 col-xs-12 p-0 pl-3" style="height: calc(100vh - 80px);box-sizing: border-box;">
+    <div id="firstSectionID" class="col-lg-2 col-md-2 col-xs-12 p-0 pl-3" style="height: calc(100vh - 80px);box-sizing: border-box;">
       <div class="box p-1" style="height: 100%">
         <div class="box-right p-1" style="height: 100%">
           <div class="row" style="height: 100%">
@@ -341,6 +341,56 @@
 
 
   </div>
+
+
+
+  <script>
+
+
+
+   
+  if (window.innerWidth <= 899 && window.innerWidth > 767) {
+       
+       $("#myChat").css("height","calc(-154px + 100vh)");
+       $("#firstSectionID").css("height","calc(100vh - 80px)");
+       
+    }
+    if (window.innerWidth > 900) {
+      
+        
+        $("#myChat").css("height","calc(-154px + 100vh)");
+        $("#firstSectionID").css("height","calc(100vh - 80px)");
+        
+   }
+
+   if (window.innerWidth <= 766) {
+      $("#myChat").css("height","400px");
+      $("#firstSectionID").css("height","400px");
+    }
+$(window).resize(function() {
+    
+    if (window.innerWidth <= 899 && window.innerWidth > 767 ) {
+      
+       $("#myChat").css("height","calc(-154px + 100vh)");
+       $("#firstSectionID").css("height","calc(100vh - 80px)");
+    }
+
+    if (window.innerWidth <= 766) {
+      $("#myChat").css("height","400px");
+      $("#firstSectionID").css("height","400px");
+    }
+
+
+    if (window.innerWidth > 900) {
+      
+      $("#firstSectionID").css("height","calc(100vh - 80px)");
+        $("#myChat").css("height","calc(-154px + 100vh)");
+   }
+ 
+    });
+</script>
+
+
 
 <script>
   
