@@ -276,7 +276,7 @@ $('#view').append(`
  
  <div class="row">
     <div class="col-md-12"> 
-    <a href="#" onclick="createForm();" class="btn btn-default"><i class="fa fa-star"></i> &nbsp; Create</a>
+    <a onclick="createForm();" class="btn btn-default"><i class="fa fa-star"></i> &nbsp; Create</a>
     </div>
     </div>
 
@@ -2413,9 +2413,8 @@ $(document).ready(function(){
 
 
 
-function createForm(event){
-    console.log("test");
-    event.preventDefault();
+function createForm(){
+   
     
     document.getElementById("roomList").innerHTML = "";
     $('#roomList').append(` 
