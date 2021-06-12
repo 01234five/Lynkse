@@ -2639,7 +2639,7 @@ function createRoom(){
 var e = document.getElementById("categories");
 var category = e.value;
 var lengthCategory= $('#categories :selected').length;
-if(e.length >1){
+if(lengthCategory >1){
   alert("select 1");
 }else{
 //console.log(user.name);
