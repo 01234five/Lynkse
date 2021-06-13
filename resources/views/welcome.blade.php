@@ -41,7 +41,7 @@
     <body class="antialiased" >
 
                     <!-- The video -->
-<video onloadedmetadata="this.muted = true" autoplay muted loop poster="/video/blackscreen.png" id="myVideo">
+<video id="video" onloadedmetadata="this.muted = true" autoplay muted loop poster="/video/blackscreen.png" id="myVideo" muted="muted">
   <source src="/video/indexPageVideo.mp4" type="video/mp4">
 </video>
 
@@ -107,7 +107,10 @@ $(window).resize(function() {
 });
 
 
-
+window.onload = function () {
+    var element = document.getElementById('video');
+    element.muted = "muted";
+}
 
 </script>
 
