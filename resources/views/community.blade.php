@@ -846,7 +846,14 @@ document.getElementById('passwordEdit').value='';
 
 
 $("#avatarEditForm").change(function(e){
-                       
+  var fileInput = document.getElementById('avatarEdit');
+    var filePath = fileInput.value;
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+    if(!allowedExtensions.exec(filePath)){
+        console.log('Please upload file having extensions .jpeg/.jpg/.png/.gif only.');
+        fileInput.value = '';
+        return false;
+    }else{       
 $.ajax({
                     /* the route pointing to the post function */
                     url: '/communityMembers/editProfileAvatar',
@@ -867,6 +874,7 @@ $.ajax({
                         refreshUserInfo();
                     }
                 }); 
+              }
         });
 
         $("#bannerEdit").change(function(){
