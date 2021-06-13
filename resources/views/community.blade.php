@@ -2646,7 +2646,7 @@ function createForm(){
     <form style="margin: auto;">
     <div class="form-group">
     <label for="categories" style="color:gray">Select Category</label>
-    <select multiple class="form-control" id="categories" data-max-options="1" onchange="catgetval(this);" name="categoriesname">
+    <select class="form-control" id="categories" data-max-options="1" onchange="catgetval(this);" name="categoriesname">
       <option>anime</option>
       <option>games</option>
       <option>comedy</option>
@@ -2865,7 +2865,7 @@ function catgetval(sel)
   
     //alert(sel.selectedIndex);
     //$(`#categories option[value='${sel.value}']`).prop('selected', true);
-    $("#categories").val(sel.value).change().trigger("chosen:updated");;
+    //$("#categories").val(sel.value).change().trigger("chosen:updated");;
     //$('#categories')
 }
 
