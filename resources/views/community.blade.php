@@ -197,11 +197,15 @@ $(window).resize(function() {
        $("#myChat").css("min-height","352px");
        $("#myChat").css("height","calc(-154px + 100vh)");
        $("#inputId").attr("placeholder", "");
+       $("#communityMembersSearchRowId").css("display","none");
+       $("#searchBoxMiddleId").css("display","flex");
     }
 
     if (window.innerWidth <= 766) {
       $("#myChat").css("height","400px");
       $("#inputId").attr("placeholder", "Search");
+      $("#communityMembersSearchRowId").css("display","flex");
+      $("#searchBoxMiddleId").css("display","none");
     }
 
 
@@ -210,6 +214,8 @@ $(window).resize(function() {
         $("#myChat").css("min-height","400px");
         $("#myChat").css("height","calc(-154px + 100vh)");
         $("#inputId").attr("placeholder", "Search");
+        $("#communityMembersSearchRowId").css("display","flex");
+        $("#searchBoxMiddleId").css("display","none");
    }
  
     });
@@ -531,7 +537,39 @@ function communityMembersView(){
 
 
 <div class="col-lg-9 col-md-9 col-xs-12"  >
-<div class="title"><h3>Click on Search to Find Friends</h3></div>
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+<div class="title">
+
+
+<div class='search-box' id="searchBoxMiddleId" style="display:none;">
+        <form id="formSearch" class='search-form'>
+          <input autocomplete="off" id="inputId" class='form-control' placeholder='Search' type='text'>
+          <button class='btn btn-link search-btn'>
+            <i class='fa fa-search'></i>
+          </button>
+        </form>
+      </div>
+
+
+
+</div>
 <div class="box">
 <div id="articlesGroup" class="box-left" style="height:100%;overflow-y:auto;">
 
@@ -548,7 +586,7 @@ function communityMembersView(){
 <div class="box-right">
 
 
-<div class="row">
+<div id="communityMembersSearchRowId" class="row">
     <div class="col-md-12">
       <div class='search-box'>
         <form id="formSearch" class='search-form'>
@@ -1020,6 +1058,34 @@ $.ajax({
      
       $("#inputId").attr("placeholder", "Search");
     }
+
+
+
+
+
+    if (window.innerWidth <= 899 && window.innerWidth > 767 ) {
+ 
+       $("#communityMembersSearchRowId").css("display","none");
+       $("#searchBoxMiddleId").css("display","flex");
+       
+    }
+
+    if (window.innerWidth <= 766) {
+
+      $("#communityMembersSearchRowId").css("display","flex");
+      $("#searchBoxMiddleId").css("display","none");
+    }
+
+
+    if (window.innerWidth > 900) {
+      
+
+        $("#communityMembersSearchRowId").css("display","flex");
+        $("#searchBoxMiddleId").css("display","none");
+   }
+
+
+
 
 }
 
