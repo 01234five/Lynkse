@@ -95,6 +95,12 @@ $(document).ready(function(){
 if ($(window).width() <= 639) {
     $("#topNav").removeClass("right-0").addClass("right-4");
 }
+
+var vid = document.getElementsByTagName("video1")[0];
+vid.muted = true;
+vid.autoplay = true;
+vid.loop = true;
+vid.load();
 });
 
 $(window).resize(function() {         
