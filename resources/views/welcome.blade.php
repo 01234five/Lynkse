@@ -41,7 +41,7 @@
     <body class="antialiased" >
 
                     <!-- The video -->
-<video autoplay muted loop poster="/video/blackscreen.png" id="myVideo" muted="muted" loop="loop" autoplay="autoplay"> 
+<video poster="/video/blackscreen.png" id="myVideo"> 
   <source src="/video/indexPageVideo.mp4" type="video/mp4">
 </video>
 
@@ -96,7 +96,7 @@ if ($(window).width() <= 639) {
     $("#topNav").removeClass("right-0").addClass("right-4");
 }
 
-var vid = document.getElementsByTagName("video1")[0];
+var vid = document.getElementsById("myVideo");
 vid.muted = true;
 vid.autoplay = true;
 vid.loop = true;
