@@ -2442,7 +2442,7 @@ function createForm(){
     document.getElementById("roomList").innerHTML = "";
     $('#roomList').append(` 
 
-    <form>
+    <form style="margin: auto;">
     <div class="form-group">
     <label for="categories" style="color:gray">Select Category</label>
     <select multiple class="form-control" id="categories" data-max-options="1";>
