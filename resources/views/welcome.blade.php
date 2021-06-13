@@ -41,7 +41,7 @@
     <body class="antialiased" >
 
                     <!-- The video -->
-<video onloadedmetadata="this.muted = true" autoplay muted loop poster="/video/blackscreen.png" id="myVideo" muted="muted">
+<video autoplay muted loop poster="/video/blackscreen.png" id="myVideo" muted="true" loop="true" autoplay="true"> 
   <source src="/video/indexPageVideo.mp4" type="video/mp4">
 </video>
 
