@@ -153,7 +153,7 @@
 </style>
 <script>
 var roomView=false;
-
+     
 
    
   if (window.innerWidth <= 899 && window.innerWidth > 767) {
@@ -175,18 +175,33 @@ $(window).resize(function() {
   if (window.innerWidth > 767) {
       
       $("#boxleftrightContainter").css("padding-right","15px");
+      
  }
  if (window.innerWidth <= 766) {
        $("#boxleftrightContainter").css("padding-right","30px");
+       $("#createRoomButton").css("display","inline-block");
+       
+    }
+
+    if (window.innerWidth <= 899 && window.innerWidth > 767 ) {
+      $("#createRoomButton").css("display","none");
+      
+    }
+
+    if (window.innerWidth > 901) {
+      $("#createRoomButton").css("display","inline-block");
+      
     }
 }      
     if (window.innerWidth <= 899 && window.innerWidth > 767 ) {
        $("#myChat").css("min-height","352px");
        $("#myChat").css("height","calc(-154px + 100vh)");
+       $("#inputId").attr("placeholder", "");
     }
 
     if (window.innerWidth <= 766) {
       $("#myChat").css("height","400px");
+      $("#inputId").attr("placeholder", "Search");
     }
 
 
@@ -194,6 +209,7 @@ $(window).resize(function() {
       
         $("#myChat").css("min-height","400px");
         $("#myChat").css("height","calc(-154px + 100vh)");
+        $("#inputId").attr("placeholder", "Search");
    }
  
     });
@@ -291,7 +307,7 @@ $('#view').append(`
  
  <div class="row">
     <div class="col-md-12"> 
-    <a onclick="createForm();" class="btn btn-default"><i class="fa fa-star"></i> &nbsp; Create</a>
+    <a onclick="createForm();" class="btn btn-default"><i id="createRoomButton" class="fa fa-star" style="display: inline-block;"></i> Create</a>
     </div>
     </div>
 
@@ -299,7 +315,7 @@ $('#view').append(`
     <div class="container testimonial-group" style="margin-top: 10px;height:37%;">
 <div id="category" class="row text-center" style="height:100%;">
 
-<div class="col-6 p-1" style="height:98%; min-width:60px;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px;max-height:150px;" >
 <article style="height:140px;" category-key="anime">
     <img  class="center"src="/category/anime.jpg"  alt="image" style="width: 90%;
   height: 100%; display: block;
@@ -307,7 +323,7 @@ $('#view').append(`
   "></img>
 </article>
 </div>
-<div class="col-6 p-1" style="height:98%; min-width:60px;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px;max-height:150px;" >
 <article style="height:140px;" category-key="games">
     <img  class="center"src="/category/games.jpg" alt="image" style="width: 90%;
   height: 100%; display: block;
@@ -317,7 +333,7 @@ $('#view').append(`
 
 </article>
 </div>
-<div class="col-6 p-1" style="height:98%; min-width:60px;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px; max-height:150px;" >
 <article style="height:140px;" category-key="music">
     <img  class="center"src="/category/music.jpg" alt="image" style="width: 90%;
   height: 100%; display: block;
@@ -327,7 +343,7 @@ $('#view').append(`
 
 </article>
 </div>
-<div class="col-6 p-1" style="height:98%; min-width:60px;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px; max-height:150px;" >
 <article style="height:140px;" category-key="comedy">
     <img  class="center"src="/category/comedy.jpg" alt="image" style="width: 90%;
   height: 100%; display: block;
@@ -337,7 +353,7 @@ $('#view').append(`
 
 </article>
 </div>
-<div class="col-6 p-1" style="height:98%; min-width:60px;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px; max-height:150px;" >
 <article style="height:140px;" category-key="other">
     <img  class="center"src="/category/other.jpg" alt="image" style="width: 90%;
   height: 100%; display: block;
@@ -348,7 +364,7 @@ $('#view').append(`
 </article>
 </div>
 
-<div class="col-6 p-1" style="height:98%; min-width:60px;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px; max-height:150px;" >
 <article style="height:140px;" category-key="All">
     <img  class="center"src="/category/all.jpg" alt="image" style="width: 90%;
   height: 100%; display: block;
@@ -483,11 +499,25 @@ if ($(window).width() >= 767) {
 roomView=true;
 if (window.innerWidth <= 766) {
        $("#boxleftrightContainter").css("padding-right","30px");
+       $("#createRoomButton").css("display","inline-block");
+       $("#inputId").attr("placeholder", "Search");
+      
+      
+       
     }
     if (window.innerWidth > 767) {
       
       $("#boxleftrightContainter").css("padding-right","15px");
+     
  }
+ if (window.innerWidth <= 901 && window.innerWidth > 767 ) {
+      $("#createRoomButton").css("display","none");
+      $("#inputId").attr("placeholder", "");
+    }
+    if (window.innerWidth > 901) {
+      $("#createRoomButton").css("display","inline-block");
+      $("#inputId").attr("placeholder", "Search");
+    }
 
 
 }
@@ -617,7 +647,7 @@ searchUser(input);
 getPendingCounts();
 
 
-if ($(window).width() <= 766) {
+if (window.innerWidth <= 766) {
     $('#myBanner').append(`
 <article id="articleBanner" class="col-3"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block; min-width:80px;
   margin-left: auto;
@@ -654,7 +684,7 @@ if ($(window).width() <= 766) {
        
        
     }
-    if ($(window).width() >= 767) {
+    if (window.innerWidth >= 910) {
         $('#myBanner').append(`
 <article id="articleBanner" class="col-7"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block; min-width:80px;
   margin-left: auto;
@@ -684,6 +714,43 @@ if ($(window).width() <= 766) {
   <div class="row">
     <div class="col-12">
     <div id="particle-canvas${myId}" style="height:200px"></div>
+  </div>
+  
+</article>`
+);
+    }
+
+
+    if (window.innerWidth < 910 && window.innerWidth > 766) {
+        $('#myBanner').append(`
+<article id="articleBanner" class="col-7"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block; min-width:80px;
+  margin-left: auto;
+  margin-right: auto; ">
+
+
+<div class="row">
+    <div class="col-12 text-center" > 
+    <img src="/users/${myThumb}" class="img-thumbnail" style="max-height:72px; padding:0!important; border-color: #141313;background-color:#141313;position: relative;"></img>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-12" style="padding:0;">
+      <div id="h" class="text-center" style="color: white;">${myName.substring(0,11)}</div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-12">
+      <div class="text-center" style="color: #D9D8D8;" id="h"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+    <div id="particle-canvas${myId}" style="height:170px"></div>
   </div>
   
 </article>`
@@ -933,18 +1000,33 @@ $.ajax({
 
 
       
-      roomView=false;
+     
       
-      $("#boxleftrightContainter").css("padding-right","15px");
+      
 
+      if (window.innerWidth <= 766) {
 
+       $("#inputId").attr("placeholder", "Search");
+      
+      
+       
+    }
+
+ if (window.innerWidth <= 901 && window.innerWidth > 767 ) {
+      
+      $("#inputId").attr("placeholder", "");
+    }
+    if (window.innerWidth > 901) {
+     
+      $("#inputId").attr("placeholder", "Search");
+    }
 
 }
 
 function refreshBanner(){
   console.log("my banner is:" +myBanner);
   document.getElementById("myBanner").innerHTML = "";
-                        if ($(window).width() <= 766) {
+                        if (window.innerWidth <= 766) {
     $('#myBanner').append(`
 <article id="articleBanner" class="col-3"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block; min-width:80px;
   margin-left: auto;
@@ -981,7 +1063,7 @@ function refreshBanner(){
        
        
     }
-    if ($(window).width() >= 767) {
+    if (window.innerWidth > 909) {
         $('#myBanner').append(`
 <article id="articleBanner" class="col-7"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block; min-width:80px;
   margin-left: auto;
@@ -1011,6 +1093,43 @@ function refreshBanner(){
   <div class="row">
     <div class="col-12">
     <div id="particle-canvas${myId}" style="height:200px"></div>
+  </div>
+  
+</article>`
+);
+    }
+
+
+    if (window.innerWidth < 910 && window.innerWidth > 766) {
+        $('#myBanner').append(`
+<article id="articleBanner" class="col-7"  id-key="${myId}" name-key="${myName}" style="height:100%;   display: block; min-width:80px;
+  margin-left: auto;
+  margin-right: auto; ">
+
+
+<div class="row">
+    <div class="col-12 text-center" > 
+    <img src="/users/${myThumb}" class="img-thumbnail" style="max-height:72px; padding:0!important; border-color: #141313;background-color:#141313;position: relative;"></img>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-12" style="padding:0;">
+      <div id="h" class="text-center" style="color: white;">${myName.substring(0,11)}</div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-12">
+      <div class="text-center" style="color: #D9D8D8;" id="h"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+    <div id="particle-canvas${myId}" style="height:170px"></div>
   </div>
   
 </article>`
@@ -1362,7 +1481,7 @@ function getPendingCounts(){
         console.log(response.data);
         document.getElementById("friendrequests").innerHTML = "";
         $('#friendrequests').append(`
-        <a onclick="getFriendRequestsNames();" class="btn btn-default"><i class="fa fa-user-plus"></i> &nbsp; Requests: &nbsp; ${response.data} &nbsp;</a>
+        <a onclick="getFriendRequestsNames();" class="btn btn-default"><i class="fa fa-user-plus"></i> &nbsp; ${response.data}</a>
         `);
     })
     .catch(function (error) {
