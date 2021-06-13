@@ -2646,7 +2646,7 @@ function createForm(){
     <form style="margin: auto;">
     <div class="form-group">
     <label for="categories" style="color:gray">Select Category</label>
-    <select multiple class="form-control" id="categories" data-max-options="1";>
+    <select multiple class="form-control" id="categories" data-max-options="1" onchange="catgetval(this);">
       <option>anime</option>
       <option>games</option>
       <option>comedy</option>
@@ -2857,6 +2857,11 @@ function projectUrl() {
 
 function rederictRoomCreated(room){
   location.href=route('chat-rooms.show', room);
+}
+
+function catgetval(sel)
+{
+    
 }
 
 
