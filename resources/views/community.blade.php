@@ -2864,7 +2864,7 @@ function catgetval(sel)
 
   
     //alert(sel.selectedIndex);
-    $("select[name=categoriesname] option[value="+sel.value+"]").attr('selected','selected');
+    $(`#categories option[value='${sel.value}']`).prop('selected', true);
     //$("#categories").val(sel.value).change();
 }
 
