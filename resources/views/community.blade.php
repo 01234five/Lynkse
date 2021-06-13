@@ -2861,7 +2861,10 @@ function rederictRoomCreated(room){
 
 function catgetval(sel)
 {
-    
+
+  
+    //alert(sel.selectedIndex);
+    $("#categories").val(sel.value);
 }
 
 
