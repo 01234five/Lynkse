@@ -707,7 +707,7 @@ $('#myBanner').on('click','article',function(){
   <div class="form-group">
     <label for="exampleFormControlFile1" style="color:whitesmoke">Avatar</label>
     <br>
-    <input  name="avatarEdit" style="color:whitesmoke;display:inline-block;width:-moz-max-content;width:fit-content;"type="file" accept="image/*" class="form-control-file" id="avatarEdit">
+    <input  name="avatarEdit" style="color:whitesmoke;display:inline-block;width:-moz-max-content;width:fit-content;"type="file" accept="image/*" class="form-control-file" id="avatarEdit"></input>
   </div>
   </form>
 
