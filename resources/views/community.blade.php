@@ -560,7 +560,7 @@ function communityMembersView(){
 
 <div class='search-box' id="searchBoxMiddleId" style="display:none;">
         <form id="formSearchMiddle" class='search-form'>
-          <input autocomplete="off" id="inputIdMiddle" class='form-control' placeholder='Work In progress, portrait/desktop works' type='text'>
+          <input autocomplete="off" id="inputIdMiddle" class='form-control' placeholder='Search' type='text'>
           <button class='btn btn-link search-btn'>
             <i class='fa fa-search'></i>
           </button>
@@ -676,6 +676,22 @@ event.preventDefault();
 var input= document.getElementById('inputId').value;
 console.log("enter or press"+ input);
 document.getElementById('inputId').value='';
+searchUser(input);
+
+
+});
+
+
+$('#formSearchMiddle').submit(function(event){
+
+// prevent default browser behaviour
+event.preventDefault();
+
+//do stuff with your form here
+
+var input= document.getElementById('inputIdMiddle').value;
+console.log("enter or press"+ input);
+document.getElementById('inputIdMiddle').value='';
 searchUser(input);
 
 
