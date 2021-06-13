@@ -2864,8 +2864,9 @@ function catgetval(sel)
 
   
     //alert(sel.selectedIndex);
-    $(`#categories option[value='${sel.value}']`).prop('selected', true);
-    //$("#categories").val(sel.value).change();
+    //$(`#categories option[value='${sel.value}']`).prop('selected', true);
+    $("#categories").val(sel.value).change().trigger("chosen:updated");;
+    //$('#categories')
 }
 
 
