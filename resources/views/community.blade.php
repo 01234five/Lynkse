@@ -198,14 +198,12 @@ $(window).resize(function() {
        $("#myChat").css("height","calc(-154px + 100vh)");
        $("#inputId").attr("placeholder", "");
        $("#communityMembersSearchRowId").css("display","none");
-       $("#searchBoxMiddleId").css("display","flex");
     }
 
     if (window.innerWidth <= 766) {
       $("#myChat").css("height","400px");
       $("#inputId").attr("placeholder", "Search");
       $("#communityMembersSearchRowId").css("display","flex");
-      $("#searchBoxMiddleId").css("display","none");
     }
 
 
@@ -215,7 +213,6 @@ $(window).resize(function() {
         $("#myChat").css("height","calc(-154px + 100vh)");
         $("#inputId").attr("placeholder", "Search");
         $("#communityMembersSearchRowId").css("display","flex");
-        $("#searchBoxMiddleId").css("display","none");
    }
  
     });
@@ -537,39 +534,7 @@ function communityMembersView(){
 
 
 <div class="col-lg-9 col-md-9 col-xs-12"  >
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-
-
-
-<div class="title">
-
-
-<div class='search-box' id="searchBoxMiddleId" style="display:none;">
-        <form id="formSearch" class='search-form'>
-          <input autocomplete="off" id="inputId" class='form-control' placeholder='Search' type='text'>
-          <button class='btn btn-link search-btn'>
-            <i class='fa fa-search'></i>
-          </button>
-        </form>
-      </div>
-
-
-
-</div>
+<div class="title"><h3>Click on Search to Find Friends</h3></div>
 <div class="box">
 <div id="articlesGroup" class="box-left" style="height:100%;overflow-y:auto;">
 
@@ -1066,14 +1031,11 @@ $.ajax({
     if (window.innerWidth <= 899 && window.innerWidth > 767 ) {
  
        $("#communityMembersSearchRowId").css("display","none");
-       $("#searchBoxMiddleId").css("display","flex");
-       
     }
 
     if (window.innerWidth <= 766) {
 
       $("#communityMembersSearchRowId").css("display","flex");
-      $("#searchBoxMiddleId").css("display","none");
     }
 
 
@@ -1081,7 +1043,6 @@ $.ajax({
       
 
         $("#communityMembersSearchRowId").css("display","flex");
-        $("#searchBoxMiddleId").css("display","none");
    }
 
 
