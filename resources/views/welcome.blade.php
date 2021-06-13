@@ -96,7 +96,7 @@ if ($(window).width() <= 639) {
     $("#topNav").removeClass("right-0").addClass("right-4");
 }
 
-var vid = document.getElementsById("myVideo");
+var vid = document.getElementById("myVideo");
 vid.muted = true;
 vid.autoplay = true;
 vid.loop = true;
