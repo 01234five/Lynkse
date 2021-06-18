@@ -321,53 +321,64 @@ $('#view').append(`
     <div class="container testimonial-group" style="margin-top: 10px;height:37%;">
 <div id="category" class="row text-center" style="height:100%;">
 
-<div id="categoryAnimeId" class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px;max-height:150px;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px;max-height:150px;" >
 <article style="height:140px;" category-key="anime">
     <canvas style="width: 90%;
   height: 100%; display: block;
     margin: 0 auto; background: url('/category/anime.jpg');background-position: center;
 background-size: cover;
-background-repeat:no-repeat;>
-   
+background-repeat:no-repeat;">
+
   </canvas>
 </article>
 </div>
 <div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px;max-height:150px;" >
 <article style="height:140px;" category-key="games">
-    <img  class="center"src="/category/games.jpg" alt="image" style="width: 90%;
+  <canvas style="width: 90%;
   height: 100%; display: block;
-    margin: 0 auto;
-  "></img>
+    margin: 0 auto; background: url('/category/games.jpg');background-position: center;
+background-size: cover;
+background-repeat:no-repeat;">
+
+  </canvas>
  
 
 </article>
 </div>
 <div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px; max-height:150px;" >
 <article style="height:140px;" category-key="music">
-    <img  class="center"src="/category/music.jpg" alt="image" style="width: 90%;
+  <canvas style="width: 90%;
   height: 100%; display: block;
-    margin: 0 auto;
-  "></img>
+    margin: 0 auto; background: url('/category/music.jpg');background-position: center;
+background-size: cover;
+background-repeat:no-repeat;">
+  </canvas>
  
 
 </article>
 </div>
 <div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px; max-height:150px;" >
 <article style="height:140px;" category-key="comedy">
-    <img  class="center"src="/category/comedy.jpg" alt="image" style="width: 90%;
+
+  <canvas style="width: 90%;
   height: 100%; display: block;
-    margin: 0 auto;
-  "></img>
+    margin: 0 auto; background: url('/category/comedy.jpg');background-position: center;
+background-size: cover;
+background-repeat:no-repeat;">
+  </canvas>
  
 
 </article>
 </div>
 <div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px; max-height:150px;" >
 <article style="height:140px;" category-key="other">
-    <img  class="center"src="/category/other.jpg" alt="image" style="width: 90%;
+
+  <canvas style="width: 90%;
   height: 100%; display: block;
-    margin: 0 auto;
-  "></img>
+    margin: 0 auto; background: url('/category/other.jpg');background-position: center;
+background-size: cover;
+background-repeat:no-repeat;">
+  </canvas>
  
 
 </article>
@@ -375,10 +386,13 @@ background-repeat:no-repeat;>
 
 <div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px; max-height:150px;" >
 <article style="height:140px;" category-key="All">
-    <img  class="center"src="/category/all.jpg" alt="image" style="width: 90%;
+
+  <canvas style="width: 90%;
   height: 100%; display: block;
-    margin: 0 auto;
-  "></img>
+    margin: 0 auto; background: url('/category/all.jpg');background-position: center;
+background-size: cover;
+background-repeat:no-repeat;">
+  </canvas>
  
 
 </article>
