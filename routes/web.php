@@ -18,6 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/musicPlayer', function () {
+    return view('musicPlayer');
+});
+
+
+
+
 Route::get('home', function(){
     return redirect(url('/'));
     });
