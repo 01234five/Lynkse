@@ -321,11 +321,11 @@ $('#view').append(`
     <div class="container testimonial-group" style="margin-top: 10px;height:37%;">
 <div id="category" class="row text-center" style="height:100%;">
 
-<div id="categoryAnimeId" class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px;max-height:150px;" >
+<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px;max-height:150px;" >
 <article style="height:140px;" category-key="anime">
-    <img class="center"src="/category/anime.jpg"  alt="image" style="width: 90%;
+    <img id="categoryAnimeId" class="center"src="/category/anime.jpg"  alt="image" style="width: 90%;
   height: 100%; display: block;
-    margin: 0 auto;
+    margin: 0 auto; position:relative;
   "></img>
 </article>
 </div>
@@ -410,36 +410,9 @@ document.getElementById('categoryAnimeId').oncontextmenu = function(event) {
 
 
 
-$('#categoryAnimeId').oncontextmenu('touchstart','article',function(event){
-  event.preventDefault();   
-  event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
-    event.stopImmediatePropagation();
-    return false; 
-       
-});
 
-$('#categoryAnimeId').oncontextmenu('touchend','article',function(event){
-  event.preventDefault();    
-  event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
-    event.stopImmediatePropagation();
-    return false;
-       
-});
-
-$('#categoryAnimeId').oncontextmenu('touchmove','article',function(event){
-  event.preventDefault();   
-  event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
-    event.stopImmediatePropagation();
-    return false; 
-       
-});
-
-
-
-
-
-$('#category').on('click','article',function(event){
-  event.preventDefault();
+$('#category').on('click','article',function(){
+  
 		category= $(this).attr('category-key');
 		//console.log("my id = "+category);//write here maybe the function to create an iframe video passing the video id.
         if(category==="All"){  
