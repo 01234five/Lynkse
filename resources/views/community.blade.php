@@ -401,38 +401,13 @@ particleCanvas.length = 0;//empty array
 getAllRooms();
 
 
-document.getElementById('categoryAnimeId').on = function(event) {
-    event.preventDefault();
-    event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
-    event.stopImmediatePropagation();
-    return false;
-};
+$(document).contextmenu(function (e) {
+         
+                return false;
+            
+        });
 
 
-
-$('#category').contextmenu('touchstart','article',function(event){
-  event.preventDefault();   
-  event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
-    event.stopImmediatePropagation();
-    return false; 
-       
-});
-
-$('#category').contextmenu('touchend','article',function(event){
-  event.preventDefault();    
-  event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
-    event.stopImmediatePropagation();
-    return false;
-       
-});
-
-$('#category').contextmenu('touchmove','article',function(event){
-  event.preventDefault();   
-  event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
-    event.stopImmediatePropagation();
-    return false; 
-       
-});
 
 
 
