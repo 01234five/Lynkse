@@ -410,8 +410,27 @@ document.getElementById('categoryAnimeId').oncontextmenu = function(event) {
 
 
 
+$('#category').on('touchstart','article',function(event){
+  event.preventDefault();    
+       
+});
 
-$('#category').on('click','article',function(){
+$('#category').on('touchend','article',function(event){
+  event.preventDefault();    
+       
+});
+
+$('#category').on('touchmove','article',function(event){
+  event.preventDefault();    
+       
+});
+
+
+
+
+
+$('#category').on('click','article',function(event){
+  event.preventDefault();
 		category= $(this).attr('category-key');
 		//console.log("my id = "+category);//write here maybe the function to create an iframe video passing the video id.
         if(category==="All"){  
