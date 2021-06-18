@@ -410,7 +410,7 @@ document.getElementById('categoryAnimeId').on = function(event) {
 
 
 
-$('#category').contextmenu(function(event){
+$('#category').contextmenu('touchstart',function(event){
   event.preventDefault();   
   event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
     event.stopImmediatePropagation();
@@ -418,7 +418,7 @@ $('#category').contextmenu(function(event){
        
 });
 
-$('#category').contextmenu(function(event){
+$('#category').contextmenu('touchend',function(event){
   event.preventDefault();    
   event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
     event.stopImmediatePropagation();
@@ -426,7 +426,7 @@ $('#category').contextmenu(function(event){
        
 });
 
-$('#category').contextmenu(function(event){
+$('#category').contextmenu('touchmove',function(event){
   event.preventDefault();   
   event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
     event.stopImmediatePropagation();
