@@ -323,10 +323,16 @@ $('#view').append(`
 
 <div id="categoryAnimeId" class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px;max-height:150px;" >
 <article style="height:140px;" category-key="anime">
+    <canvas style="width: 90%;
+  height: 100%; display: block;
+    margin: 0 auto; background: url('/category/anime.jpg');background-position: center;
+background-size: cover;
+background-repeat:no-repeat;>
     <img class="center"src="/category/anime.jpg"  alt="image" style="width: 90%;
   height: 100%; display: block;
     margin: 0 auto;
   "></img>
+  </canvas>
 </article>
 </div>
 <div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px;max-height:150px;" >
