@@ -411,17 +411,26 @@ document.getElementById('categoryAnimeId').oncontextmenu = function(event) {
 
 
 $('#categoryAnimeId').oncontextmenu('touchstart','article',function(event){
-  event.preventDefault();    
+  event.preventDefault();   
+  event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
+    event.stopImmediatePropagation();
+    return false; 
        
 });
 
 $('#categoryAnimeId').oncontextmenu('touchend','article',function(event){
   event.preventDefault();    
+  event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
+    event.stopImmediatePropagation();
+    return false;
        
 });
 
 $('#categoryAnimeId').oncontextmenu('touchmove','article',function(event){
-  event.preventDefault();    
+  event.preventDefault();   
+  event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
+    event.stopImmediatePropagation();
+    return false; 
        
 });
 
