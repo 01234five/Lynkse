@@ -402,7 +402,7 @@ getAllRooms();
 
 
 document.getElementById('categoryAnimeId').oncontextmenu = function(event) {
-    //event.preventDefault();
+    event.preventDefault();
     event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
     event.stopImmediatePropagation();
     return false;
