@@ -322,8 +322,8 @@ $('#view').append(`
 <div id="category" class="row text-center" style="height:100%;">
 
 <div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px;max-height:150px;" >
-<article style="height:140px;" category-key="anime">
-    <img id="categoryAnimeId" class="center"src="/category/anime.jpg"  alt="image" style="width: 90%;
+<article id="categoryAnimeId" style="height:140px;" category-key="anime">
+    <img class="center"src="/category/anime.jpg"  alt="image" style="width: 90%;
   height: 100%; display: block;
     margin: 0 auto; position:relative;
   "></img>
