@@ -322,7 +322,7 @@ $('#view').append(`
 <div id="category" class="row text-center" style="height:100%;">
 
 <div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px;max-height:150px;" >
-<article style="height:140px;" category-key="anime">
+<article id="categoryAnimeId" style="height:140px;" category-key="anime">
     <img  class="center"src="/category/anime.jpg"  alt="image" style="width: 90%;
   height: 100%; display: block;
     margin: 0 auto; position:relative;
@@ -401,7 +401,12 @@ particleCanvas.length = 0;//empty array
 getAllRooms();
 
 
-
+document.getElementById('categoryAnimeId').oncontextmenu = function(event) {
+    //event.preventDefault();
+    event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
+    event.stopImmediatePropagation();
+    return false;
+};
 
 
 $('#category').on('click','article',function(){
