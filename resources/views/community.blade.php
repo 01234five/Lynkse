@@ -401,12 +401,6 @@ particleCanvas.length = 0;//empty array
 getAllRooms();
 
 
-$(document).contextmenu(function (e) {
-         
-                return false;
-            
-        });
-
 
 
 
