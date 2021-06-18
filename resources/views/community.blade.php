@@ -408,7 +408,7 @@ document.getElementById('categoryAnimeId').oncontextmenu = function(event) {
     return false;
 };
 
-$('body').on('contextmenu',function(){return false;});
+
 
 
 $('#category').on('click','article',function(){
