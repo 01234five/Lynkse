@@ -410,17 +410,17 @@ document.getElementById('categoryAnimeId').oncontextmenu = function(event) {
 
 
 
-$('#categoryAnimeId').on('touchstart','article',function(event){
+$('#categoryAnimeId').oncontextmenu('touchstart','article',function(event){
   event.preventDefault();    
        
 });
 
-$('#categoryAnimeId').on('touchend','article',function(event){
+$('#categoryAnimeId').oncontextmenu('touchend','article',function(event){
   event.preventDefault();    
        
 });
 
-$('#categoryAnimeId').on('touchmove','article',function(event){
+$('#categoryAnimeId').oncontextmenu('touchmove','article',function(event){
   event.preventDefault();    
        
 });
