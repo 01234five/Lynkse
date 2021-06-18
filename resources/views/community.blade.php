@@ -401,12 +401,7 @@ particleCanvas.length = 0;//empty array
 getAllRooms();
 
 
-document.getElementById('#category').oncontextmenu = function(event) {
-    //event.preventDefault();
-    event.stopPropagation(); // not necessary in my case, could leave in case stopImmediateProp isn't available? 
-    event.stopImmediatePropagation();
-    return false;
-};
+
 
 
 $('#category').on('click','article',function(){
