@@ -277,7 +277,7 @@
 
 
 
-
+<audio id="player" src="/music/DnB/Makoto/Makoto - Wading Through Crowds (feat. Karina Ramage).mp3" autoplay="" controls=""></audio>
 <button onclick="myFunction()">Click me</button>
 <button onclick="myFunction3()">Click me3</button>
 
@@ -619,7 +619,7 @@ initHandlers: function () {
         var id = setInterval(function () {
             if (!that.animatedInProgress) {
                 that.pressButton = false;
-                Player.context.currentTime = that.angle / (2 * Math.PI) * Player.source.buffer.duration;
+                //Player.context.currentTime = that.angle / (2 * Math.PI) * Player.source.buffer.duration;
                 clearInterval(id);
                 console.log(that.angle / (2 * Math.PI));
                 var percentOfTotal= that.angle / (2 * Math.PI)
@@ -679,7 +679,7 @@ promise.then(function(data) {
         var id = setInterval(function () {
             if (!that.animatedInProgress) {
                 that.pressButton = false;
-                Player.context.currentTime = that.angle / (2 * Math.PI) * Player.source.buffer.duration;
+                //Player.context.currentTime = that.angle / (2 * Math.PI) * Player.source.buffer.duration;
                 clearInterval(id);
                 console.log(that.angle / (2 * Math.PI));
                 var percentOfTotal= that.angle / (2 * Math.PI)
@@ -743,9 +743,10 @@ draw: function () {
     if (!this.pressButton) {
         
         this.angle = ((seekTime+Player.context.currentTime)-timeTrack) / Player.source.buffer.duration * 2 * Math.PI || 0;
-        console.log((seekTime+Player.context.currentTime)-timeTrack);
+        //console.log((seekTime+Player.context.currentTime)-timeTrack);
     }
     this.drawArc();
+
 },
 
 drawArc: function () {
@@ -1057,6 +1058,18 @@ canvasConfigure: function () {
         init: function () {
             window.AudioContext = window.AudioContext || window.webkitAudioContext;
             this.context = new AudioContext();
+            this.audio= document.querySelector('audio');
+            //this.audio.src = '/music/DnB/Makoto/Makoto - Wading Through Crowds (feat. Karina Ramage).mp3';
+            
+            this.audio.addEventListener("canplaythrough", event => {
+  /* the audio is now playable; play it if permissions allow */
+ console.log("ZDASD")
+ this.audio.play();
+});
+
+
+
+
             this.context.suspend && this.context.suspend();
             this.firstLaunch = true;
             try {
@@ -1066,9 +1079,9 @@ canvasConfigure: function () {
                 this.analyser.connect(this.javascriptNode);
                 this.analyser.smoothingTimeConstant = 0.6;
                 this.analyser.fftSize = 2048;
-                this.source = this.context.createBufferSource();
+                this.source = this.context.createMediaElementSource(this.audio);
                 this.destination = this.context.destination;
-                this.loadTrack(0);
+                //this.loadTrack(0);
 
                 this.gainNode = this.context.createGain();
                 this.source.connect(this.gainNode);
@@ -1194,13 +1207,8 @@ seek:async function (){
         },
 
         play: function () {
-            this.context.resume && this.context.resume();
-            if (this.firstLaunch) {
-                
-                this.source.start(0,seekTime);
-                this.firstLaunch = false;
-            }
-            console.log(Player.source.buffer.duration,Player.context.currentTime)
+            this.audio.play();
+            this.audio.volume = 0.2;
         },
 
         stop: function () {
@@ -1234,6 +1242,7 @@ var timehandler;
 var fuck;
 var seekTime=0;
 var timeTrack=0;
+var myAudio;
 
 function myFunction(){
     Player.init();
