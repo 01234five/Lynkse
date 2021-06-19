@@ -591,191 +591,10 @@ init: function (scene) {
     this.initHandlers();
 },
 
-    initHandlers: function () {
+initHandlers: function () {
     var that = this;
 
-    
-
-    this.scene.canvas.addEventListener('mousedown', function (e) {
-        if (that.isInsideOfSmallCircle(e) || that.isOusideOfBigCircle(e)) {
-            
-            return;
-        }
-        that.prevAngle = that.angle;
-        that.pressButton = true;
-        that.stopAnimation();
-        that.calculateAngle(e, true);
-    });
-
-    window.addEventListener('mouseup', function () {
-        if (!that.pressButton) {
-            return;
-        }
-        var id = setInterval(function () {
-            if (!that.animatedInProgress) {
-                that.pressButton = false;
-                //Player.context.currentTime = that.angle / (2 * Math.PI) * Player.source.buffer.duration;
-                clearInterval(id);
-                console.log(that.angle / (2 * Math.PI));
-                var percentOfTotal= that.angle / (2 * Math.PI)
-                var calcSeek = Player.audio.duration *percentOfTotal;
-                seekTime=calcSeek;
-
-
-
-                var promise = new Promise(function(resolve, reject) {
-                    var n= Player.seek();
-                    if (n=true){
-                        resolve('success');
-                    }
-
-});
-promise.then(function(data) {
-   console.log(Player.context.currentTime,seekTime);
-   //Player.play();
-});
-
-
-
-            }
-        }, 100);
-    });
-
-    window.addEventListener('mousemove', function (e) {
-        if (that.animatedInProgress) {
-            return;
-        }
-        if (that.pressButton && that.scene.inProcess()) {
-            that.calculateAngle(e);
-        }
-    });
-
-
-
-
-
-
-
-    this.scene.canvas.addEventListener('touchstart', function (e) {
-        if (that.isInsideOfSmallCircle(e) || that.isOusideOfBigCircle(e)) {
-            
-            return;
-        }
-        that.prevAngle = that.angle;
-        that.pressButton = true;
-        that.stopAnimation();
-        that.calculateAngle(e, true);
-    });
-
-    window.addEventListener('touchend', function () {
-        if (!that.pressButton) {
-            return;
-        }
-        var id = setInterval(function () {
-            if (!that.animatedInProgress) {
-                that.pressButton = false;
-                //Player.context.currentTime = that.angle / (2 * Math.PI) * Player.source.buffer.duration;
-                clearInterval(id);
-                console.log(that.angle / (2 * Math.PI));
-                var percentOfTotal= that.angle / (2 * Math.PI)
-                var calcSeek = Player.source.buffer.duration *percentOfTotal;
-                seekTime=calcSeek;
-
-
-
-                var promise = new Promise(function(resolve, reject) {
-                    var n= Player.seek();
-                    if (n=true){
-                        resolve('success');
-                    }
-
-});
-promise.then(function(data) {
-   console.log(Player.context.currentTime,seekTime);
-   //Player.play();
-});
-
-
-
-            }
-        }, 100);
-    });
-
-    window.addEventListener('touchmove', function (e) {
-        if (that.animatedInProgress) {
-            return;
-        }
-        if (that.pressButton && that.scene.inProcess()) {
-            that.calculateAngle(e);
-        }
-    });
-
-
-
-
-
-
 },
-
-isInsideOfSmallCircle: function (e) {
-    
-    var x = Math.abs(e.pageX - this.scene.cx - this.scene.coord.left);
-    var y = Math.abs(e.pageY - this.scene.cy - this.scene.coord.top);
-    return Math.sqrt(x * x + y * y) < this.scene.radius1 - 3 * this.innerDelta;
-    console.log("inside");
-},
-
-isOusideOfBigCircle: function (e) {
-    return Math.abs(e.pageX - this.scene.cx - this.scene.coord.left) > this.scene.radius1 ||
-            Math.abs(e.pageY - this.scene.cy - this.scene.coord.top) > this.scene.radius1;
-            console.log("inside123");
-},
-
-draw: function () {
-if(Player.audioPlaying==true){
-    if (!this.pressButton) {
-        
-        this.angle = (Player.audio.currentTime) / Player.audio.duration * 2 * Math.PI || 0;
-        console.log(Player.audio.currentTime);
-    }
-}
-    this.drawArc();
-},
-
-drawArc: function () {
-    this.context.save();
-    this.context.strokeStyle = 'rgba(254, 67, 101, 0.8)';
-    this.context.beginPath();
-    this.context.lineWidth = this.lineWidth;
-
-    this.r = this.scene.radius1 - (this.innerDelta + this.lineWidth / 2);
-    this.context.arc(
-            this.scene.radius1 + this.scene.padding,
-            this.scene.radius1 + this.scene.padding,
-            this.r, 0, this.angle, false
-    );
-    this.context.stroke();
-    this.context.restore();
-},
-
-calculateAngle: function (e, animatedInProgress) {
-    this.animatedInProgress = animatedInProgress;
-    this.mx = e.pageX;
-    this.my = e.pageY;
-    this.angle = Math.atan((this.my - this.scene.cy - this.scene.coord.top) / (this.mx - this.scene.cx - this.scene.coord.left));
-    if (this.mx < this.scene.cx + this.scene.coord.left) {
-        this.angle = Math.PI + this.angle;
-    }
-    if (this.angle < 0) {
-        this.angle += 2 * Math.PI;
-    }
-    if (animatedInProgress) {
-        this.startAnimation();
-    } else {
-        this.prevAngle = this.angle;
-    }
-},
-
 
 
 
@@ -880,7 +699,7 @@ canvasConfigure: function () {
 
         draw: function () {
             Framer.draw();
-            Tracker.draw();
+           
             Controls.draw();
         },
 
@@ -1038,193 +857,193 @@ canvasConfigure: function () {
 
     var Player = {
 
-        buffer: null,
+buffer: null,
 
-        duration: 0,
+duration: 0,
 
-        tracks: [
-            {
-                artist: "Kavinsky",
-                song: "Odd Look ft. The Weeknd",
-                url: "/music/DnB/Makoto/Makoto - Wading Through Crowds (feat. Karina Ramage).mp3"
-            }
-        ],
+tracks: [
+    {
+        artist: "Kavinsky",
+        song: "Odd Look ft. The Weeknd",
+        url: "/music/DnB/Makoto/Makoto - Wading Through Crowds (feat. Karina Ramage).mp3"
+    }
+],
 
-        init: function () {
-            window.AudioContext = window.AudioContext || window.webkitAudioContext;
-            this.context = new AudioContext();
-            this.audio= document.querySelector('audio');
-            this.audioPlaying=false;
-            //this.audio.src = '/music/DnB/Makoto/Makoto - Wading Through Crowds (feat. Karina Ramage).mp3';
-            
-            this.audio.addEventListener("canplaythrough", event => {
-  /* the audio is now playable; play it if permissions allow */
- console.log("ZDASD")
- 
+init: function () {
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    this.context = new AudioContext();
+    this.audio= document.querySelector('audio');
+    this.audioPlaying=false;
+    //this.audio.src = '/music/DnB/Makoto/Makoto - Wading Through Crowds (feat. Karina Ramage).mp3';
+    
+    this.audio.addEventListener("canplaythrough", event => {
+/* the audio is now playable; play it if permissions allow */
+console.log("ZDASD")
+
 });
 this.audio.addEventListener('play', function() { 
-    /* do something */ 
-    
-    Player.audioPlaying=true;
-    console.log("playing " + Player.audioPlaying)
+/* do something */ 
+
+Player.audioPlaying=true;
+console.log("playing " + Player.audioPlaying)
 });
 this.audio.addEventListener('pause', function() { 
-    /* do something */ 
-    Player.audioPlaying=false;
-    console.log("playing " + Player.audioPlaying)
+/* do something */ 
+Player.audioPlaying=false;
+console.log("playing " + Player.audioPlaying)
 });
 
 
 
 
 
-            
-            this.firstLaunch = true;
-            try {
-                this.javascriptNode = this.context.createScriptProcessor(2048, 1, 1);
-                this.javascriptNode.connect(this.context.destination);
-                this.analyser = this.context.createAnalyser();
-                this.analyser.connect(this.javascriptNode);
-                this.analyser.smoothingTimeConstant = 0.6;
-                this.analyser.fftSize = 2048;
-                this.source = this.context.createMediaElementSource(this.audio);
-                this.destination = this.context.destination;
-                //this.loadTrack(0);
+    
+    this.firstLaunch = true;
+    try {
+        this.javascriptNode = this.context.createScriptProcessor(2048, 1, 1);
+        this.javascriptNode.connect(this.context.destination);
+        this.analyser = this.context.createAnalyser();
+        this.analyser.connect(this.javascriptNode);
+        this.analyser.smoothingTimeConstant = 0.6;
+        this.analyser.fftSize = 2048;
+        this.source = this.context.createMediaElementSource(this.audio);
+        this.destination = this.context.destination;
+        //this.loadTrack(0);
 
-                this.gainNode = this.context.createGain();
-                this.source.connect(this.gainNode);
-                this.gainNode.connect(this.analyser);
-                this.gainNode.connect(this.destination);
+        this.gainNode = this.context.createGain();
+        this.source.connect(this.gainNode);
+        this.gainNode.connect(this.analyser);
+        this.gainNode.connect(this.destination);
 
-                this.initHandlers();
-            } catch (e) {
-                Framer.setLoadingPercent(1);
-            }
-            Framer.setLoadingPercent(1);
-            Scene.init();
-        },
+        this.initHandlers();
+    } catch (e) {
+        Framer.setLoadingPercent(1);
+    }
+    Framer.setLoadingPercent(1);
+    Scene.init();
+},
 
 
-        loadTrack: function (index) {
-            var that = this;
-            var request = new XMLHttpRequest();
-            var track = this.tracks[index];
-            document.querySelector('.song .artist').textContent = track.artist;
-            document.querySelector('.song .name').textContent = track.song;
-            this.currentSongIndex = index;
-
-            request.open('GET', track.url, true);
-            request.responseType = 'arraybuffer';
-
-            request.onload = function() {
-                that.context.decodeAudioData(request.response, function(buffer) {
-                    that.source.buffer = buffer;
-                }).then(console.log("test"));
-            };
-
-            request.send();
-        },
-        loadTrackSeek: function (index) {
-            var that = this;
-            var request = new XMLHttpRequest();
-            var track = this.tracks[index];
-            document.querySelector('.song .artist').textContent = track.artist;
-            document.querySelector('.song .name').textContent = track.song;
-            this.currentSongIndex = index;
-
-            request.open('GET', track.url, true);
-            request.responseType = 'arraybuffer';
-
-            request.onload = function() {
-                that.context.decodeAudioData(request.response, function(buffer) {
-                    that.source.buffer = buffer;
-                }).then(function() {});
-            };
-
-            request.send();
-        },
-        endTrack: function () {
-    this.javascriptNode.disconnect();
-    this.destination.disconnect();
-    this.source.disconnect();
-    this.gainNode.disconnect();
-    this.context.close().then(function() {console.log("closed")});
-    this.analyser.disconnect();
+loadTrack: function (index) {
     var that = this;
-    this.source.disconnect();
-    that.source.disconnect();
-    Player.buffer=null;
-    buffer=null;
-    
-    
+    var request = new XMLHttpRequest();
+    var track = this.tracks[index];
+    document.querySelector('.song .artist').textContent = track.artist;
+    document.querySelector('.song .name').textContent = track.song;
+    this.currentSongIndex = index;
+
+    request.open('GET', track.url, true);
+    request.responseType = 'arraybuffer';
+
+    request.onload = function() {
+        that.context.decodeAudioData(request.response, function(buffer) {
+            that.source.buffer = buffer;
+        }).then(console.log("test"));
+    };
+
+    request.send();
+},
+loadTrackSeek: function (index) {
+    var that = this;
+    var request = new XMLHttpRequest();
+    var track = this.tracks[index];
+    document.querySelector('.song .artist').textContent = track.artist;
+    document.querySelector('.song .name').textContent = track.song;
+    this.currentSongIndex = index;
+
+    request.open('GET', track.url, true);
+    request.responseType = 'arraybuffer';
+
+    request.onload = function() {
+        that.context.decodeAudioData(request.response, function(buffer) {
+            that.source.buffer = buffer;
+        }).then(function() {});
+    };
+
+    request.send();
+},
+endTrack: function () {
+this.javascriptNode.disconnect();
+this.destination.disconnect();
+this.source.disconnect();
+this.gainNode.disconnect();
+this.context.close().then(function() {console.log("closed")});
+this.analyser.disconnect();
+var that = this;
+this.source.disconnect();
+that.source.disconnect();
+Player.buffer=null;
+buffer=null;
 
 
-    that.source.stop();
-    
-    Player.init();
-    
-   
+
+
+that.source.stop();
+
+Player.init();
+
+
 },
 
 
 
 
-        nextTrack: function () {
-            return;
-            ++this.currentSongIndex;
-            if (this.currentSongIndex == this.tracks.length) {
-                this.currentSongIndex = 0;
-            }
+nextTrack: function () {
+    return;
+    ++this.currentSongIndex;
+    if (this.currentSongIndex == this.tracks.length) {
+        this.currentSongIndex = 0;
+    }
 
-            this.loadTrack(this.currentSongIndex);
-        },
+    this.loadTrack(this.currentSongIndex);
+},
 
-        prevTrack: function () {
-            return;
-            --this.currentSongIndex;
-            if (this.currentSongIndex == -1) {
-                this.currentSongIndex = this.tracks.length - 1;
-            }
+prevTrack: function () {
+    return;
+    --this.currentSongIndex;
+    if (this.currentSongIndex == -1) {
+        this.currentSongIndex = this.tracks.length - 1;
+    }
 
-            this.loadTrack(this.currentSongIndex);
-        },
-        seek: function(){
-            Player.audio.currentTime = seekTime;
-        },
-        play: function () {
-            Player.audio.play();
-            
-            //Player.audio.volume = 0.2;
-            console.log("sadasdasdasd")
-        },
+    this.loadTrack(this.currentSongIndex);
+},
+seek: function(){
+    Player.audio.currentTime = seekTime;
+},
+play: function () {
+    Player.audio.play();
+    
+    //Player.audio.volume = 0.2;
+    console.log("sadasdasdasd")
+},
 
-        stop: function () {
-            //this.context.currentTime = 0;
-            //this.context.suspend();
-        },
+stop: function () {
+    //this.context.currentTime = 0;
+    //this.context.suspend();
+},
 
-        pause: function () {
-            Player.audio.pause();
-            //this.context.suspend();
-        },
+pause: function () {
+    Player.audio.pause();
+    //this.context.suspend();
+},
 
-        mute: function () {
-            this.gainNode.gain.value = 0;
-        },
+mute: function () {
+    this.gainNode.gain.value = 0;
+},
 
-        unmute: function () {
-            this.gainNode.gain.value = 1;
-        },
+unmute: function () {
+    this.gainNode.gain.value = 1;
+},
 
-        initHandlers: function () {
-            var that = this;
+initHandlers: function () {
+    var that = this;
 
-            this.javascriptNode.onaudioprocess = function() {
-                Framer.frequencyData = new Uint8Array(that.analyser.frequencyBinCount);
-                that.analyser.getByteFrequencyData(Framer.frequencyData);
-            };
-        }
+    this.javascriptNode.onaudioprocess = function() {
+        Framer.frequencyData = new Uint8Array(that.analyser.frequencyBinCount);
+        that.analyser.getByteFrequencyData(Framer.frequencyData);
     };
+}
+};
 var time;
 var timehandler;
 var fuck;
@@ -1233,56 +1052,56 @@ var timeTrack=0;
 var myAudio;
 
 function myFunction(){
-    Player.init();
-    
+Player.init();
+
 }
 function myFunction3(){
-   Player.tracks[0]={
-    artist: "Kavinsky",
-        song: "Odd Look ft. The Weeknd",
-        url: "/music/THE WARRIOR'S WIFE - Epic Beautiful Vocal Music by Dwayne Ford.mp3"
-   };
-   
-   //Player.nextTrack();
-   //Player.endTrack();
-   //Player.loadTrack(0);
-   
-   
-   var that = this;
-    timeTrack=0;
-    //this.context.suspend && this.context.suspend().then(function() {console.log("closed");});
+Player.tracks[0]={
+artist: "Kavinsky",
+song: "Odd Look ft. The Weeknd",
+url: "/music/THE WARRIOR'S WIFE - Epic Beautiful Vocal Music by Dwayne Ford.mp3"
+};
+
+//Player.nextTrack();
+//Player.endTrack();
+//Player.loadTrack(0);
+
+
+var that = this;
+timeTrack=0;
+//this.context.suspend && this.context.suspend().then(function() {console.log("closed");});
+
+var audioCtx = this.context;
+Player.stop(0);
+Player.context.currentTime=0;
+
+    console.log("New Track");
     
-    var audioCtx = this.context;
-    Player.stop(0);
-    Player.context.currentTime=0;
+    Player.source.disconnect();
+    Player.source = Player.context.createBufferSource();
     
-            console.log("New Track");
-            
-            Player.source.disconnect();
-            Player.source = Player.context.createBufferSource();
-            
-            Player.loadTrackSeek(0);
-            Player.source.connect(Player.gainNode);
-            
-            //Framer.setLoadingPercent(1);
-            Player.firstLaunch = true;
-                  
+    Player.loadTrackSeek(0);
+    Player.source.connect(Player.gainNode);
+    
+    //Framer.setLoadingPercent(1);
+    Player.firstLaunch = true;
+          
 }
 
 
 function myFunction2(){
-   
-    var element = document.getElementById('audio');
+
+var element = document.getElementById('audio');
 
 //first make sure the audio player is playing
 element.play(); 
 
 //second seek to the specific time you're looking for
 element.currentTime = 226;
-  console.log("test"+ this.currentTime);
+console.log("test"+ this.currentTime);
 }
 
-    </script>
+</script>
 
 
 
@@ -1363,18 +1182,18 @@ element.currentTime = 226;
 <style>
 /* The heart of the matter */
 .testimonial-group > .row {
-  display: block;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
+display: block;
+overflow-x: auto;
+overflow-y: hidden;
+white-space: nowrap;
 }
 .testimonial-group > .row > .col-6 {
-  display: inline-block;
+display: inline-block;
 }
 
 article:hover {
-		border: 2px solid #ff9999;
-	}
+border: 2px solid #ff9999;
+}
 </style>
 
 
