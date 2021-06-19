@@ -601,59 +601,8 @@ initHandlers: function () {
 
     
 
-    this.scene.canvas.addEventListener('mousedown', function (e) {
-        if (that.isInsideOfSmallCircle(e) || that.isOusideOfBigCircle(e)) {
-            
-            return;
-        }
-        that.prevAngle = that.angle;
-        that.pressButton = true;
-        that.stopAnimation();
-        that.calculateAngle(e, true);
-    });
 
-    window.addEventListener('mouseup', function () {
-        if (!that.pressButton) {
-            return;
-        }
-        var id = setInterval(function () {
-            if (!that.animatedInProgress) {
-                that.pressButton = false;
-                //Player.context.currentTime = that.angle / (2 * Math.PI) * Player.source.buffer.duration;
-                clearInterval(id);
-                console.log(that.angle / (2 * Math.PI));
-                var percentOfTotal= that.angle / (2 * Math.PI)
-                var calcSeek = Player.source.buffer.duration *percentOfTotal;
-                seekTime=calcSeek;
-
-
-
-                var promise = new Promise(function(resolve, reject) {
-                    var n= Player.seek();
-                    if (n=true){
-                        resolve('success');
-                    }
-
-});
-promise.then(function(data) {
-   console.log(Player.context.currentTime,seekTime);
-   //Player.play();
-});
-
-
-
-            }
-        }, 100);
-    });
-
-    window.addEventListener('mousemove', function (e) {
-        if (that.animatedInProgress) {
-            return;
-        }
-        if (that.pressButton && that.scene.inProcess()) {
-            that.calculateAngle(e);
-        }
-    });
+ 
 
 
 
@@ -661,59 +610,6 @@ promise.then(function(data) {
 
 
 
-    this.scene.canvas.addEventListener('touchstart', function (e) {
-        if (that.isInsideOfSmallCircle(e) || that.isOusideOfBigCircle(e)) {
-            
-            return;
-        }
-        that.prevAngle = that.angle;
-        that.pressButton = true;
-        that.stopAnimation();
-        that.calculateAngle(e, true);
-    });
-
-    window.addEventListener('touchend', function () {
-        if (!that.pressButton) {
-            return;
-        }
-        var id = setInterval(function () {
-            if (!that.animatedInProgress) {
-                that.pressButton = false;
-                //Player.context.currentTime = that.angle / (2 * Math.PI) * Player.source.buffer.duration;
-                clearInterval(id);
-                console.log(that.angle / (2 * Math.PI));
-                var percentOfTotal= that.angle / (2 * Math.PI)
-                var calcSeek = Player.source.buffer.duration *percentOfTotal;
-                seekTime=calcSeek;
-
-
-
-                var promise = new Promise(function(resolve, reject) {
-                    var n= Player.seek();
-                    if (n=true){
-                        resolve('success');
-                    }
-
-});
-promise.then(function(data) {
-   console.log(Player.context.currentTime,seekTime);
-   //Player.play();
-});
-
-
-
-            }
-        }, 100);
-    });
-
-    window.addEventListener('touchmove', function (e) {
-        if (that.animatedInProgress) {
-            return;
-        }
-        if (that.pressButton && that.scene.inProcess()) {
-            that.calculateAngle(e);
-        }
-    });
 
 
 
