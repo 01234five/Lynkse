@@ -735,7 +735,7 @@ canvasConfigure: function () {
             this.initSoundButton();
             this.initPrevSongButton();
             this.initNextSongButton();
-            this.initTimeHandler();
+            //this.initTimeHandler();
         },
 
         initPlayButton: function () {
@@ -944,7 +944,7 @@ canvasConfigure: function () {
             request.onload = function() {
                 that.context.decodeAudioData(request.response, function(buffer) {
                     that.source.buffer = buffer;
-                }).then(function() {Player.play()});
+                }).then(function() {});
             };
 
             request.send();
@@ -973,32 +973,7 @@ canvasConfigure: function () {
 },
 
 
-seek:async function (){
-    var that = this;
-    timeTrack=Player.context.currentTime
-    //this.context.suspend && this.context.suspend().then(function() {console.log("closed");});
-    
-    var audioCtx = this.context;
-    Player.stop(0);
-    Player.context.currentTime=0;
-    console.log("sdfdsfdsf"+Player.context.currentTime)       
-            console.log("seek");
-            
-            this.source.disconnect();
-            this.source = this.context.createBufferSource();
-            
-            this.loadTrackSeek(0);
-            this.source.connect(this.gainNode);
-            
-            //Framer.setLoadingPercent(1);
-            this.firstLaunch = true;
-            
-            
-            
-            console.log(this.context.currentTime,seekTime)
-            return true;
-            
-        },
+
 
         nextTrack: function () {
             return;
