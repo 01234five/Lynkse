@@ -644,7 +644,7 @@ init: function () {
     this.initHandlers();
 
     Framer.init(this);
-    Tracker.init(this);
+    
     Controls.init(this);
 
     this.startRender();
@@ -679,11 +679,7 @@ canvasConfigure: function () {
 
         initHandlers: function () {
             var that = this;
-            window.onresize = function () {
-                that.canvasConfigure();
-                Framer.configure();
-                that.render();
-            };
+            
         },
 
         render: function () {
