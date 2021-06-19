@@ -1064,13 +1064,13 @@ canvasConfigure: function () {
             this.audio.addEventListener("canplaythrough", event => {
   /* the audio is now playable; play it if permissions allow */
  console.log("ZDASD")
- this.audio.play();
+ 
 });
 
 
 
 
-            this.context.suspend && this.context.suspend();
+            
             this.firstLaunch = true;
             try {
                 this.javascriptNode = this.context.createScriptProcessor(2048, 1, 1);
@@ -1207,8 +1207,10 @@ seek:async function (){
         },
 
         play: function () {
-            this.audio.play();
-            this.audio.volume = 0.2;
+            Player.audio.play();
+            
+            //Player.audio.volume = 0.2;
+            console.log("sadasdasdasd")
         },
 
         stop: function () {
