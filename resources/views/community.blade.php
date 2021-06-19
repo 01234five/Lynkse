@@ -873,6 +873,7 @@ $('#myBanner').on('click','article',function(){
     <select class="form-control" id="effectEdit" style="display:inline;">
       <option>none</option>
       <option>particles</option>
+      <option>glow</option>
     </select>
   </div>
 
@@ -2394,7 +2395,43 @@ body.nav-open {
 // Initialisation
 var particleCanvas=[];
 function insertBanner(id,userFlag,effect){
-  
+  if(effect=="glow"){
+    $( '#particle-canvas'+id ).addClass( "glow-shadow" );
+    const canvasCreate= document.createElement('canvas');
+const divCreate= document.createElement('div');
+var canvasDiv = document.getElementById('particle-canvas'+id);
+
+canvasCreate.setAttribute("id", "canvasElement"+id);
+canvasCreate.setAttribute("class","allCanvasNoEffect");
+
+canvasCreate.style.position= "relative";
+canvasCreate.style.zIndex= "20";
+canvasCreate.style.height='100%';
+canvasCreate.style.width='100%';
+
+
+
+divCreate.setAttribute('id','userFlagBackgroundId'+id);
+divCreate.style.background = 'url("'+userFlag+'")';
+divCreate.style.backgroundPosition="center";
+divCreate.style.backgroundSize="cover";
+divCreate.style.backgroundRepeat="no-repeat";
+divCreate.style.top= "0px";
+divCreate.style.left= "0px";
+divCreate.style.bottom= "0px";
+divCreate.style.right= "0px";
+
+
+
+divCreate.style.inset= "0px";
+divCreate.style.zIndex= "1";
+divCreate.style.position="absolute"
+canvasDiv.style.position="relative";
+canvasDiv.appendChild(divCreate);   
+canvasDiv.appendChild(canvasCreate);   
+$( '#particle-canvas'+id ).addClass( "glow-shadow" );
+//$( '#particle-canvas'+id ).css("height", "258px");
+  }
   
   if(effect=="none"){
 const canvasCreate= document.createElement('canvas');
@@ -2737,7 +2774,7 @@ function addRooms(data){
 
   <div class="row">
     <div class="col-12">
-    <div class="particlesdiv" id="particle-canvas${id}" style="height:170px"></div>
+    <div class="particlesdiv" id="particle-canvas${id}" style="bottom:1px;height:170px"></div>
   </div>
   
 </article>
@@ -2789,7 +2826,8 @@ function addRooms(data){
 
   <div class="row">
     <div class="col-12">
-    <div class="particlesdiv" id="particle-canvas${id}" style="height:260px"></div>
+    <div class="particlesdiv" id="particle-canvas${id}" style="bottom:1px;height:260px;">
+    </div>
   </div>
   
 </article>
@@ -3105,5 +3143,45 @@ $(window).resize(function() {
   line-height: 40px;
 }
 </style>
+
+
+
+<style>
+
+.glow-shadow {
+   
+  
+ 
+    
+    -webkit-animation: throb 1.5s infinite ease-in-out;
+    animation: glow 1.5s infinite ease-in-out;
+}
+@-webkit-keyframes glow {
+    0% {
+        -webkit-box-shadow: 0 0 10px 50px rgba(50, 160, 50, 0.9);
+    }
+    50% {
+        -webkit-box-shadow: 0 0 10px 0px rgba(50, 160, 50, .2);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 10px 50px rgba(50, 160, 50, 0.9);
+    }
+}
+@keyframes glow {
+    0% {
+        box-shadow: 0 0px 10px rgba(74, 114, 168, 0.9);
+    }
+    50% {
+        box-shadow: 0 0px 10px rgba(74, 114, 168, .2);
+    }
+    100% {
+        box-shadow: 0 0px 10px rgba(74, 114, 168, 0.9);
+    }
+}
+
+
+</style>
+
+
 
 @endsection
