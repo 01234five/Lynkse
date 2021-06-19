@@ -644,7 +644,7 @@ init: function () {
     this.initHandlers();
 
     Framer.init(this);
-    
+    Tracker.init(this);
     Controls.init(this);
 
     this.startRender();
