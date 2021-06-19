@@ -422,8 +422,7 @@
 }
     </style>
 
-
-<script>
+    <script>
 var Framer = {
 
 countTicks: 360,
@@ -595,185 +594,6 @@ init: function (scene) {
 initHandlers: function () {
     var that = this;
 
-    
-
-    this.scene.canvas.addEventListener('mousedown', function (e) {
-        if (that.isInsideOfSmallCircle(e) || that.isOusideOfBigCircle(e)) {
-            
-            return;
-        }
-        that.prevAngle = that.angle;
-        that.pressButton = true;
-        that.stopAnimation();
-        that.calculateAngle(e, true);
-    });
-
-    window.addEventListener('mouseup', function () {
-        if (!that.pressButton) {
-            return;
-        }
-        var id = setInterval(function () {
-            if (!that.animatedInProgress) {
-                that.pressButton = false;
-                //Player.context.currentTime = that.angle / (2 * Math.PI) * Player.source.buffer.duration;
-                clearInterval(id);
-                console.log(that.angle / (2 * Math.PI));
-                var percentOfTotal= that.angle / (2 * Math.PI)
-                var calcSeek = Player.source.buffer.duration *percentOfTotal;
-                seekTime=calcSeek;
-
-
-
-                var promise = new Promise(function(resolve, reject) {
-                    var n= Player.seek();
-                    if (n=true){
-                        resolve('success');
-                    }
-
-});
-promise.then(function(data) {
-   console.log(Player.context.currentTime,seekTime);
-   //Player.play();
-});
-
-
-
-            }
-        }, 100);
-    });
-
-    window.addEventListener('mousemove', function (e) {
-        if (that.animatedInProgress) {
-            return;
-        }
-        if (that.pressButton && that.scene.inProcess()) {
-            that.calculateAngle(e);
-        }
-    });
-
-
-
-
-
-
-
-    this.scene.canvas.addEventListener('touchstart', function (e) {
-        if (that.isInsideOfSmallCircle(e) || that.isOusideOfBigCircle(e)) {
-            
-            return;
-        }
-        that.prevAngle = that.angle;
-        that.pressButton = true;
-        that.stopAnimation();
-        that.calculateAngle(e, true);
-    });
-
-    window.addEventListener('touchend', function () {
-        if (!that.pressButton) {
-            return;
-        }
-        var id = setInterval(function () {
-            if (!that.animatedInProgress) {
-                that.pressButton = false;
-                //Player.context.currentTime = that.angle / (2 * Math.PI) * Player.source.buffer.duration;
-                clearInterval(id);
-                console.log(that.angle / (2 * Math.PI));
-                var percentOfTotal= that.angle / (2 * Math.PI)
-                var calcSeek = Player.source.buffer.duration *percentOfTotal;
-                seekTime=calcSeek;
-
-
-
-                var promise = new Promise(function(resolve, reject) {
-                    var n= Player.seek();
-                    if (n=true){
-                        resolve('success');
-                    }
-
-});
-promise.then(function(data) {
-   console.log(Player.context.currentTime,seekTime);
-   //Player.play();
-});
-
-
-
-            }
-        }, 100);
-    });
-
-    window.addEventListener('touchmove', function (e) {
-        if (that.animatedInProgress) {
-            return;
-        }
-        if (that.pressButton && that.scene.inProcess()) {
-            that.calculateAngle(e);
-        }
-    });
-
-
-
-
-
-
-},
-
-isInsideOfSmallCircle: function (e) {
-    
-    var x = Math.abs(e.pageX - this.scene.cx - this.scene.coord.left);
-    var y = Math.abs(e.pageY - this.scene.cy - this.scene.coord.top);
-    return Math.sqrt(x * x + y * y) < this.scene.radius1 - 3 * this.innerDelta;
-    console.log("inside");
-},
-
-isOusideOfBigCircle: function (e) {
-    return Math.abs(e.pageX - this.scene.cx - this.scene.coord.left) > this.scene.radius1 ||
-            Math.abs(e.pageY - this.scene.cy - this.scene.coord.top) > this.scene.radius1;
-            console.log("inside123");
-},
-
-draw: function () {
-
-    if (!this.pressButton) {
-        
-        this.angle = ((seekTime+Player.context.currentTime)-timeTrack) / 266 * 2 * Math.PI || 0;
-        console.log((seekTime+Player.context.currentTime)-timeTrack);
-    }
-    this.drawArc();
-},
-
-drawArc: function () {
-    this.context.save();
-    this.context.strokeStyle = 'rgba(254, 67, 101, 0.8)';
-    this.context.beginPath();
-    this.context.lineWidth = this.lineWidth;
-
-    this.r = this.scene.radius1 - (this.innerDelta + this.lineWidth / 2);
-    this.context.arc(
-            this.scene.radius1 + this.scene.padding,
-            this.scene.radius1 + this.scene.padding,
-            this.r, 0, this.angle, false
-    );
-    this.context.stroke();
-    this.context.restore();
-},
-
-calculateAngle: function (e, animatedInProgress) {
-    this.animatedInProgress = animatedInProgress;
-    this.mx = e.pageX;
-    this.my = e.pageY;
-    this.angle = Math.atan((this.my - this.scene.cy - this.scene.coord.top) / (this.mx - this.scene.cx - this.scene.coord.left));
-    if (this.mx < this.scene.cx + this.scene.coord.left) {
-        this.angle = Math.PI + this.angle;
-    }
-    if (this.angle < 0) {
-        this.angle += 2 * Math.PI;
-    }
-    if (animatedInProgress) {
-        this.startAnimation();
-    } else {
-        this.prevAngle = this.angle;
-    }
 },
 
 
@@ -879,7 +699,7 @@ canvasConfigure: function () {
 
         draw: function () {
             Framer.draw();
-            Tracker.draw();
+           
             Controls.draw();
         },
 
@@ -915,7 +735,7 @@ canvasConfigure: function () {
             this.initSoundButton();
             this.initPrevSongButton();
             this.initNextSongButton();
-            this.initTimeHandler();
+            //this.initTimeHandler();
         },
 
         initPlayButton: function () {
@@ -1034,7 +854,6 @@ canvasConfigure: function () {
         }
     };
     'use strict';
-
 
     var Player = {
 
