@@ -63,7 +63,11 @@
 		</div>
 		<div class="soundControl"></div>
 		<div class="time">00:00</div>
+        <div class="wrapBar" style="bottom:40px;left:100px;position:relative;">
+  <input type="range" min="0" max="100" value="50" class="range" />
+</div>
 	</div>
+
 
 
 
@@ -279,7 +283,7 @@
 
 <audio id="player" src="/music/DnB/Makoto/Makoto - Wading Through Crowds (feat. Karina Ramage).mp3" autoplay="" controls=""></audio>
 <button onclick="myFunction()">Click me</button>
-<button onclick="myFunction3()">Click me3</button>
+<button onclick="audioBarUpdate()">Click me3</button>
 
 
     <style>
@@ -735,7 +739,7 @@ canvasConfigure: function () {
             this.initSoundButton();
             this.initPrevSongButton();
             this.initNextSongButton();
-            //this.initTimeHandler();
+            this.initTimeHandler();
         },
 
         initPlayButton: function () {
@@ -794,8 +798,9 @@ canvasConfigure: function () {
 
         initTimeHandler: function () {
             var that = this;
+            if(Player.audioPlaying==true){
             setTimeout(function () {
-                var rawTime = parseInt(Player.context.currentTime || 0);
+                var rawTime = parseInt(Player.audio.currentTime || 0);
                 var secondsInMin = 60;
                 var min = parseInt(rawTime / secondsInMin);
                 var seconds = rawTime - min * secondsInMin;
@@ -808,8 +813,9 @@ canvasConfigure: function () {
                 time = min + ':' + seconds;
                 that.timeControl.textContent = time;
                 that.initTimeHandler();
-                //console.log(Player.source.buffer.duration);
-            }, 300);
+                console.log("time handler Function");
+                audioBarUpdate();
+            }, 300);}
         },
 
         draw: function () {
@@ -885,7 +891,8 @@ this.audio.addEventListener('play', function() {
 /* do something */ 
 
 Player.audioPlaying=true;
-console.log("playing " + Player.audioPlaying)
+console.log("playing " + Player.audioPlaying);
+Controls.initTimeHandler();
 });
 this.audio.addEventListener('pause', function() { 
 /* do something */ 
@@ -1089,16 +1096,16 @@ Player.context.currentTime=0;
 }
 
 
-function myFunction2(){
-
-var element = document.getElementById('audio');
-
-//first make sure the audio player is playing
-element.play(); 
-
-//second seek to the specific time you're looking for
-element.currentTime = 226;
-console.log("test"+ this.currentTime);
+function audioBarUpdate(){
+    $('.range').val((Player.audio.currentTime/Player.audio.duration)*100);
+    
+    var val = (Player.audio.currentTime/Player.audio.duration)*100;
+    console.log((Player.audio.currentTime/Player.audio.duration)*100)
+    parseInt(val);
+    $('.range').css(
+      'background',
+      'linear-gradient(to right, #527189 0%, #527189 ' + val + '%, #777 ' + val + '%, #444 100%)'
+    );
 }
 
 </script>
@@ -1197,4 +1204,120 @@ border: 2px solid #ff9999;
 </style>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- SeekBar -->
+
+<style>
+
+
+
+
+.range {
+  -webkit-appearance: none;
+  background: linear-gradient(to right,
+    #527189 0%, #527189 50%,
+    #444 50%, #444 62.5%,
+    #444 62.5%, #444 100%);
+  cursor: pointer;
+  height: 3px;
+  margin: 0;
+  transition: 0.1s ease-in;
+  vertical-align: bottom;
+  width: 50%;
+}
+.wrapBar:hover .range,
+.wrapBar.hover .range { height: 8px; }
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: #527189;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 5px #eaeaea;
+  height: 0;
+  transition: 0.1s ease-in;
+  width: 0;
+}
+.wrapBar:hover .range::-webkit-slider-thumb,
+.wrapBar.hover .range::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+}
+
+.loaded .range,
+.loaded .range::-webkit-slider-thumb {
+  transition: 0.1s ease-in;
+}
+
+:focus {
+  outline: none;
+}
+
+</style>
+
+
+<script>
+$(function() {
+  
+  $('.wrapBar').addClass('loaded');
+  
+  $('.range').bind('change mousemove', function() {
+    var val = $(this).val();
+    parseInt(val);
+    $(this).css(
+      'background',
+      'linear-gradient(to right, #527189 0%, #527189 ' + val + '%, #777 ' + val + '%, #444 100%)'
+    );
+    Player.audio.currentTime=(val/100) *Player.audio.duration;
+  });
+
+  var timeout;
+  $('.wrapBar').bind('focusin mouseover mousedown hover', function() {
+    window.clearTimeout(timeout);
+    $(this).addClass('hover');
+  });
+  $('.wrapBar').bind('focusout mouseout mouseup', function() {
+    window.clearTimeout(timeout);
+    timeout = setTimeout(function(){removeHoverClass();}, 1000);
+  });
+  function removeHoverClass() {
+    if (!$('.wrapBar').is(":hover")) {
+      $('.wrapBar').removeClass('hover');
+    }
+  }
+  
+});
+</script>
 @endsection
