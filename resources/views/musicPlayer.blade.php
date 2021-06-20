@@ -1297,7 +1297,7 @@ $(function() {
   $('.wrapBar').addClass('loaded');
   
   $('.range').bind('change mousemove', function() {
-    updateAudioBar=false;
+   
     var val = $(this).val();
     parseInt(val);
     $(this).css(
@@ -1312,6 +1312,10 @@ $(function() {
     parseInt(val);
     Player.audio.currentTime=(val/100) *Player.audio.duration;
     updateAudioBar=true;
+    
+  });
+  $('.range').bind('change mousedown', function() {
+    updateAudioBar=false;
   });
 
 
