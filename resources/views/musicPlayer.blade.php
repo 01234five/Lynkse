@@ -51,18 +51,19 @@
 <div id="audio" class="player" style="overflow:hidden;position:relative;margin:auto;width:400px;height:400px;top:0%;left:0%;">
 
 	    <canvas id="canvasPlayer" style="height:400px;width:400px;"></canvas>
-		<div class="song">
-			<div class="artist">Kavinsky</div>
-			<div class="name">Odd Look ft. The Weeknd</div>
-		</div>
-		<div class="playarea">
+
+		<div class="playarea" style="left:51%">
 			<div class="prevSong"></div>
 			<div class="play"></div>
 			<div class="pause"></div>
 			<div class="nextSong"></div>
 		</div>
-		<div class="soundControl"></div>
-		<div class="time">00:00</div>
+        <div class="song" style="color:ffc2cd">
+			<div class="artist" style="font-weight: bold;">Kavinsky</div>
+			<div class="name">Odd Look ft. The Weeknd</div>
+		</div>
+		<div class="soundControl" style="top:104px;"></div>
+		<div class="time" style="bottom:100px; color:e36d83;">00:00</div>
         <div class="wrapBar" style="bottom:40px;left:100px;position:relative;">
   <input type="range" min="0" max="100" value="50" class="range" />
 </div>
@@ -93,90 +94,18 @@
 
 <div class="row">
     <div class="col-md-12">
-      <div class='search-box'>
-        <form id="formSearchVideo" class='search-form'>
-          <input autocomplete="off" id="inputId" class='form-control' placeholder='Search' type='text'>
-          <button class='btn btn-link search-btn'>
-            <i class='fa fa-search'></i>
-          </button>
-        </form>
-      </div>
-      <hr>
+
     </div>
   </div>
  
  <div class="row">
     <div class="col-md-12"> 
-    <a onclick="createForm();" class="btn btn-default"><i id="createRoomButton" class="fa fa-star" style="display: inline-block;"></i> Create</a>
+    <a  class="btn btn-default toggle-sidebar2"><i id="createRoomButton" class="fa fa-star" style="display: inline-block;"></i> Browse</a>
     </div>
     </div>
 
 
-    <div class="container testimonial-group" style="margin-top: 10px;height:37%;">
-<div id="category" class="row text-center" style="height:100%;">
 
-<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px;max-height:150px;" >
-<article style="height:140px;" category-key="anime">
-    <img  class="center"src="/category/anime.jpg"  alt="image" style="width: 90%;
-  height: 100%; display: block;
-    margin: 0 auto;
-  "></img>
-</article>
-</div>
-<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px;max-height:150px;" >
-<article style="height:140px;" category-key="games">
-    <img  class="center"src="/category/games.jpg" alt="image" style="width: 90%;
-  height: 100%; display: block;
-    margin: 0 auto;
-  "></img>
- 
-
-</article>
-</div>
-<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px; max-height:150px;" >
-<article style="height:140px;" category-key="music">
-    <img  class="center"src="/category/music.jpg" alt="image" style="width: 90%;
-  height: 100%; display: block;
-    margin: 0 auto;
-  "></img>
- 
-
-</article>
-</div>
-<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px; max-height:150px;" >
-<article style="height:140px;" category-key="comedy">
-    <img  class="center"src="/category/comedy.jpg" alt="image" style="width: 90%;
-  height: 100%; display: block;
-    margin: 0 auto;
-  "></img>
- 
-
-</article>
-</div>
-<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px; max-height:150px;" >
-<article style="height:140px;" category-key="other">
-    <img  class="center"src="/category/other.jpg" alt="image" style="width: 90%;
-  height: 100%; display: block;
-    margin: 0 auto;
-  "></img>
- 
-
-</article>
-</div>
-
-<div class="col-6 p-1" style="height:98%; min-width:60px; max-width:85px; max-height:150px;" >
-<article style="height:140px;" category-key="All">
-    <img  class="center"src="/category/all.jpg" alt="image" style="width: 90%;
-  height: 100%; display: block;
-    margin: 0 auto;
-  "></img>
- 
-
-</article>
-</div>
-</div>
-    
-</div>
     
 
 
@@ -250,7 +179,7 @@
 
   
  
-  <a class="nav-toggle" id="overlay"></a>
+  
 
 <!--
 
@@ -283,9 +212,118 @@
 
 <audio id="player" src="/music/DnB/Makoto/Makoto - Wading Through Crowds (feat. Karina Ramage).mp3" autoplay="" controls=""></audio>
 <button onclick="myFunction()">Click me</button>
-<button onclick="audioBarUpdate()">Click me3</button>
+<button  onclick="myFunction3()">Click me3</button>
 
 
+
+<div id="ocn2">
+    <div id="ocn2-inner" style="background-color: #181E26;" >
+    <div class="card h-100" style="background-color: #181E26;">
+
+
+
+
+  <div class="card-header" style=" background-color: #1b2838;border-bottom: 2px solid #313F50; color:#7c7c7c; font-weight: bold; text-align: center;">
+    Lyncse Library
+  </div>
+  <div class="card-body" style="padding:0;">
+
+
+
+
+
+  <div class="container">
+    <div id="songList">
+  <div url-key="/music/blah" class="row songListItem" style=" border-bottom: 1px solid #313F50; padding-top:5px;padding-bottom:5px;">
+    <div class="col-2" style="padding-right:0;padding-left:0; bottom:1px;">
+    <p id="minutes" style="margin:0; font-size: 20px;color:#7c7c7c;text-align: center;">05</p>
+    <p id="seconds" style="margin:0; font-size: 20px;color:#7c7c7c;text-align: center;">10</p>
+     
+    </div>
+    <div class="col-9" style="padding-left:0;">
+    <p id="title" style="margin:0;color:#7c7c7c">Northern Lights</p>
+    <p id="artist" style="margin:0;color:#505050;font-size:12;">Metrik</p>
+    </div>
+
+  </div>
+ 
+
+ 
+  <div url-key="/music/blah" class="row songListItem" style="border-bottom: 1px solid #313F50; padding-top:5px;padding-bottom:5px;">
+    <div class="col-2" style="padding-right:0;padding-left:0; bottom:1px;">
+    <p style="margin:0; font-size: 20px;color:#7c7c7c;text-align: center;">05</p>
+    <p style="margin:0; font-size: 20px;color:#7c7c7c;text-align: center;">10</p>
+     
+    </div>
+    <div class="col-9" style="padding-left:0;padding-right:0;">
+    <p style="margin:0;color:#7c7c7c">Northern Lights</p>
+    <p style="margin:0;color:#505050;font-size:12;">Metrik</p>
+    </div>
+    
+
+
+  </div>
+  </div>
+
+
+</div>
+
+
+
+
+  </div>
+
+
+  <div class="card-footer text-muted" style="border-top: 2px solid #414141;">
+
+
+
+</div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+  </div>
+  <a class="nav-toggle2" id="overlay2"></a>
+
+</div>
+<script>
+
+
+$('#songList').on('click','.songListItem',function(){
+    songURL= $(this).attr('url-key');
+    $( "#playIcon" ).remove();
+   $(this).append(`
+   <div id="playIcon" class="col-1" style="padding:0;">
+
+<span class="fa fa-play" style="font-size: 22px;line-height: 40px; color:white;"></span>
+
+</div>
+   `)
+});
+
+
+</script>
+<style>
+.songListItem {
+  transition: all 1s ease;
+  cursor: default;
+}
+
+.song{
+  
+  cursor: default;
+}
+
+.songListItem:hover{
+    background-color: #1d2530;
+}
+</style>
     <style>
     * {
     margin: 0;
@@ -334,7 +372,7 @@
     border-radius: 120px;
     width: 120px;
     height: 120px;
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNDVweCIgaGVpZ2h0PSI1NXB4IiB2aWV3Qm94PSIwIDAgNDUgNTUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPnBsYXktPC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPiAgICAgICAgPGZpbHRlciB4PSItNTAlIiB5PSItNTAlIiB3aWR0aD0iMjAwJSIgaGVpZ2h0PSIyMDAlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJmaWx0ZXItMSI+ICAgICAgICAgICAgPGZlT2Zmc2V0IGR4PSIwIiBkeT0iMCIgaW49IlNvdXJjZUFscGhhIiByZXN1bHQ9InNoYWRvd09mZnNldE91dGVyMSI+PC9mZU9mZnNldD4gICAgICAgICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxLjUiIGluPSJzaGFkb3dPZmZzZXRPdXRlcjEiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSI+PC9mZUdhdXNzaWFuQmx1cj4gICAgICAgICAgICA8ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMC45NDI0NzI1NjIgICAwIDAgMCAwIDAuOTYxNzk0NTYyICAgMCAwIDAgMCAwLjk4MjE5NjAwMyAgMCAwIDAgMC4zNSAwIiBpbj0ic2hhZG93Qmx1ck91dGVyMSIgdHlwZT0ibWF0cml4IiByZXN1bHQ9InNoYWRvd01hdHJpeE91dGVyMSI+PC9mZUNvbG9yTWF0cml4PiAgICAgICAgICAgIDxmZU1lcmdlPiAgICAgICAgICAgICAgICA8ZmVNZXJnZU5vZGUgaW49InNoYWRvd01hdHJpeE91dGVyMSI+PC9mZU1lcmdlTm9kZT4gICAgICAgICAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIj48L2ZlTWVyZ2VOb2RlPiAgICAgICAgICAgIDwvZmVNZXJnZT4gICAgICAgIDwvZmlsdGVyPiAgICA8L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPiAgICAgICAgPGcgaWQ9IlBsYXllci12ZXJzaW9uLTEiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00ODIuMDAwMDAwLCAtMjk2LjAwMDAwMCkiIGZpbHRlcj0idXJsKCNmaWx0ZXItMSkiIGZpbGw9IiNGRTQzNjUiPiAgICAgICAgICAgIDxwYXRoIGQ9Ik00ODUsMzE0LjM1MDE1NCBMNDg1LDM0OCBMNTI1LDMyNC4wMzI2MDkgTDQ4NSwyOTkgTDQ4NSwzMTQuMzUwMTU0IFoiIGlkPSJwbGF5LSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+) 42px 34px no-repeat;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNDVweCIgaGVpZ2h0PSI1NXB4IiB2aWV3Qm94PSIwIDAgNDUgNTUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPnBsYXktPC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPiAgICAgICAgPGZpbHRlciB4PSItNTAlIiB5PSItNTAlIiB3aWR0aD0iMjAwJSIgaGVpZ2h0PSIyMDAlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJmaWx0ZXItMSI+ICAgICAgICAgICAgPGZlT2Zmc2V0IGR4PSIwIiBkeT0iMCIgaW49IlNvdXJjZUFscGhhIiByZXN1bHQ9InNoYWRvd09mZnNldE91dGVyMSI+PC9mZU9mZnNldD4gICAgICAgICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxLjUiIGluPSJzaGFkb3dPZmZzZXRPdXRlcjEiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSI+PC9mZUdhdXNzaWFuQmx1cj4gICAgICAgICAgICA8ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMC45NDI0NzI1NjIgICAwIDAgMCAwIDAuOTYxNzk0NTYyICAgMCAwIDAgMCAwLjk4MjE5NjAwMyAgMCAwIDAgMC4zNSAwIiBpbj0ic2hhZG93Qmx1ck91dGVyMSIgdHlwZT0ibWF0cml4IiByZXN1bHQ9InNoYWRvd01hdHJpeE91dGVyMSI+PC9mZUNvbG9yTWF0cml4PiAgICAgICAgICAgIDxmZU1lcmdlPiAgICAgICAgICAgICAgICA8ZmVNZXJnZU5vZGUgaW49InNoYWRvd01hdHJpeE91dGVyMSI+PC9mZU1lcmdlTm9kZT4gICAgICAgICAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIj48L2ZlTWVyZ2VOb2RlPiAgICAgICAgICAgIDwvZmVNZXJnZT4gICAgICAgIDwvZmlsdGVyPiAgICA8L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPiAgICAgICAgPGcgaWQ9IlBsYXllci12ZXJzaW9uLTEiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00ODIuMDAwMDAwLCAtMjk2LjAwMDAwMCkiIGZpbHRlcj0idXJsKCNmaWx0ZXItMSkiIGZpbGw9IiNGRTQzNjUiPiAgICAgICAgICAgIDxwYXRoIGQ9Ik00ODUsMzE0LjM1MDE1NCBMNDg1LDM0OCBMNTI1LDMyNC4wMzI2MDkgTDQ4NSwyOTkgTDQ4NSwzMTQuMzUwMTU0IFoiIGlkPSJwbGF5LSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+) 41px 34px no-repeat;
     background-size: 45px 55px;
 }
 
@@ -348,7 +386,7 @@
     border-radius: 120px;
     width: 120px;
     height: 120px;
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMzRweCIgaGVpZ2h0PSI1MXB4IiB2aWV3Qm94PSIwIDAgMzQgNTEiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPkxpbmU8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+PC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4gICAgICAgIDxnIGlkPSJQbGF5ZXItdmVyc2lvbi0xIiBza2V0Y2g6dHlwZT0iTVNBcnRib2FyZEdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDgyLjAwMDAwMCwgLTI5OC4wMDAwMDApIiBzdHJva2U9IiNGRTQzNjUiIHN0cm9rZS1vcGFjaXR5PSIwLjg1IiBmaWxsPSIjRkU0MzY1IiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIiBmaWxsLW9wYWNpdHk9IjAuODUiPiAgICAgICAgICAgIDxwYXRoIGQ9Ik00ODMsMzAxLjI2ODUxOSBMNDgzLDM0NS43MzE0ODEgTDQ4MywzNDggTDQ4OC4wNzI0NjQsMzQ4IEw0ODguMDcyNDY0LDM0NS43MzE0ODEgTDQ4OC4wNzI0NjQsMzAxLjI2ODUxOSBMNDg4LjA3MjQ2NCwyOTkgTDQ4MywyOTkgTDQ4MywzMDEuMjY4NTE5IFogTTUwOS45Mjc1MzYsMzAxLjI2ODUxOSBMNTA5LjkyNzUzNiwzNDUuNzMxNDgxIEw1MDkuOTI3NTM2LDM0OCBMNTE1LDM0OCBMNTE1LDM0NS43MzE0ODEgTDUxNSwzMDEuMjY4NTE5IEw1MTUsMjk5IEw1MDkuOTI3NTM2LDI5OSBMNTA5LjkyNzUzNiwzMDEuMjY4NTE5IFoiIGlkPSJMaW5lIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIj48L3BhdGg+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=) 43px 35px no-repeat;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMzRweCIgaGVpZ2h0PSI1MXB4IiB2aWV3Qm94PSIwIDAgMzQgNTEiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPkxpbmU8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+PC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4gICAgICAgIDxnIGlkPSJQbGF5ZXItdmVyc2lvbi0xIiBza2V0Y2g6dHlwZT0iTVNBcnRib2FyZEdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDgyLjAwMDAwMCwgLTI5OC4wMDAwMDApIiBzdHJva2U9IiNGRTQzNjUiIHN0cm9rZS1vcGFjaXR5PSIwLjg1IiBmaWxsPSIjRkU0MzY1IiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIiBmaWxsLW9wYWNpdHk9IjAuODUiPiAgICAgICAgICAgIDxwYXRoIGQ9Ik00ODMsMzAxLjI2ODUxOSBMNDgzLDM0NS43MzE0ODEgTDQ4MywzNDggTDQ4OC4wNzI0NjQsMzQ4IEw0ODguMDcyNDY0LDM0NS43MzE0ODEgTDQ4OC4wNzI0NjQsMzAxLjI2ODUxOSBMNDg4LjA3MjQ2NCwyOTkgTDQ4MywyOTkgTDQ4MywzMDEuMjY4NTE5IFogTTUwOS45Mjc1MzYsMzAxLjI2ODUxOSBMNTA5LjkyNzUzNiwzNDUuNzMxNDgxIEw1MDkuOTI3NTM2LDM0OCBMNTE1LDM0OCBMNTE1LDM0NS43MzE0ODEgTDUxNSwzMDEuMjY4NTE5IEw1MTUsMjk5IEw1MDkuOTI3NTM2LDI5OSBMNTA5LjkyNzUzNiwzMDEuMjY4NTE5IFoiIGlkPSJMaW5lIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIj48L3BhdGg+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=) 42px 35px no-repeat;
     background-size: 35px 51px;
 }
 
@@ -884,7 +922,7 @@ init: function () {
     
     this.audio.addEventListener("canplaythrough", event => {
 /* the audio is now playable; play it if permissions allow */
-console.log("ZDASD")
+console.log("CanPlayThrough")
 
 });
 this.audio.addEventListener('play', function() { 
@@ -932,23 +970,7 @@ console.log("playing " + Player.audioPlaying)
 
 
 loadTrack: function (index) {
-    var that = this;
-    var request = new XMLHttpRequest();
-    var track = this.tracks[index];
-    document.querySelector('.song .artist').textContent = track.artist;
-    document.querySelector('.song .name').textContent = track.song;
-    this.currentSongIndex = index;
-
-    request.open('GET', track.url, true);
-    request.responseType = 'arraybuffer';
-
-    request.onload = function() {
-        that.context.decodeAudioData(request.response, function(buffer) {
-            that.source.buffer = buffer;
-        }).then(console.log("test"));
-    };
-
-    request.send();
+    Player.audio.src = "/music/THE WARRIOR'S WIFE - Epic Beautiful Vocal Music by Dwayne Ford.mp3";
 },
 loadTrackSeek: function (index) {
     var that = this;
@@ -1021,7 +1043,7 @@ play: function () {
     Player.audio.play();
     
     //Player.audio.volume = 0.2;
-    console.log("sadasdasdasd")
+    //console.log("sadasdasdasd")
 },
 
 stop: function () {
@@ -1064,35 +1086,7 @@ Player.init();
 
 }
 function myFunction3(){
-Player.tracks[0]={
-artist: "Kavinsky",
-song: "Odd Look ft. The Weeknd",
-url: "/music/THE WARRIOR'S WIFE - Epic Beautiful Vocal Music by Dwayne Ford.mp3"
-};
-
-//Player.nextTrack();
-//Player.endTrack();
-//Player.loadTrack(0);
-
-
-var that = this;
-timeTrack=0;
-//this.context.suspend && this.context.suspend().then(function() {console.log("closed");});
-
-var audioCtx = this.context;
-Player.stop(0);
-Player.context.currentTime=0;
-
-    console.log("New Track");
-    
-    Player.source.disconnect();
-    Player.source = Player.context.createBufferSource();
-    
-    Player.loadTrackSeek(0);
-    Player.source.connect(Player.gainNode);
-    
-    //Framer.setLoadingPercent(1);
-    Player.firstLaunch = true;
+Player.loadTrack();
           
 }
 
@@ -1104,7 +1098,7 @@ function audioBarUpdate(){
     $('.range').val((Player.audio.currentTime/Player.audio.duration)*100);
     
     var val = (Player.audio.currentTime/Player.audio.duration)*100;
-    console.log((Player.audio.currentTime/Player.audio.duration)*100)
+    //console.log((Player.audio.currentTime/Player.audio.duration)*100)
     parseInt(val);
     $('.range').css(
       'background',
@@ -1191,22 +1185,6 @@ function audioBarUpdate(){
 
 
 
-<style>
-/* The heart of the matter */
-.testimonial-group > .row {
-display: block;
-overflow-x: auto;
-overflow-y: hidden;
-white-space: nowrap;
-}
-.testimonial-group > .row > .col-6 {
-display: inline-block;
-}
-
-article:hover {
-border: 2px solid #ff9999;
-}
-</style>
 
 
 
@@ -1315,6 +1293,21 @@ $(function() {
     parseInt(val);
     Player.audio.currentTime=(val/100) *Player.audio.duration;
     updateAudioBar=true;
+
+    var rawTime = parseInt(Player.audio.currentTime || 0);
+                var secondsInMin = 60;
+                var min = parseInt(rawTime / secondsInMin);
+                var seconds = rawTime - min * secondsInMin;
+                if (min < 10) {
+                    min = '0' + min;
+                }
+                if (seconds < 10) {
+                    seconds = '0' + seconds;
+                }
+                time = min + ':' + seconds;
+                Controls.timeControl.textContent = time;
+                console.log("seeked to: "+Controls.timeControl.textContent)
+
     
     
   });
@@ -1342,5 +1335,82 @@ $(function() {
   }
   
 });
+</script>
+
+
+
+
+
+<style>
+
+body.nav-open2 {
+  overflow: hidden;
+}
+
+#ocn2 {
+  background: #F0F8FF;
+  bottom: 0;
+  overflow-y: auto;
+  position: fixed;
+  right: -320px;
+  top: 0;
+  width: 320px;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+  z-index: 9990;
+}
+
+.nav-open2 #ocn2 {
+  -webkit-transform: translateX(-320px);
+  transform: translateX(-320px);
+}
+
+#overlay2 {
+  background: rgba(0, 0, 0, 0.8);
+  bottom: 0;
+  cursor: pointer;
+  display: block;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.nav-open2 #overlay2 {
+  opacity: 1;
+  visibility: visible;
+}
+
+</style>
+
+<script>
+ (function($) {
+
+ var navToggle2 = function() {
+  $('body').on('click', '.nav-toggle2', function(ev) {
+    ev.preventDefault();
+    $('body').toggleClass('nav-open2');
+   });
+ };
+
+ $(document).ready(function() {
+   navToggle2();
+ });
+ })(jQuery);
+
+ </script>
+
+<script>
+$(".toggle-sidebar2").on("click",function()
+{
+    $('body').toggleClass('nav-open2');
+
+});
+
+
 </script>
 @endsection
