@@ -813,7 +813,7 @@ canvasConfigure: function () {
                 time = min + ':' + seconds;
                 that.timeControl.textContent = time;
                 that.initTimeHandler();
-                console.log("time handler Function");
+                //console.log("time handler Function");
                 audioBarUpdate();
             }, 300);}
         },
@@ -1057,7 +1057,7 @@ var fuck;
 var seekTime=0;
 var timeTrack=0;
 var myAudio;
-var updateAudioBar=true;
+
 
 function myFunction(){
 Player.init();
@@ -1098,7 +1098,9 @@ Player.context.currentTime=0;
 
 
 function audioBarUpdate(){
+    //console.log("test up "+updateAudioBar);
     if(updateAudioBar==true){
+        //console.log("sadassdfsdfsdfsdfsdfsdfsdfsdfasfdasdas");
     $('.range').val((Player.audio.currentTime/Player.audio.duration)*100);
     
     var val = (Player.audio.currentTime/Player.audio.duration)*100;
@@ -1292,6 +1294,7 @@ border: 2px solid #ff9999;
 
 
 <script>
+var updateAudioBar=true;
 $(function() {
   
   $('.wrapBar').addClass('loaded');
@@ -1307,14 +1310,18 @@ $(function() {
     //Player.audio.currentTime=(val/100) *Player.audio.duration;
   });
 
-  $('.range').bind('change mouseup', function() {
+  $('.range').mouseup(function () {
     var val = $(this).val();
     parseInt(val);
     Player.audio.currentTime=(val/100) *Player.audio.duration;
     updateAudioBar=true;
     
+    
   });
-  $('.range').bind('change mousedown', function() {
+
+
+
+  $('.range').mousedown(function () {
     updateAudioBar=false;
   });
 
