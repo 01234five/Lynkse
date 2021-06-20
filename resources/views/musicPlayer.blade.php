@@ -1057,6 +1057,7 @@ var fuck;
 var seekTime=0;
 var timeTrack=0;
 var myAudio;
+var updateAudioBar=true;
 
 function myFunction(){
 Player.init();
@@ -1097,6 +1098,7 @@ Player.context.currentTime=0;
 
 
 function audioBarUpdate(){
+    if(updateAudioBar==true){
     $('.range').val((Player.audio.currentTime/Player.audio.duration)*100);
     
     var val = (Player.audio.currentTime/Player.audio.duration)*100;
@@ -1106,6 +1108,7 @@ function audioBarUpdate(){
       'background',
       'linear-gradient(to right, #527189 0%, #527189 ' + val + '%, #777 ' + val + '%, #444 100%)'
     );
+}
 }
 
 </script>
@@ -1294,6 +1297,7 @@ $(function() {
   $('.wrapBar').addClass('loaded');
   
   $('.range').bind('change mousemove', function() {
+    updateAudioBar=false;
     var val = $(this).val();
     parseInt(val);
     $(this).css(
@@ -1307,6 +1311,7 @@ $(function() {
     var val = $(this).val();
     parseInt(val);
     Player.audio.currentTime=(val/100) *Player.audio.duration;
+    updateAudioBar=true;
   });
 
 
