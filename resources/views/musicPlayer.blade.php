@@ -1303,6 +1303,13 @@ $(function() {
     Player.audio.currentTime=(val/100) *Player.audio.duration;
   });
 
+  $('.range').bind('change mouseup', function() {
+    var val = $(this).val();
+    parseInt(val);
+    Player.audio.currentTime=(val/100) *Player.audio.duration;
+  });
+
+
   var timeout;
   $('.wrapBar').bind('focusin mouseover mousedown hover', function() {
     window.clearTimeout(timeout);
