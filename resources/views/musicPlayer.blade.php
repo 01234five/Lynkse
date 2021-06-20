@@ -1300,7 +1300,7 @@ $(function() {
       'background',
       'linear-gradient(to right, #527189 0%, #527189 ' + val + '%, #777 ' + val + '%, #444 100%)'
     );
-    Player.audio.currentTime=(val/100) *Player.audio.duration;
+    //Player.audio.currentTime=(val/100) *Player.audio.duration;
   });
 
   $('.range').bind('change mouseup', function() {
