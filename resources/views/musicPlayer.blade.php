@@ -59,8 +59,8 @@
 			<div class="nextSong"></div>
 		</div>
         <div class="song" style="color:ffc2cd">
-			<div class="artist" style="font-weight: bold;">Kavinsky</div>
-			<div class="name">Odd Look ft. The Weeknd</div>
+			<div id="songArtist" class="artist" style="font-weight: bold;">Kavinsky</div>
+			<div id="songName" class="name">Odd Look ft. The Weeknd</div>
 		</div>
 		<div class="soundControl" style="top:104px;"></div>
 		<div class="time" style="bottom:100px; color:e36d83;">00:00</div>
@@ -212,7 +212,7 @@
 
 <audio id="player" src="/music/DnB/Makoto/Makoto - Wading Through Crowds (feat. Karina Ramage).mp3" autoplay="" controls=""></audio>
 <button onclick="myFunction()">Click me</button>
-<button  onclick="myFunction3()">Click me3</button>
+<button  onclick="getAllSongs()">Click me3</button>
 
 
 
@@ -233,23 +233,23 @@
 
 
   <div class="container">
-    <div id="songList">
-  <div url-key="/music/blah" class="row songListItem" style=" border-bottom: 1px solid #313F50; padding-top:5px;padding-bottom:5px;">
+    <ul id="songList">
+  <li url-key="/music/blah" class="row songListItem" style=" border-bottom: 1px solid #313F50; padding-top:5px;padding-bottom:5px;">
     <div class="col-2" style="padding-right:0;padding-left:0; bottom:1px;">
     <p id="minutes" style="margin:0; font-size: 20px;color:#7c7c7c;text-align: center;">05</p>
     <p id="seconds" style="margin:0; font-size: 20px;color:#7c7c7c;text-align: center;">10</p>
      
     </div>
     <div class="col-9" style="padding-left:0;">
-    <p id="title" style="margin:0;color:#7c7c7c">Northern Lights</p>
-    <p id="artist" style="margin:0;color:#505050;font-size:12;">Metrik</p>
+    <p  style="margin:0;color:#7c7c7c">Northern Lights</p>
+    <p  style="margin:0;color:#505050;font-size:12;">Metrik</p>
     </div>
 
-  </div>
+</li>
  
 
  
-  <div url-key="/music/blah" class="row songListItem" style="border-bottom: 1px solid #313F50; padding-top:5px;padding-bottom:5px;">
+  <li url-key="/music/blah" class="row songListItem" style="border-bottom: 1px solid #313F50; padding-top:5px;padding-bottom:5px;">
     <div class="col-2" style="padding-right:0;padding-left:0; bottom:1px;">
     <p style="margin:0; font-size: 20px;color:#7c7c7c;text-align: center;">05</p>
     <p style="margin:0; font-size: 20px;color:#7c7c7c;text-align: center;">10</p>
@@ -262,8 +262,8 @@
     
 
 
-  </div>
-  </div>
+</li>
+</ul>
 
 
 </div>
@@ -293,10 +293,75 @@
 
 </div>
 <script>
+function getAllSongs(){
+axios.get('/music/song/getAll')
+    .then(function (response) {
+        // handle success
+        console.log(response.data);
+        resultsSongsLoop(response.data);
+    })
+    .catch(function (error) {
+        // handle error
+        console.log(error);
+    }); 
+}
 
 
+
+function resultsSongsLoop(data){
+	document.getElementById("songList").innerHTML = "";
+	$.each(data, function(i,item){
+	var artist = data[i].artist;
+	var songName = item.songName;
+    var id = "songID"+item.id;
+	var durationMins = item.durationMins;
+	var durationSecs = item.durationSecs;
+    var urlLocation = item.urlLocation;
+    if (durationMins < 10){
+        durationMins = "0"+durationMins;
+    }
+    if (durationSecs < 10){
+        durationSecs = "0"+durationSecs;
+    }
+$('#songList').append(`
+
+
+
+  <li id="${id}" url-key="${urlLocation}" artist-key="${artist}" songName-key="${songName}" class="row songListItem" style=" border-bottom: 1px solid #313F50; padding-top:5px;padding-bottom:5px;">
+    <div class="col-2" style="padding-right:0;padding-left:0; bottom:3px;">
+    <p id="minutes" style="margin:0; font-size: 20px;color:#7c7c7c;text-align: center;">${durationMins}</p>
+    <p id="seconds" style="margin:0; font-size: 20px;color:#7c7c7c;text-align: center;">${durationSecs}</p>
+     
+    </div>
+    <div class="col-9" style="padding-left:0;">
+    <p id="title" style="margin:0;color:#7c7c7c">${songName}</p>
+    <p id="artist" style="margin:0;color:#505050;font-size:12;">${artist}</p>
+    </div>
+
+  </li>
+
+
+
+`);
+	});
+	
+	
+
+}
+
+
+</script>
+<script>
+var prevSongOnList;
+var nextSongOnList;
 $('#songList').on('click','.songListItem',function(){
-    songURL= $(this).attr('url-key');
+    var id=$(this).attr('id');
+    var songURL= $(this).attr('url-key');
+    var artist=$(this).attr('artist-key');
+    var song=$(this).attr('songName-key');
+    prevSongOnList= $(this).prev().attr('id');
+    nextSongOnList= $(this).next().attr('id');
+    
     $( "#playIcon" ).remove();
    $(this).append(`
    <div id="playIcon" class="col-1" style="padding:0;">
@@ -304,7 +369,14 @@ $('#songList').on('click','.songListItem',function(){
 <span class="fa fa-play" style="font-size: 22px;line-height: 40px; color:white;"></span>
 
 </div>
-   `)
+   `);
+   Player.loadTrack(songURL);
+   Controls.playButton.style.display = 'none';
+                Controls.pauseButton.style.display = 'inline-block';
+                Controls.playing = true;
+
+    $('#songArtist').text(artist);
+    $('#songName').text(song);
 });
 
 
@@ -969,8 +1041,8 @@ console.log("playing " + Player.audioPlaying)
 },
 
 
-loadTrack: function (index) {
-    Player.audio.src = "/music/THE WARRIOR'S WIFE - Epic Beautiful Vocal Music by Dwayne Ford.mp3";
+loadTrack: function (url) {
+    Player.audio.src = url;
 },
 loadTrackSeek: function (index) {
     var that = this;
@@ -1018,23 +1090,76 @@ Player.init();
 
 
 nextTrack: function () {
-    return;
-    ++this.currentSongIndex;
-    if (this.currentSongIndex == this.tracks.length) {
-        this.currentSongIndex = 0;
-    }
 
-    this.loadTrack(this.currentSongIndex);
+    if(nextSongOnList==undefined){console.log("no next song")}
+    else{
+                 
+$("#"+nextSongOnList).each(function() {
+    
+    
+    
+    var songURL= $(this).attr('url-key');
+    var artist=$(this).attr('artist-key');
+    var song=$(this).attr('songName-key');
+    prevSongOnList= $(this).prev().attr('id');
+    nextSongOnList= $(this).next().attr('id');
+    
+    $( "#playIcon" ).remove();
+   $(this).append(`
+   <div id="playIcon" class="col-1" style="padding:0;">
+
+<span class="fa fa-play" style="font-size: 22px;line-height: 40px; color:white;"></span>
+
+</div>
+   `);
+   Player.loadTrack(songURL);
+   Controls.playButton.style.display = 'none';
+                Controls.pauseButton.style.display = 'inline-block';
+                Controls.playing = true;
+
+    $('#songArtist').text(artist);
+    $('#songName').text(song);
+
+
+});
+
+ 
+}
 },
 
 prevTrack: function () {
-    return;
-    --this.currentSongIndex;
-    if (this.currentSongIndex == -1) {
-        this.currentSongIndex = this.tracks.length - 1;
-    }
+    if(prevSongOnList==undefined){console.log("no prev song")}
+    else{
+        $("#"+prevSongOnList).each(function() {
+    
+    
+    
+    var songURL= $(this).attr('url-key');
+    var artist=$(this).attr('artist-key');
+    var song=$(this).attr('songName-key');
+    prevSongOnList= $(this).prev().attr('id');
+    nextSongOnList= $(this).next().attr('id');
+    
+    $( "#playIcon" ).remove();
+   $(this).append(`
+   <div id="playIcon" class="col-1" style="padding:0;">
 
-    this.loadTrack(this.currentSongIndex);
+<span class="fa fa-play" style="font-size: 22px;line-height: 40px; color:white;"></span>
+
+</div>
+   `);
+   Player.loadTrack(songURL);
+   Controls.playButton.style.display = 'none';
+                Controls.pauseButton.style.display = 'inline-block';
+                Controls.playing = true;
+
+    $('#songArtist').text(artist);
+    $('#songName').text(song);
+
+
+});
+}
+
 },
 seek: function(){
     Player.audio.currentTime = seekTime;

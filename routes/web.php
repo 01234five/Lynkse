@@ -139,3 +139,11 @@ Route::post('/seekVimeo', [App\Http\Controllers\RoomControllerB::class, 'seekVim
 Route::post('/videoactionSeekVimeo', [App\Http\Controllers\RoomControllerB::class, 'eventSeek'])->name('eventSeek');
 Route::post('/videoactionSyncVimeo', [App\Http\Controllers\RoomControllerB::class, 'eventSeekSyncVimeo'])->name('eventSeekSyncVimeo');
 Route::get('/vimeo/{keyword}', [App\Http\Controllers\RoomControllerB::class, 'getVimeoVideos'])->name('getVimeoVideos');
+
+
+
+
+
+
+
+Route::get('/music/song/getAll', [App\Http\Controllers\MusicController::class, 'getAllSongs'])->name('getAllSongs');
