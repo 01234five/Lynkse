@@ -1010,7 +1010,11 @@ Player.audioPlaying=false;
 console.log("playing " + Player.audioPlaying)
 });
 
-
+this.audio.addEventListener('ended', (event) => {
+  console.log('Video stopped either because 1) it was over, ' +
+      'or 2) no further data is available.');
+      Player.nextTrack();
+});
 
 
 
@@ -1091,7 +1095,13 @@ Player.init();
 
 nextTrack: function () {
 
-    if(nextSongOnList==undefined){console.log("no next song")}
+    if(nextSongOnList==undefined){console.log("no next song")
+        Controls.playButton.style.display = 'inline-block';
+        Controls.pauseButton.style.display = 'none';
+                Player.pause();
+                Controls.playing = false;
+        
+    }
     else{
                  
 $("#"+nextSongOnList).each(function() {
@@ -1128,11 +1138,34 @@ $("#"+nextSongOnList).each(function() {
 },
 
 prevTrack: function () {
-    if(prevSongOnList==undefined){console.log("no prev song")}
+    if(prevSongOnList==undefined){console.log("no prev song")
+        if(countPrev==0){
+            countPrev=1;
+            Player.audio.currentTime=0;
+            Player.play();
+            Controls.playButton.style.display = 'none';
+        Controls.pauseButton.style.display = 'inline-block' ;
+        setTimeout(function(){ countPrev=0 }, 2000);
+        }else{
+            countPrev=0;
+        Controls.playButton.style.display = 'inline-block';
+        Controls.pauseButton.style.display = 'none';
+                Player.pause();
+                Controls.playing = false;
+        }
+    }
     else{
+        if(countPrev==0){
+            countPrev=1;
+            Player.audio.currentTime=0;
+            Player.play();
+            Controls.playButton.style.display = 'none';
+        Controls.pauseButton.style.display = 'inline-block' ;
+        setTimeout(function(){ countPrev=0 }, 2000);
+        }else
         $("#"+prevSongOnList).each(function() {
-    
-    
+            countPrev=0;
+            
     
     var songURL= $(this).attr('url-key');
     var artist=$(this).attr('artist-key');
@@ -1204,6 +1237,7 @@ var fuck;
 var seekTime=0;
 var timeTrack=0;
 var myAudio;
+var countPrev=0;
 
 
 function myFunction(){
@@ -1413,7 +1447,44 @@ $(function() {
     //Player.audio.currentTime=(val/100) *Player.audio.duration;
   });
 
+
+
+  $('.range').bind('change touchmove', function() {
+   
+   var val = $(this).val();
+   parseInt(val);
+   $(this).css(
+     'background',
+     'linear-gradient(to right, #527189 0%, #527189 ' + val + '%, #777 ' + val + '%, #444 100%)'
+   );
+   //Player.audio.currentTime=(val/100) *Player.audio.duration;
+ });
+
   $('.range').mouseup(function () {
+    var val = $(this).val();
+    parseInt(val);
+    Player.audio.currentTime=(val/100) *Player.audio.duration;
+    updateAudioBar=true;
+
+    var rawTime = parseInt(Player.audio.currentTime || 0);
+                var secondsInMin = 60;
+                var min = parseInt(rawTime / secondsInMin);
+                var seconds = rawTime - min * secondsInMin;
+                if (min < 10) {
+                    min = '0' + min;
+                }
+                if (seconds < 10) {
+                    seconds = '0' + seconds;
+                }
+                time = min + ':' + seconds;
+                Controls.timeControl.textContent = time;
+                console.log("seeked to: "+Controls.timeControl.textContent)
+
+    
+    
+  });
+
+  $('.range').touchend(function () {
     var val = $(this).val();
     parseInt(val);
     Player.audio.currentTime=(val/100) *Player.audio.duration;
@@ -1443,13 +1514,20 @@ $(function() {
     updateAudioBar=false;
   });
 
+  $('.range').touchstart(function () {
+    updateAudioBar=false;
+  });
+
 
   var timeout;
-  $('.wrapBar').bind('focusin mouseover mousedown hover', function() {
+  $('.wrapBar').bind('focusin mouseover mousedown touchstart hover', function() {
     window.clearTimeout(timeout);
     $(this).addClass('hover');
   });
-  $('.wrapBar').bind('focusout mouseout mouseup', function() {
+
+
+
+  $('.wrapBar').bind('focusout mouseout touchend mouseup', function() {
     window.clearTimeout(timeout);
     timeout = setTimeout(function(){removeHoverClass();}, 1000);
   });
