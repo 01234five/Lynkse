@@ -1484,7 +1484,7 @@ $(function() {
     
   });
 
-  $('.range').touchend(function () {
+  $('.range').on('touchend',function () {
     var val = $(this).val();
     parseInt(val);
     Player.audio.currentTime=(val/100) *Player.audio.duration;
@@ -1514,7 +1514,7 @@ $(function() {
     updateAudioBar=false;
   });
 
-  $('.range').touchstart(function () {
+  $('.range').on('touchstart',function () {
     updateAudioBar=false;
   });
 
