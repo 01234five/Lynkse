@@ -1,4 +1,4 @@
-@extends('layouts.communityapp')
+@extends('layouts.communityapptest')
 
 @section('content')
 <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
@@ -59,8 +59,8 @@
 			<div class="nextSong"></div>
 		</div>
         <div class="song" style="color:ffc2cd">
-			<div id="songArtist" class="artist" style="font-weight: bold;">Kavinsky</div>
-			<div id="songName" class="name">Odd Look ft. The Weeknd</div>
+			<div id="songArtist" class="artist" style="font-weight: bold;">Artist</div>
+			<div id="songName" class="name">Song Name</div>
 		</div>
 		<div class="soundControl" style="top:104px;"></div>
 		<div class="time" style="bottom:100px; color:e36d83;">00:00</div>
@@ -100,7 +100,7 @@
  
  <div class="row">
     <div class="col-md-12"> 
-    <a  class="btn btn-default toggle-sidebar2"><i id="createRoomButton" class="fa fa-star" style="display: inline-block;"></i> Browse</a>
+    <a onclick="getAllSongs()" class="btn btn-default toggle-sidebar2"><i id="createRoomButton" class="fa fa-star" style="display: inline-block;"></i> Browse</a>
     </div>
     </div>
 
@@ -210,9 +210,9 @@
 
 
 
-<audio id="player" src="/music/DnB/Makoto/Makoto - Wading Through Crowds (feat. Karina Ramage).mp3" autoplay="" controls=""></audio>
-<button onclick="myFunction()">Click me</button>
-<button  onclick="getAllSongs()">Click me3</button>
+<audio id="player" src="" autoplay="" controls="" style="display:none"></audio>
+
+
 
 
 
@@ -292,6 +292,19 @@
   <a class="nav-toggle2" id="overlay2"></a>
 
 </div>
+
+<script>
+var playerLoaded=false;
+function communityMusicView(){
+    if(playerLoaded==false){
+        playerLoaded=true;
+    Player.init();
+    }else{
+        console.log("Enjoy the music!")
+    }
+}
+
+</script>
 <script>
 function getAllSongs(){
 axios.get('/music/song/getAll')
@@ -355,6 +368,7 @@ $('#songList').append(`
 var prevSongOnList;
 var nextSongOnList;
 $('#songList').on('click','.songListItem',function(){
+    Player.playing=true;
     var id=$(this).attr('id');
     var songURL= $(this).attr('url-key');
     var artist=$(this).attr('artist-key');
@@ -856,10 +870,12 @@ canvasConfigure: function () {
             var that = this;
             this.playButton = document.querySelector('.play');
             this.playButton.addEventListener('mouseup', function () {
+                if(Player.playing==true){
                 that.playButton.style.display = 'none';
                 that.pauseButton.style.display = 'inline-block';
                 Player.play();
                 that.playing = true;
+                }
             });
         },
 
@@ -984,6 +1000,8 @@ tracks: [
         url: "/music/DnB/Makoto/Makoto - Wading Through Crowds (feat. Karina Ramage).mp3"
     }
 ],
+
+playing: false,
 
 init: function () {
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -1198,7 +1216,9 @@ seek: function(){
     Player.audio.currentTime = seekTime;
 },
 play: function () {
+    if(Player.playing==true){
     Player.audio.play();
+    }
     
     //Player.audio.volume = 0.2;
     //console.log("sadasdasdasd")
@@ -1210,7 +1230,9 @@ stop: function () {
 },
 
 pause: function () {
+    if(Player.playing==true){
     Player.audio.pause();
+    }
     //this.context.suspend();
 },
 
