@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <meta name="description" content="Find friends, create rooms to watch videos and edit your account, all in here">
+    <meta name="description" content="Find friends, create rooms to watch videos in sync and edit your account, all in here">
 </meta>
     <!-- Scripts -->
     

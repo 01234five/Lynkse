@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <meta name="description" content="Browse for a video to watch with others, and talk to them about the video on the chat">
+    <meta name="description" content="Browse for a video to watch in sync with others, and talk to them about the video on the chat">
 </meta>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
