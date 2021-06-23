@@ -224,7 +224,7 @@
 
 
   <div class="card-header" style=" background-color: #1b2838;border-bottom: 2px solid #313F50; color:#7c7c7c; font-weight: bold; text-align: center;">
-    Lyncse Library
+    Music Library
   </div>
   <div class="card-body" style="padding:0;">
 
