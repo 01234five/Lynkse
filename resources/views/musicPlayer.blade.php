@@ -340,19 +340,23 @@ function communityMusicView(){
 
 </script>
 <script>
+    var getAllSongsVar=true;
 function getAllSongs(){
+    if(getAllSongsVar==true){
 axios.get('/music/song/getAll')
     .then(function (response) {
         // handle success
         console.log(response.data);
         resultsSongsLoop(response.data);
+        getAllSongsVar=false;
     })
     .catch(function (error) {
         // handle error
         console.log(error);
     }); 
+    
 }
-
+}
 
 
 function resultsSongsLoop(data){
@@ -1181,6 +1185,7 @@ $("#"+nextSongOnList).each(function() {
     var songURL= $(this).attr('url-key');
     var artist=$(this).attr('artist-key');
     var song=$(this).attr('songName-key');
+    var marquee= song +" - " + artist;
     prevSongOnList= $(this).prev().attr('id');
     nextSongOnList= $(this).next().attr('id');
     
@@ -1199,6 +1204,20 @@ $("#"+nextSongOnList).each(function() {
 
     $('#songArtist').text(artist);
     $('#songName').text(song);
+
+
+
+        
+    $mq="";
+    document.getElementById("marqueeAppend").innerHTML = "";
+    $("#marqueeAppend").append(`
+    <div class="marquee"  data-direction= 'left'
+  data-pauseOnHover= 'true'
+  data-gap= '90'
+  data-duplicated='true' 
+  ><p id="marqueeTextId" style="margin:0;color:#7c7c7c">${marquee}</p></div>
+   `);
+   $mq=$(".marquee").marquee();
 
 
 });
@@ -1240,6 +1259,7 @@ prevTrack: function () {
     var songURL= $(this).attr('url-key');
     var artist=$(this).attr('artist-key');
     var song=$(this).attr('songName-key');
+    var marquee= song +" - " + artist;
     prevSongOnList= $(this).prev().attr('id');
     nextSongOnList= $(this).next().attr('id');
     
@@ -1258,6 +1278,19 @@ prevTrack: function () {
 
     $('#songArtist').text(artist);
     $('#songName').text(song);
+
+
+    
+    $mq="";
+    document.getElementById("marqueeAppend").innerHTML = "";
+    $("#marqueeAppend").append(`
+    <div class="marquee"  data-direction= 'left'
+  data-pauseOnHover= 'true'
+  data-gap= '90'
+  data-duplicated='true' 
+  ><p id="marqueeTextId" style="margin:0;color:#7c7c7c">${marquee}</p></div>
+   `);
+   $mq=$(".marquee").marquee();
 
 
 });
