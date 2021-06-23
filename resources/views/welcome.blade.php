@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Lyncse</title>
+        <meta name="description" content="Sync videos and watch together with friends.">
+</meta>
         <script src="{{ URL::asset('js/jquery-1.12.1.min.js') }}" type="text/jscript" ></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">

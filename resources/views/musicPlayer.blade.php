@@ -275,8 +275,26 @@
 
 
   <div class="card-footer text-muted" style="border-top: 2px solid #414141;">
+    <div class="row">
+        <div class="col-4">
+  <p style="margin:0;color:#7c7c7c;font-weight: bold;">Playing:</p>
+  </div>
 
 
+  <div class="col-8">
+  
+  <div id="marqueeAppend">
+  <div class="marquee"  data-direction= 'left'
+  data-pauseOnHover= 'true'
+  data-gap= '90'
+  data-duplicated='true'
+  ><p id="marqueeTextId" style="margin:0;color:#7c7c7c">Song - Artist</p></div>
+  </div>
+  </div>
+
+
+  </div>
+ 
 
 </div>
 
@@ -291,8 +309,24 @@
   </div>
   <a class="nav-toggle2" id="overlay2"></a>
 
+
+
+  
 </div>
 
+
+
+<style>
+    .marquee {
+  width: 150px;
+  overflow: hidden;
+ 
+  
+}
+</style>
+<script>
+   var $mq=$(".marquee").marquee();
+</script>
 <script>
 var playerLoaded=false;
 function communityMusicView(){
@@ -373,6 +407,7 @@ $('#songList').on('click','.songListItem',function(){
     var songURL= $(this).attr('url-key');
     var artist=$(this).attr('artist-key');
     var song=$(this).attr('songName-key');
+    var marquee= song +" - " + artist;
     prevSongOnList= $(this).prev().attr('id');
     nextSongOnList= $(this).next().attr('id');
     
@@ -391,6 +426,23 @@ $('#songList').on('click','.songListItem',function(){
 
     $('#songArtist').text(artist);
     $('#songName').text(song);
+
+    
+    
+    $mq="";
+    document.getElementById("marqueeAppend").innerHTML = "";
+    $("#marqueeAppend").append(`
+    <div class="marquee"  data-direction= 'left'
+  data-pauseOnHover= 'true'
+  data-gap= '90'
+  data-duplicated='true' 
+  ><p id="marqueeTextId" style="margin:0;color:#7c7c7c">${marquee}</p></div>
+   `);
+   $mq=$(".marquee").marquee();
+    
+
+
+    
 });
 
 

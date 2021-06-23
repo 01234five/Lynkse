@@ -10,8 +10,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <meta name="description" content="Find friends, create rooms to watch videos and edit your account, all in here">
+</meta>
     <!-- Scripts -->
+    
     <script src="{{ URL::asset('js/jquery-1.12.1.min.js') }}" type="text/jscript" ></script>
     <script src="{{ URL::asset('js/bootstrap.min.js') }}"type="text/jscript"></script>
     

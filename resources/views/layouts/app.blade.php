@@ -9,7 +9,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Linkse') }}</title>
-    
+            <meta name="description" content="Log In to Sync videos and watch together with friends.">
+            </meta>
     <!-- Scripts -->
     
     <script src="{{ asset('js/app.js') }}" defer></script>

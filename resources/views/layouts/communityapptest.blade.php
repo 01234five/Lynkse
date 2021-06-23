@@ -12,11 +12,13 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    
     <script src="{{ URL::asset('js/jquery-1.12.1.min.js') }}" type="text/jscript" ></script>
+
     <script src="{{ URL::asset('js/bootstrap.min.js') }}"type="text/jscript"></script>
     
     <script src="{{ asset('js/test.js') }}"></script>
-    
+    <script src="{{ URL::asset('js/jquery.marquee.min.js') }}" type="text/jscript" ></script>
 
     
     @routes
