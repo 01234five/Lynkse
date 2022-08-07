@@ -1,3 +1,43 @@
+Made with laravel. Php. HTML. Javascript. jQuery. CSS. Bootstrap. youtube API. Venmo API. SQL database. Ajax -Post broadcast. Echo listens to broadcast. Action is made accordingly.
+
+Database for storing users credentials and info
+
+Chat:
+
+Allow communicaton between added friends.
+
+Community:
+Add friends
+search others by username
+
+
+profile edit:
+change avatar
+change banner
+
+Create rooms:
+-allow room creation for viewing videos with others.
+-Capacity hard coded to two
+-Each room has a dedicated chat so others can chat about the video being watched.
+-when room has 0 users in it it will auto delete from database so it would need to be recreted. This is so only rooms 
+with someone in it show
+
+rooms videos search:
+-search for videos in youtube or vimeo directly from website.
+-Click on video that wants to be viewed to added to que of videos to watch
+-on the queue list click video that wants to be watched to add it to the room
+-video will sync with users in the room. Every 7 seconds or so the current timeline of each user in the room will be sent to each other.
+-If timelines of videos are at a difference of 7 seconds or so then it will revert the video to whoever timeline of videos is the most
+behind. This is how it keeps both users videos in sync.
+-play, pause and seek are all synced for both users so if someone seek it will seek for the other user also. Same for pause and play.
+
+Everything is done via javascript/Jquery
+
+
+![lyncse website](https://user-images.githubusercontent.com/83076267/183294910-3df8000b-f7e9-4fc9-9501-5cea4481c767.png)
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
